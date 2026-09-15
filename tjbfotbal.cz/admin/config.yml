@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Volitelně můžete doplnit URL vašeho webu
+site_url: https://tjbfotbal.cz
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "clanky"
+    label: "Aktuality a články"
+    folder: "_posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string"}
+      - {label: "Kategorie (kat)", name: "kat", widget: "select", options: ["a-tym", "b-tym", "mladez", "klub"]}
+      - {label: "Text štítku", name: "badgeText", widget: "string", default: "A-tým"}
+      - {label: "CSS třída štítku", name: "badgeClass", widget: "string", default: "badge-a-tym"}
+      - {label: "Datum", name: "datum", widget: "string", hint: "Např. 10. 09. 2026"}
+      - {label: "Autor", name: "autor", widget: "string", default: "Ondřej Gruncl"}
+      - {label: "Titulek", name: "titulek", widget: "string"}
+      - {label: "Perex", name: "perex", widget: "text"}
+      - {label: "Hlavní obrázek", name: "obrazek", widget: "image", default: "images/clanek4.jpeg"}
+      - {label: "Obsah článku", name: "obsah", widget: "markdown"}
