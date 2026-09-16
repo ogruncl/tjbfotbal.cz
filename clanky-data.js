@@ -1,5 +1,18 @@
 const clankyData = [
 
+    {
+        id: "10-Poharove-Utkani-Vamberk-Doudleby-5-1",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "16. 09. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Postup do semifinále poháru! Baník zdolal Doudleby 5:1",
+        perex: "Náročný anglický týden modrožlutí zvládají a ve středečním zápase čtvrtfinále OFS poháru porážejí rivala z Doudleb vysoko 5:1. Na jaře si tak zahrají semifinále, kde je bude čekat České Meziříčí.",
+        obrazek: "images/clanek10.jpg",
+        obsah: `<p>Vamberk po ligové sobotní remíze na hřišti Kostelce nastoupil tentokrát na domácí půdě s vidinou, že konečně svěřenci Pavla Potužnika zvítězí. A to se podařilo na výbornou, hráči Baníku narozdíl od minulých duelů proměnovali své šance a zaslouženě postoupili. Vstup do utkání měli ale hráči Doudleb, ti otevřeli skóre svojí úvodní brankou již v 10. minutě.</p> <p>Další branky ale postupně přidávali už pouze domácí. Do prvního poločasu stihli Vamberečtí tři a do kabin tak odcházeli s dvoubrankovým náskokem. Hned z úvodu druhého dějství dal ukidňovací branku <b>Michal Šrom</b> a poté si již Baník pohodlně došel pro vítězství. V semifinále poháru Vamberk čeká České Meziříčí, na toto utkání si ale musíme počkat až do jarní fáze sezony. Další nejbližší utkání sehraje Baník už tuto neděli, znovu na domácím hřišti tentokrát vyzve prozatím suverénní Lukavici.</p>`
+    },
+
 
             {
         id: "9-Preview-Doudleby",

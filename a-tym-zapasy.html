@@ -342,7 +342,7 @@
             <div class="match-featured-card next">
                 <span class="card-badge badge-next">Nejbližší utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Středa 16.09.2026 | <i class="far fa-clock"></i> 16:30
+                    <i class="far fa-calendar-alt"></i> Neděle 20.09.2026 | <i class="far fa-clock"></i> 14:15
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
@@ -352,9 +352,9 @@
                     </div>
                     <div class="vs-score-box">VS</div>
                     <div class="team-box">
-                        <img src="images/logo-doudleby.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-lukavice.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ VELEŠOV DOUDLEBY N.O.</span>
+                        <span class="team-name">TJ SOKOL LUKAVICE</span>
                     </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
@@ -365,23 +365,23 @@
             <div class="match-featured-card" onclick="openMatchModal()">
                 <span class="card-badge badge-last">Poslední utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Sobota 12.09.2026
+                    <i class="far fa-calendar-alt"></i> Středa 16.09.2026
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-kostelec.png" alt="Lípa n.O." class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">FK ROJEK KOSTELEC N.O.</span>
-                    </div>
-                    <div class="vs-score-box" style="color: #0a0a0a;">1 : 1</div>
-                    <div class="team-box">
-                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-banik.png" alt="Lípa n.O." class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                         <span class="team-name">TJ BANÍK VAMBERK</span>
                     </div>
+                    <div class="vs-score-box" style="color: #0a0a0a;">5 : 1</div>
+                    <div class="team-box">
+                        <img src="images/logo-doudleby.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
+                        <span class="team-name">TJ VELEŠOV DOUDLEBY N.O.</span>
+                    </div>
                     </div>
                                     <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Rojek Aréna, Kostelec
+                    <i class="fas fa-map-marker-alt"></i> Areál V Lukách, Vamberk
                 </div>
                 </div>
             </div>
@@ -805,24 +805,76 @@
     <span class="s-result draw">1 : 1</span>
     <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
 </div>
-
-<div class="schedule-row">
-                <span class="s-round">ČTVRTFINÁLE POHÁRU</span>
-                <span class="s-date">16.09.2026 (16:30)</span>
-                <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk</strong>
-                    <span>vs</span>
-                    <img src="images/logo-doudleby.png" alt="Lukavice" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    TJ Velešov Doudleby n.O.
-                </span>
-                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
-                <span class="s-result">- : -</span>
-                <span></span>
-            </div>
-
+<div class="schedule-row" 
+     onclick="otevritZapas(this)"
+     data-meta="Čtvrtfinále poháru | Středa 16.09.2026 | 16:30 | Areál V Lukách, Vamberk"
+     data-domaci="TJ BANÍK VAMBERK"
+     data-hoste="TJ VELEŠOV DOUDLEBY N.O."
+     data-logo-domaci="images/logo-banik.png"
+     data-logo-hoste="images/logo-doudleby.png"
+     data-skore="5 : 1"
+     data-polocas="(Poločas: 3:1)"
+     data-divaci="67"
+     data-rozhodci="Hrubý - Vrána, Páleník"
+     data-udalosti='[
+        {"min": "10&apos;", "typ": "gol-h", "text": "Gól Doudleby. Tadeáš Bartoloměj Leimer - 0:1"},
+        {"min": "17&apos;", "typ": "karta", "text": "Žlutá karta pro hostujícího Jana Polnického"},
+        {"min": "23&apos;", "typ": "gol-d", "text": "Gól Vamberk! Daniel Halamka - 1:1"},
+        {"min": "35&apos;", "typ": "gol-d", "text": "Gól Vamberk! Petr Šimeček - 2:1"},
+        {"min": "39&apos;", "typ": "gol-d", "text": "Gól Vamberk! Michal Šrom - 3:1"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Doudleby: Odchází Michael Pastva, přichází Tomáš Žítek"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Doudleby: Odchází Tadeáš Bartoloměj Leimer, přichází Patrik Luňáček"},
+        {"min": "51&apos;", "typ": "gol-d", "text": "Gól Vamberk! Michal Šrom - 4:1"},
+        {"min": "57&apos;", "typ": "karta", "text": "Žlutá karta pro hostujícího Josefa Hudouska"},
+        {"min": "58&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Tomáš Hájek, přichází Daniel Čapek"},
+        {"min": "58&apos;", "typ": "stridani", "text": "Střídání Doudleby: Odchází Djorde Galič, přichází Ladislav Havlíček"},
+        {"min": "63&apos;", "typ": "stridani", "text": "Střídání Doudleby: Odchází Josef Luňáček, přichází Samuel Flekr"},
+        {"min": "77&apos;", "typ": "stridani", "text": "Střídání Doudleby: Odchází Jan Polnický, přichází Jan Fogl"},
+        {"min": "83&apos;", "typ": "gol-d", "text": "Gól Vamberk! Marek Hamerský - 5:1"}
+     ]'
+     data-sestava-domaci='[
+        {"cislo": "69", "jmeno": "Zdeněk Tobiška"},
+        {"cislo": "19", "jmeno": "Josef Jansa"},
+        {"cislo": "21", "jmeno": "Michal Šrom"},
+        {"cislo": "22", "jmeno": "Tomáš Šafařík"},
+        {"cislo": "23", "jmeno": "Daniel Halamka"},
+        {"cislo": "24", "jmeno": "Michael Lebeda"},
+        {"cislo": "26", "jmeno": "Tomáš Hájek"},
+        {"cislo": "47", "jmeno": "Tomáš Honzík"},
+        {"cislo": "67", "jmeno": "Marek Hamerský"},
+        {"cislo": "71", "jmeno": "Petr Šimeček", "kapitan": true},
+        {"cislo": "88", "jmeno": "Marek Malý"}
+     ]'
+     data-sestava-hoste='[
+        {"cislo": "98", "jmeno": "Michael Pastva"},
+        {"cislo": "2", "jmeno": "Michal Mazura"},
+        {"cislo": "3", "jmeno": "Vít Chudý", "kapitan": true},
+        {"cislo": "6", "jmeno": "Jakub Chaloupka"}, 
+        {"cislo": "8", "jmeno": "Petr Jelínek"},
+        {"cislo": "11", "jmeno": "Djorde Galič"},
+        {"cislo": "12", "jmeno": "Jan Polnický"},
+        {"cislo": "14", "jmeno": "Tadeáš Bartoloměj Leimer"},
+        {"cislo": "16", "jmeno": "Josef Hudousek"},
+        {"cislo": "17", "jmeno": "Josef Luňáček"},
+        {"cislo": "30", "jmeno": "Tomáš Zemánek"}
+     ]'
+     data-ohlas="<strong>Trenér TJ Baník Vamberk Pavel Potužník:</strong> <em></em>">
+    
+    <span class="s-round">ČTVRTFINÁLE POHÁRU</span>
+    <span class="s-date">16.09.2026 (16:30)</span>
+    <span class="s-teams">
+        <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+        <strong>TJ Baník Vamberk</strong>
+        <span>vs</span>
+        <img src="images/logo-doudleby.png" alt="Doudleby" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+        TJ Velešov Doudleby n.O.
+    </span>
+    <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+    <span class="s-result win">5 : 1</span>
+    <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
+</div>
             <div class="schedule-row">
                 <span class="s-round">7. KOLO</span>
                 <span class="s-date">20.09.2026 (14:15)</span>
