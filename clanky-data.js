@@ -1,5 +1,23 @@
 const clankyData = [
 
+
+                {
+        id: "11-Preview-Lukavice",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "19. 09. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Do Vamberka dorazí aktuální lídr tabulky! Baník vyzve Lukavici",
+        perex: "V neděli 20. 9. čeká Vamberk další nabitý fotbalový program. Po celý den bude V Lukách k vidění několik utkání a výjimkou nebude ani duel A-týmu, ten ve 14:15 vyzve Lukavici.",
+        obrazek: "images/clanek11.jpeg",
+        obsah: `
+        <p>Baník se po středečním pohárovém úspěchu, kdy svěřenci Pavla Potužnika dokázali porazit doma Doudleby 5:1, musí soustředit znovu na ligové utkání. V neděli do Vamberka dorazí nepříjemný soupeř, který hraje ve veliké formě - TJ Sokol Lukavice. Vamberk sice v letošním ročníku 8. ligy ještě neprohrál, ale naopak na kontě má pouhé jedno vítězství. Nyní mají Vamberečtí sérii čtyř remíz v řadě a tuto bilanci budou chtít prolomit už v nadcházejícím domácím duelu.</p>
+        <p>Bude to ale oříšek. Tým tažený ostrostřelcem <b>Romanem Zajíčkem</b> se po 5 kolech nachází suverénně na prvním místě tabulky se ziskem 15 bodů a s drtivým skóre 24 ku 6. Naposledy doma náš příští soupeř zdemoloval Častolovice a zvítězil vysoko 8:2. Již zmiňovaný sedmatřicetiletý Zajíček si v tomto zápase připsal pět vstřelených branek. Na kontě už má v této sezoně neuvěritelných 15 gólu v sedmi odehraných utkání. Dokáže ho vamberecká obrana zastavi v bráně s <b>Jaroslavem Klofandou</b>? To se dozvíme už v neděli V Lukách od 14:15, buďte u toho!</p>
+       `
+    },  // <--- TADY MUSÍ BÝT ČÁRKA ODŠELUONÁ MEZI OBĚMA ZÁZNAMY
+   
+
     {
         id: "10-Poharove-Utkani-Vamberk-Doudleby-5-1",
         kat: "a-tym",
