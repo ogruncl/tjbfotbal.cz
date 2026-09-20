@@ -342,30 +342,30 @@
             <div class="match-featured-card next">
                 <span class="card-badge badge-next">Nejbližší utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Neděle 20.09.2026 | <i class="far fa-clock"></i> 14:15
+                    <i class="far fa-calendar-alt"></i> Sobota 26.09.2026 | <i class="far fa-clock"></i> 16:30
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-zdelov.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ BANÍK VAMBERK</span>
+                        <span class="team-name">FC ZDELOV 1963</span>
                     </div>
                     <div class="vs-score-box">VS</div>
                     <div class="team-box">
-                        <img src="images/logo-lukavice.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-banik.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ SOKOL LUKAVICE</span>
+                        <span class="team-name">TJ BANÍK VAMBERK</span>
                     </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Areál V Lukách, Vamberk
+                    <i class="fas fa-map-marker-alt"></i> Hřiště Zdelov
                 </div>
             </div>
 
             <div class="match-featured-card" onclick="openMatchModal()">
                 <span class="card-badge badge-last">Poslední utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Středa 16.09.2026
+                    <i class="far fa-calendar-alt"></i> Neděle 20.09.2026
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
@@ -373,11 +373,11 @@
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                         <span class="team-name">TJ BANÍK VAMBERK</span>
                     </div>
-                    <div class="vs-score-box" style="color: #0a0a0a;">5 : 1</div>
+                    <div class="vs-score-box" style="color: #0a0a0a;">0 : 4</div>
                     <div class="team-box">
-                        <img src="images/logo-doudleby.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-lukavice.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ VELEŠOV DOUDLEBY N.O.</span>
+                        <span class="team-name">TJ SOKOL LUKAVICE</span>
                     </div>
                     </div>
                                     <div class="match-info-meta" style="margin-bottom: 0;">
@@ -875,23 +875,77 @@
     <span class="s-result win">5 : 1</span>
     <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
 </div>
-            <div class="schedule-row">
-                <span class="s-round">7. KOLO</span>
-                <span class="s-date">20.09.2026 (14:15)</span>
-                <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk</strong>
-                    <span>vs</span>
-                    <img src="images/logo-lukavice.png" alt="Lukavice" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    TJ Sokol Lukavice
-                </span>
-                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
-                <span class="s-result">- : -</span>
-                <span></span>
-            </div>
-
+<div class="schedule-row" 
+     onclick="otevritZapas(this)"
+     data-meta="7. Kolo | Neděle 20.09.2026 | 14:15 | Areál V Lukách, Vamberk"
+     data-domaci="TJ BANÍK VAMBERK"
+     data-hoste="TJ SOKOL LUKAVICE"
+     data-logo-domaci="images/logo-banik.png"
+     data-logo-hoste="images/logo-lukavice.png"
+     data-skore="0 : 4"
+     data-polocas="(Poločas: 0:1)"
+     data-divaci="107"
+     data-rozhodci="Páleník - Leimer, Moravec"
+     data-udalosti='[
+        {"min": "5&apos;", "typ": "gol-h", "text": "Gól Lukavice. Roman Zajíček - 0:1"},
+        {"min": "6&apos;", "typ": "karta", "text": "Žlutá karta pro domácího Marka Hamerského"},
+        {"min": "25&apos;", "typ": "karta", "text": "Žlutá karta pro domácího Petra Šimečka"},
+        {"min": "38&apos;", "typ": "karta", "text": "Žlutá karta pro domácího Lukáše Brandejse"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází David Hamerský, přichází Josef Jansa"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Marek Hamerský, přichází Jan Kodytek"},
+        {"min": "51&apos;", "typ": "karta", "text": "Žlutá karta pro domácího Josefa Jansu"},
+        {"min": "57&apos;", "typ": "karta", "text": "Žlutá karta pro hostujícího Jaroslava Švarce"},
+        {"min": "57&apos;", "typ": "karta-cervena", "text": "Červená karta pro domácího Petra Šimečka"},
+        {"min": "65&apos;", "typ": "stridani", "text": "Střídání Lukavice: Odchází Miroslav Cvejn, přichází Patrik Kernal"},
+        {"min": "71&apos;", "typ": "gol-h", "text": "Gól Lukavice. Patrik Kernal - 0:2"},
+        {"min": "75&apos;", "typ": "gol-h", "text": "Gól Lukavice. Roman Zajíček - 0:3"},
+        {"min": "79&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Štěpán Tadeáš Bašnik, přichází Tomáš Šafařík"},
+        {"min": "79&apos;", "typ": "stridani", "text": "Střídání Lukavice: Odchází Michal Drašnar, přichází Josef Hegedus"},
+        {"min": "90&apos;", "typ": "gol-h", "text": "Gól Lukavice. Dominik Trejtnar - 0:4"}
+     ]'
+     data-sestava-domaci='[
+        {"cislo": "55", "jmeno": "Jaroslav Klofanda"},
+        {"cislo": "7", "jmeno": "Marek Hamerský"},
+        {"cislo": "15", "jmeno": "Štěpán Tadeáš Bašnik"},
+        {"cislo": "17", "jmeno": "David Hamerský"},
+        {"cislo": "24", "jmeno": "Michael Lebeda"},
+        {"cislo": "26", "jmeno": "Tomáš Hájek"},
+        {"cislo": "45", "jmeno": "Lukáš Brandejs"},
+        {"cislo": "47", "jmeno": "Tomáš Honzík"},
+        {"cislo": "71", "jmeno": "Petr Šimeček", "kapitan": true},
+        {"cislo": "75", "jmeno": "Daniel Halamka"},
+        {"cislo": "88", "jmeno": "Marek Malý"}
+     ]'
+     data-sestava-hoste='[
+        {"cislo": "24", "jmeno": "Matěj Ehl"},
+        {"cislo": "4", "jmeno": "Josef Chmelař", "kapitan": true},
+        {"cislo": "5", "jmeno": "Matěj Šeda"},
+        {"cislo": "7", "jmeno": "Miroslav Cvejn"},
+        {"cislo": "8", "jmeno": "Michal Drašnar"},
+        {"cislo": "9", "jmeno": "Jaroslav Švarc"},
+        {"cislo": "10", "jmeno": "Lukáš Reichl"},
+        {"cislo": "13", "jmeno": "Jakub Procházka"},
+        {"cislo": "14", "jmeno": "Roman Zajíček"},
+        {"cislo": "15", "jmeno": "Dominik Trejtnar"},
+        {"cislo": "17", "jmeno": "Filip Stieber"}
+     ]'
+     data-ohlas="<strong>Trenér TJ Baník Vamberk Pavel Potužník:</strong> <em>Dnešní zápas proti vedoucímu týmu tabulky nám nevyšel podle našich představ. Hosté ukázali svou kvalitu a když se k tomu v 57. minutě přidalo vyloučení na naší straně, bylo o výsledku zápasu rozhodnuto.</em>">
+    
+    <span class="s-round">7. KOLO</span>
+    <span class="s-date">20.09.2026 (14:15)</span>
+    <span class="s-teams">
+        <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+        <strong>TJ Baník Vamberk</strong>
+        <span>vs</span>
+        <img src="images/logo-lukavice.png" alt="Lukavice" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+        TJ Sokol Lukavice
+    </span>
+    <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+    <span class="s-result defeat">0 : 4</span>
+    <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
+</div>
             <div class="schedule-row">
                 <span class="s-round">8. KOLO</span>
                 <span class="s-date">26.09.2026 (16:30)</span>
