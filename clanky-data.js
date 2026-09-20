@@ -1,5 +1,19 @@
 const clankyData = [
 
+       {
+        id: "12-Vamberk-Lukavice-0-4",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "20. 09. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Vamberk zapisuje první porážku. Baník nestačil na Lukavici",
+        perex: "Baník Vamberk v rámci 7. kola 8. ligy na domácím hřišti přivítal Sokol Lukavici, tedy tým který aktuálně této soutěži se stoprocentní bilancí vládne. Nedaleký soupeř tato čísla potvrdil a V Lukách zaslouženě zvítězil 4:0.",
+        obrazek: "images/clanek12.jpeg",
+        obsah: `<p>Modrožlutí vstupovali do duelu s vidinou překvapení soupeře a možnosti přerušit sérii remíz a konečně také urvat ligové vítězství. Tyto plány se začali kazit již v páté minutě, kdy obávaný střelec hostů - Roman Zajíček se ocitl nikým nehlídaný ve vápně a hlavou poprvé v utkání překonal Jaroslava Klofandu. Baník měl velké problémy s tvorbou útočných šancí a měl jich opravdu málo. Vamberku v tomto ohledu nehrála do karet ani dnešní absence útočníka Michala Šroma.</p>
+        <p>První dějství skončilo jednobrankovým rozdílem, svěřenci Pavla Potužnika po důrazné domluvě v kabině však ve druhém poločase s výsledkem už nic nedokázali udělat a Lukavice postupně přidávala další branky. Nejprve však domácí šli do deseti, poté co v 57. minutě červenou kartu obdržel kapitán Petr Šimeček. Do konce utkání se Lukavice prosadila ještě třikrát a stanovila skóre na konečných 0:4. Vamberečtí na tento výsledek budou chtít rychle zapomenout a začít se soustředit na další zápas, který Baník čeká v sobotu 26. září na hřišti Zdelova.</p>`
+    },
+
 
                 {
         id: "11-Preview-Lukavice",
