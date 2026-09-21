@@ -1,5 +1,18 @@
 const clankyData = [
 
+    {
+        id: "13-Souhrn-Vysledku-Mladeze-O-Vikendu",
+        kat: "mladez",
+        badgeText: "Mládež",
+        badgeClass: "badge-mladez",
+        datum: "21. 09. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Mladší dorost má formu! A jak se dařilo starší či mladší přípravce?",
+        perex: "Vamberecké mládežnické týmy o víkendu čekali domácí duely. V areálu V Lukách nastoupili ke svým zápasu mladší dorost, mladší žáci, starší i mladší přípravka. A jak si vedli?",
+        obrazek: "images/clanek13.jpeg",
+        obsah: `<p>Náš tým do sedmnácti let chtěl potvrdit povedený vstup do ročníku, kdy zvítězil v prvních dvou kolech a urvat body i ve třetím kole. V domácím prostředí Baník vyzval Přepychy. Hosté šli sice rychle do vedení, ale domácí dokázali třemi brankami v první polovině duel otočit a dojít si pro vítězství. Utkání nakonec skončilo poměrem 6:3, dvě branky zaznamenal <b>Marek Hamerský</b>.</p> <p>Za to mladší žáci na tento víkendový výsledek vzpomínat příliš dobře nebudou. I oni se snažili o navázání na předešlé dva výsledky, jenže zde byl opak pravdou. Do Vamberka přijelo souklubí Borohrádku a Albrechtice a dokázalo zde nasázet deset branek a vyhrát poměru 10:1. Po třech odehraných zápasech se vamberecký tým do třinácti let nachází na třetí příčce.</p> <p>Bilanci dvou výher a jedné porážky si připsala vamberecká starší přípravka. Ta na domácí půdě v dopoledním turnaji zvítězila nejprve nad Lípou 6:0, následně nad Přepychy 4:3 a poté bohužel padli s Opočnem/Dobruškou 1:7. Mladší přípravka prohrála s Doudlebami 1:7, s Přepychy remizovala 4:4 a na závěr znovu padla, tentokrát s Černíkovicemi 0:5. Příští víkend vyrazí naše mládežnické týmy znovu na vekovní hřiště.</p>`
+    },
+
        {
         id: "12-Vamberk-Lukavice-0-4",
         kat: "a-tym",
