@@ -1,5 +1,23 @@
 const clankyData = [
 
+    
+                {
+        id: "14-Preview-Zdelov",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "25. 09. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Baník čeká další ligová zkouška. Vamberk vyrazí do Zdelova",
+        perex: "V sobotu 26. 9. čeká vamberecký A-tým další ligový duel. Tentokrát Baník s cílem zisku bodů zamíří na hřiště Zdelova.",
+        obrazek: "images/clanek14.jpeg",
+        obsah: `
+        <p>Svěřenci Pavla Potužnika po neúspěšném domácím duelu s Lukavicí, ve kterém Vamberečtí prohráli 0:4, čeká další ligová zkouška. Baník tentokrát čeká nedaleká cesta do Zdelova, tedy pro Vamberk již tradiční soupeř se kterým jsme se setkávali i v minulých ročnících a to jak v 8. nebo i 9. lize. Modrožlutí se po šesti odehraných kolech nachází na 8. místě se ziskem 7 bodů a s bilancí pouze jediného vítězství.</p>
+        <p>Na hřišti ve Zdělove se tak Vamberk bude snažit prolomit tuto negativní sérii. Naposledy jsme si tři body připsali 15. 8. v utkání s Doudlebami. Náš nadcházející soupeř je po šesti zápasech na 10. místě se ziskem 6 bodů a se skóre 11:15. Naposledy se Zdelov představil na hřišti Častolovic, zde tým kapitána Štěpána Rojka prohrál 0:3 a domů si tak žádné body neodvezl. Utkání na hřišti soupeř začíná v sobotních 16:30, přijeďte nás podpořit!</p>
+      `
+    },  // <--- TADY MUSÍ BÝT ČÁRKA ODŠELUONÁ MEZI OBĚMA ZÁZNAMY
+ 
+
     {
         id: "13-Souhrn-Vysledku-Mladeze-O-Vikendu",
         kat: "mladez",
