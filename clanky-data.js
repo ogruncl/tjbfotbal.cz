@@ -1,5 +1,21 @@
 const clankyData = [
 
+          {
+        id: "15-Zdelov-Vamberk-4-4",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "28. 09. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Bláznivý zápas ve Zdelově. Trefil se i hlavní trenér",
+        perex: "Baník Vamberk v 8. kole vycestoval na hřiště Zdelova s cílem urvat po dlouhé době konečně také ligové vítězství. To se i kvůli velké marodce však nepovedlo, utkání však nabídlo velmi zajímavých situací",
+        obrazek: "images/clanek15.jpeg",
+        obsah: `
+        <p>Svěřenci Pavla Potužnika po minulém neúspěchu s Lukavicí chtěli ve Zdelově na tento výsledek zapomenout a podat výkon, po kterém by si domů odvezli tři body. Celou situaci však zkomplikovala vamberecká marodka pro tento duel. Baníku totiž chybělo hned 10 hráčů hlavního týmu a pomoc tak museli i hráči mimo náš A-tým. Poprvé v základu v letošním roce nastoupil třeba Radek Šála, Tomáš Franc nebo Pavel Blecha.</p>
+        <p>Do utkání vstoupili lépe domácí a po prvním poločase vedli 2:1. Zkraje druhé poloviny svým druhým gólem v utkání nejprve vyrovnal <b>Marek Hamerský</b>, domácí však poté znovu odskočili na rozdíl dvou branek. Modrožlutí se ale nevzdali, stav utkání vyrovnali a skoro i otočili. A kdo vstřelil vyrovnávají branku na 4:4 v 88. minutě? Asi by jste si netipli správně, jelikož to byl náš hlavní trenér <b>Pavel Potužnik</b>, který při mnoha absencích také vypomohl a do duelu naskočil v 80. minutě. Další zápas čeká Vamberk v sobotu 3. října od 13:45 na domácí půdě proti Albrechticím!</p>
+        `
+    },
+
     
                 {
         id: "14-Preview-Zdelov",

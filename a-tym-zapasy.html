@@ -342,46 +342,46 @@
             <div class="match-featured-card next">
                 <span class="card-badge badge-next">Nejbližší utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Sobota 26.09.2026 | <i class="far fa-clock"></i> 16:30
+                    <i class="far fa-calendar-alt"></i> Sobota 03.10.2026 | <i class="far fa-clock"></i> 13:45
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-zdelov.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">FC ZDELOV 1963</span>
-                    </div>
-                    <div class="vs-score-box">VS</div>
-                    <div class="team-box">
-                        <img src="images/logo-banik.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                         <span class="team-name">TJ BANÍK VAMBERK</span>
                     </div>
+                    <div class="vs-score-box">VS</div>
+                    <div class="team-box">
+                        <img src="images/logo-albrechtice.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
+                        <span class="team-name">SK ALBRECHTICE N.O.</span>
+                    </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Hřiště Zdelov
+                    <i class="fas fa-map-marker-alt"></i> Areál V Lukách, Vamberk
                 </div>
             </div>
 
             <div class="match-featured-card" onclick="openMatchModal()">
                 <span class="card-badge badge-last">Poslední utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Neděle 20.09.2026
+                    <i class="far fa-calendar-alt"></i> Sobota 26.09.2026
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-banik.png" alt="Lípa n.O." class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-zdelov.png" alt="Lípa n.O." class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
+                        <span class="team-name">FC ZDELOV 1963</span>
+                    </div>
+                    <div class="vs-score-box" style="color: #0a0a0a;">4 : 4</div>
+                    <div class="team-box">
+                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                         <span class="team-name">TJ BANÍK VAMBERK</span>
                     </div>
-                    <div class="vs-score-box" style="color: #0a0a0a;">0 : 4</div>
-                    <div class="team-box">
-                        <img src="images/logo-lukavice.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ SOKOL LUKAVICE</span>
-                    </div>
                     </div>
                                     <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Areál V Lukách, Vamberk
+                    <i class="fas fa-map-marker-alt"></i> Hřiště Zdelov
                 </div>
                 </div>
             </div>
@@ -946,22 +946,78 @@
     <span class="s-result defeat">0 : 4</span>
     <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
 </div>
-            <div class="schedule-row">
-                <span class="s-round">8. KOLO</span>
-                <span class="s-date">26.09.2026 (16:30)</span>
-                <span class="s-teams">
-                    <img src="images/logo-zdelov.png" alt="Zdelov" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    FC Zdelov
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk</strong>
-                </span>
-                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result">- : -</span>
-                <span></span>
-            </div>
+<div class="schedule-row" 
+     onclick="otevritZapas(this)"
+     data-meta="8. Kolo | Sobota 26.09.2026 | 16:30 | Hřiště Zdelov"
+     data-domaci="FC ZDELOV 1963"
+     data-hoste="TJ BANÍK VAMBERK"
+     data-logo-domaci="images/logo-zdelov.png"
+     data-logo-hoste="images/logo-banik.png"
+     data-skore="4 : 4"
+     data-polocas="(Poločas: 2:1)"
+     data-divaci="87"
+     data-rozhodci="Jedlinský - Moravec, Vlček"
+     data-udalosti='[
+        {"min": "23&apos;", "typ": "gol-h", "text": "Gól Zdelov. Matěj Kroulík - 1:0"},
+        {"min": "37&apos;", "typ": "gol-h", "text": "Gól Zdelov. Michal Maňas - 2:0"},
+        {"min": "45&apos;", "typ": "gol-d", "text": "Gól Vamberk! Marek Hamerský - 2:1"},
+        {"min": "45&apos;", "typ": "karta", "text": "Žlutá karta pro hostujícího Michaela Lebedu"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Zdelov: Odchází Matěj Kroulík, přichází Tomáš Handa"},
+        {"min": "56&apos;", "typ": "gol-d", "text": "Gól Vamberk! Marek Hamerský - 2:2"},
+        {"min": "60&apos;", "typ": "gol-h", "text": "Gól Zdelov. Adam Lipenský - 3:2"},
+        {"min": "66&apos;", "typ": "gol-h", "text": "Gól Zdelov. Michal Maňas - 4:2"},
+        {"min": "67&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Martin Žák, přichází David Halamka"},
+        {"min": "67&apos;", "typ": "stridani", "text": "Střídání Zdelov: Odchází Jiří Cvejn, přichází František Plodek"},
+        {"min": "69&apos;", "typ": "gol-d", "text": "Gól Vamberk! Tomáš Franc - 4:3"},
+        {"min": "75&apos;", "typ": "karta", "text": "Žlutá karta pro domácího Adama Lipenského"},
+        {"min": "80&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Tomáš Franc, přichází Pavel Potužnik"},
+        {"min": "80&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Radek Šála, přichází Tomáš Mudruňka"},
+        {"min": "86&apos;", "typ": "stridani", "text": "Střídání Zdelov: Odchází Kryštof Koželuh, přichází Josef Korda"},
+        {"min": "88&apos;", "typ": "gol-d", "text": "Gól Vamberk! Pavel Potužnik - 4:4"}
+     ]'
+     data-sestava-domaci='[
+        {"cislo": "30", "jmeno": "Jiří Kozel"},
+        {"cislo": "6", "jmeno": "Michal Lifka"},
+        {"cislo": "8", "jmeno": "Martin Kubový"},
+        {"cislo": "9", "jmeno": "Tomáš Novák", "kapitan": true},
+        {"cislo": "10", "jmeno": "Matěj Kroulík"},
+        {"cislo": "11", "jmeno": "Dominik Sedlák"},
+        {"cislo": "12", "jmeno": "Tomáš Forejtek"},
+        {"cislo": "15", "jmeno": "Kryštof Koželuh"},
+        {"cislo": "16", "jmeno": "Adam Lipenský"},
+        {"cislo": "20", "jmeno": "Michal Maňas"},
+        {"cislo": "28", "jmeno": "Jiří Cvejn"}
+     ]'
+     data-sestava-hoste='[
+        {"cislo": "69", "jmeno": "Zdeněk Tobiška"},
+        {"cislo": "7", "jmeno": "Marek Hamerský"}, 
+        {"cislo": "13", "jmeno": "Martin Žák"},
+        {"cislo": "15", "jmeno": "Štěpán Tadeáš Bašnik"},
+        {"cislo": "19", "jmeno": "Josef Jansa"},
+        {"cislo": "21", "jmeno": "Michal Šrom", "kapitan": true},
+        {"cislo": "24", "jmeno": "Michael Lebeda"},
+        {"cislo": "26", "jmeno": "Tomáš Hájek"},
+        {"cislo": "27", "jmeno": "Tomáš Franc"},
+        {"cislo": "67", "jmeno": "Radek Šála"},
+        {"cislo": "96", "jmeno": "Pavel Blecha"}
+     ]'
+     data-ohlas="<strong>Trenér TJ Baník Vamberk Pavel Potužník:</strong> <em>Vzhledem k dnešní absenci deseti hráčů základního a širšího kádru našeho týmu je pro nás bod z horké půdy Zdelova dobrý. Dnes musím kluky pochválit. Dvakrát jsme prohrávali o dva góly a dvakrát dokázali vyrovnat. Kvalita nám chyběla, ale kluci ji nahradili bojovností, za což jim patří velký dík. A kdybych nebyl „dřevák“, mohli jsme si odvézt i tři body, ale...sorry kluci.</em>">
+    
+    <span class="s-round">8. KOLO</span>
+    <span class="s-date">26.09.2026 (16:30)</span>
+    <span class="s-teams">
+        <img src="images/logo-zdelov.png" alt="Zdelov" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+        FC Zdelov
+        <span>vs</span>
+        <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+        <strong>TJ Baník Vamberk</strong>
+    </span>
+    <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+    <span class="s-result draw">4 : 4</span>
+    <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
+</div>
 
             <div class="schedule-row">
                 <span class="s-round">9. KOLO</span>
