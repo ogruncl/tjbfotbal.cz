@@ -1,5 +1,24 @@
 const clankyData = [
 
+                    {
+        id: "16-Preview-Albrechtice",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "03. 10. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "V 9. kole na domácím hřišti! Do Vamberka přijedou Albrechtice",
+        perex: "V neděli 3. října vamberecké fotbalisty čeká další ligová zkouš,a v rámci 9. kola 8. ligy do areálu V Lukách přijedou SK Albrechtice nad Orlicí.",
+        obrazek: "images/clanek16.jpeg",
+        obsah: `
+        <p>Modrožlutí věří, že po pěti remízách a jedné porážce v řadě konečně na domácím hřišti urvou ligové vítězství. Mají k tomu velkou příležitost, jelikož do Vamberka přijede aktuálně poslední celek tabulky - SK Albrechtice nad Orlicí. Svěřenci Pavla Potužnika se představili naposledy ve Zdelově, kde po bláznivém průběhu nakonec brali jeden bod za nerozhodný stav 4:4, v tom samém utkání však Baníku chybělo hned 10 hráčů z prvního týmu.</p>
+        <p>Baník tak doufá, že do nedělního duelu už absence nezasáhnout tolik a domácí budou moci slavit tříbodové vítězství. Náš nadcházející soupeř neprožívá povedený podzim. Albrechtice se po po sedmi odehraných kolech nacházejí na poslední 12. příčce se ziskem pouhých 3 bodů a s velmi nepřízňivým skóre 4:35. Vamberečtí však i tak nemůžou svého protivníka podcenit a musí si za vítězstvím dojít odpracovaným výkonem. Povede Vamberku urvat tři body, to se dozvíme již v neděli 4. 10. od 14:15 V Lukách, tak náš přijďte podpořit!</p>
+      `
+    },  // <--- TADY MUSÍ BÝT ČÁRKA ODŠELUONÁ MEZI OBĚMA ZÁZNAMY
+ 
+
+
+
           {
         id: "15-Zdelov-Vamberk-4-4",
         kat: "a-tym",
