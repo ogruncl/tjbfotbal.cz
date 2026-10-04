@@ -158,10 +158,11 @@
     </section>
 
 <section class="content-section">
-    <div class="main-container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
+    <!-- Přidáno align-items: stretch; -->
+    <div style="display: flex; gap: 30px; align-items: stretch; max-width: 1200px; margin: 0 auto; padding: 0 15px;">
         
         <!-- LEVÁ STRANA: Aktuality -->
-        <div class="news-container">
+        <div class="news-container" style="flex: 2; min-width: 0;">
             <div class="section-header">
                 <h2>AKTUALITY</h2>
                 <a href="aktuality.html" class="section-link">VŠECHNY NOVINKY <i class="fas fa-chevron-right"></i></a>
@@ -172,8 +173,8 @@
             </div>
         </div>
 
-<!-- PRAVÁ STRANA: Tabulka soutěže (vložená přímo do mřížky) -->
-        <aside class="sidebar-table" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+        <!-- PRAVÁ STRANA: Tabulka soutěže (přidán flexbox pro roztažení tlačítka dolů) -->
+        <aside class="sidebar-table" style="flex: 1; min-width: 300px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
             <div>
                 <div class="section-header">
                     <h2>TABULKA</h2>
@@ -232,7 +233,8 @@
                 </div>
             </div>
 
-            <a href="https://is1.fotbal.cz/souteze/detail-souteze.aspx?req=b3fda282-0fe4-4719-b81b-5dffe3d50b8f&sport=fotbal" target="_blank" rel="noopener noreferrer" class="facr-link" style="margin-top: 15px; display: block;">
+            <!-- Tlačítko se díky justify-content: space-between připne dolů k zarovnání s aktualitami -->
+            <a href="https://is1.fotbal.cz/souteze/detail-souteze.aspx?req=b3fda282-0fe4-4719-b81b-5dffe3d50b8f&sport=fotbal" target="_blank" rel="noopener noreferrer" style="margin-top: 20px; display: block; text-align: center; padding: 12px; background: #f8f9fa; border-radius: 4px; color: #003366; text-decoration: none; font-weight: 500; border: 1px solid #e9ecef;">
                 <i class="fas fa-external-link-alt"></i> Kompletní statistiky na IS FAČR
             </a>
         </aside>
