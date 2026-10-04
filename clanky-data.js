@@ -1,5 +1,22 @@
 const clankyData = [
 
+
+          {
+        id: "17-Vamberk-Albrechtice-10-0",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "04. 10. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Totální domácí demolice! Vamberk rozstřílel Albrechtice 10:0",
+        perex: "V rámci odloženého domácího duelu 9. kola do Vamberka dorazili Albrechtice. A kdo dnes zavítal do našeho sportovního areálu se rozhodně nenudil, jelikož k vidění byla totální demolice v poměru 10:0 pro Baník!",
+        obrazek: "images/clanek17.jpeg",
+        obsah: `
+        <p>Již od samého začátku byli Vamberečtí na balónu a kombinovali kolem území soupeře. První branku vstřelil v 7. minutě zpoza vápna <b>Tomáš Šafařík</b> a následně už začal gólový koncert v podání hráčů Vamberka. Ve 22. minutě si zelenobílí srazili míč do vlastní branky - 2:0. Do konce poločasu se trefil znovu <b>Tomáš Šafařík</b> a také kapitán <b>Petr Šimeček</b>. Po krásném průniku se prosadil i <b>Tomáš Honzík</b> a skóre po prvních pětačtyřiceti minutách bylo v rozdílu pěti branek.</p>
+        <p>Ve druhém dějství se pokračovalo ve stejném scénaři - tedy útočící Baník trápil obranu Albrechtic. Šestá branka přišla v 52. minutě po trefě čtrnáctiletého <b>Marka Hamerského</b>. Do konce hrací doby další tři branky vsítil ještě <b>Petr Šimeček</b> a také <b>Michal Šrom</b>. I dnes do utkání zasáhnul hlavní trenér Pavel Potužnik a to v 80. minutě. Vamberečtí tak v celkovém součtu zvítězili nad svým soupeřem 10:0 a připsali si po měsíci a půl ligové vítězství, navázat na to budou moc již příští neděli, kdy se představí od 16 hodin na hřiště Týniště B.</p>
+       `
+    },    
+
                     {
         id: "16-Preview-Albrechtice",
         kat: "a-tym",
