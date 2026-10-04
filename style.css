@@ -2337,5 +2337,278 @@ header .logo-area, .navbar .logo-area, .header-container {
     justify-content: center; /* Toto zajistí vycentrování na střed */
     justify-items: center;  /* Toto zarovná jednotlivé kartičky na střed v buňce */
 }
+
+/* Výchozí stav pro mobilní telefony: Tabulka (sidebar-table) bude první, aktuality (news-container) druhé */
+.homepage-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.homepage-grid .sidebar-table {
+    order: 1; /* Tabulka nahoře */
+}
+
+.homepage-grid .news-container {
+    order: 2; /* Aktuality dole */
+}
+
+/* Pro počítače (obrazovky širší než 992px): Vrátíme klasický grid vedle sebe, kde jsou aktuality vlevo a tabulka vpravo */
+@media (min-width: 992px) {
+    .homepage-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        align-items: start;
+    }
+
+    .homepage-grid .news-container {
+        order: unset; /* Vlevo */
+    }
+
+    .homepage-grid .sidebar-table {
+        order: unset; /* Vpravo */
+    }
+}
+/* Výchozí stav pro mobily: Tabulka bude první, aktuality druhé */
+.homepage-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+}
+
+.sidebar-table {
+    order: 1; /* Tabulka vyskočí nahoru */
+}
+
+.news-container {
+    order: 2; /* Aktuality klesnou dolů */
+}
+
+/* Pro počítače (širší než 992px): Vrátíme aktuality vlevo a tabulku vpravo vedle sebe */
+@media (min-width: 992px) {
+    .homepage-grid {
+        grid-template-columns: 2fr 1fr !important;
+    }
+    .news-container {
+        order: 1; /* Aktuality vlevo */
+    }
+    .sidebar-table {
+        order: 2; /* Tabulka vpravo */
+    }
+}
+
+/* Základní vzhled (pro mobily – věci pod sebou, tabulka první díky order) */
+.homepage-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.news-container {
+    order: 2; /* Na mobilu až pod tabulkou */
+}
+
+.sidebar-table {
+    order: 1; /* Na mobilu nahoře */
+}
+
+/* Pro počítače (širší než 992 px) – vrátíme vedle sebe, aktuality vlevo, tabulka vpravo */
+@media (min-width: 992px) {
+    .homepage-grid {
+        grid-template-columns: 2fr 1fr; /* Levý sloupec širší pro aktuality, pravý pro tabulku */
+        align-items: start;
+    }
+
+    .news-container {
+        order: 1; /* Aktuality vlevo */
+    }
+
+    .sidebar-table {
+        order: 2; /* Tabulka vpravo */
+    }
+}
+/* Hlavní obal sekce - roztáhne položky vedle sebe */
+.homepage-flex-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: nowrap; /* Drží je vedle sebe na šířku */
+}
+
+/* Levý sloupec (Aktuality) zabere víc místa */
+.homepage-flex-layout .news-container {
+    flex: 2;
+    min-width: 0; /* Zabrání přetečení flexboxu */
+}
+
+/* Pravý sloupec (Tabulka) */
+.homepage-flex-layout .sidebar-table {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    min-width: 300px; /* Zabrání přílišnému zúžení tabulky */
+}
+
+/* Tlačítko na IS FAČR pod tabulkou */
+.sidebar-table .facr-link {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    color: #003366;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+    transition: background 0.2s;
+}
+
+.sidebar-table .facr-link:hover {
+    background: #e9ecef;
+}
+
+/* Pro mobily (pokud by obrazovka byla úzká, spadnou pod sebe) */
+@media (max-width: 768px) {
+    .homepage-flex-layout {
+        flex-direction: column;
+    }
+    .homepage-flex-layout .sidebar-table {
+        width: 100%;
+    }
+}
+/* ---- ÚPLNĚ DEFINITIVNÍ OPRAVA ROZLOŽENÍ ---- */
+.homepage-flex-layout,
+.homepage-grid,
+.content-section .main-container {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 30px !important;
+    align-items: start !important;
+}
+
+/* Pojistka pro šířku obou sloupců */
+.homepage-flex-layout > .news-container,
+.homepage-grid > .news-container {
+    grid-column: 1 !important;
+    width: 100% !important;
+}
+
+.homepage-flex-layout > .sidebar-table,
+.homepage-grid > .sidebar-table {
+    grid-column: 2 !important;
+    width: 100% !important;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Styly pro tlačítko pod tabulkou vpravo */
+.sidebar-table .facr-link {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    color: #003366;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+}
+
+/* Pro mobily (pod 768px) vrátíme věci pod sebe */
+@media (max-width: 768px) {
+    .homepage-flex-layout,
+    .homepage-grid,
+    .content-section .main-container {
+        grid-template-columns: 1fr !important;
+    }
+    .homepage-flex-layout > .news-container,
+    .homepage-grid > .news-container {
+        grid-column: 1 !important;
+        order: 2;
+    }
+    .homepage-flex-layout > .sidebar-table,
+    .homepage-grid > .sidebar-table {
+        grid-column: 1 !important;
+        order: 1;
+    }
+}
+.homepage-flex-layout {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    gap: 30px !important;
+    align-items: start !important;
+}
+
+.sidebar-table {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sidebar-table .facr-link {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    color: #003366;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+}
+
+@media (max-width: 768px) {
+    .homepage-flex-layout {
+        grid-template-columns: 1fr !important;
+    }
+    .sidebar-table {
+        order: 1;
+    }
+    .news-container {
+        order: 2;
+    }
+}
+/* Výchozí stav pro mobily: sloupce pod sebou, tabulka (sidebar-table) první, aktuality (news-container) druhé */
+.content-section > div {
+    display: flex;
+    flex-direction: column; /* Na mobilu vše pod sebou */
+}
+
+/* Tabulka bude díky order: -1 první nahoře */
+.sidebar-table {
+    order: -1; 
+}
+
+.news-container {
+    order: 1;
+}
+
+/* Pro počítače (od šířky 992px nahoru): vrátíme vedle sebe, aktuality vlevo, tabulka vpravo */
+@media (min-width: 992px) {
+    .content-section > div {
+        flex-direction: row !important; /* Vedle sebe */
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    .news-container {
+        flex: 2;
+        order: 1; /* Aktuality vlevo */
+    }
+
+    .sidebar-table {
+        flex: 1;
+        order: 2; /* Tabulka vpravo */
+    }
+}
 }
 
