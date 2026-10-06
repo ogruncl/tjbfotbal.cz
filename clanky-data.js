@@ -1,5 +1,21 @@
 const clankyData = [
 
+        {
+        id: "18-Souhrn-Vysledku-Mladeze-O-Vikendu",
+        kat: "mladez",
+        badgeText: "Mládež",
+        badgeClass: "badge-mladez",
+        datum: "06. 10. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Mladší žáci zabrali a vyhráli! A jak se dařilo dalším kategoriím?",
+        perex: "Vamberecké mladé týmy v uplynulém týdnu odehrály své další duely. V akci byl opět mladší dorost, mladší žáci, starší přípravka a mladší přípravka. Jak se jednotlivým týmům dařilo? To najdete níže!",
+        obrazek: "images/clanek18.jpeg",
+        obsah: `
+        <p>Dorost netradičně hrál již ve středu, kdy na domácí půdě vyzval spojený klub Dobrušky a Opočna. Hosté se sice již velmi rychle ve 2. minutě dostali do vedení, jenže vamberecký tým zabral a celý duel překlopil na svojí stranu. Hattrickem se opět zapsal <b>Marek Hamerský</b> a i díky němu utkání skončilo konečným poměrem 8:4. Po pěti kolech tak vamberecké sedmnáctce patří první místo, druhý Borohrádek má však ztrátu pouhých dvou bodů a o jeden odehraný zápas méně. Mladší žáci chtěli po dvou porážkách konečně zvítězit a to se také podařilo. Náš tým do třinácti let v sobotu doma vyzval souklubí Černíkovic a Solnice B. Dvě branky si připsal <b>Dominik Weinhauer</b> a nakonec z toho bylo vítězství 6:2.</p>
+        <p>Starší přípravka pořádala domácí turnaj a odehrála tři zápasy během jednoho dopoledne. Jako první byl na řadě souboj s Albrechticemi/Borohrádkem, v něm bohužel mladší Vamberáci padli 1:3, ale v následujícím duelu proti Voděradům už brali vítězství po stejném výsledku. Na závěr žlutomodří těsně padli s Kostelcem/Častolovicemi 2:3. V akci byla i mladší přípravka, ta však ze dvou utkání nezapsala výhru. Byli to pouze porážky s Voděrady 1:6 a s Albrechticemi/Borohrádkem 3:8.</p>
+        `
+    },
+
 
           {
         id: "17-Vamberk-Albrechtice-10-0",
