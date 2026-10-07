@@ -1,5 +1,42 @@
 const clankyData = [
 
+    
+        {
+        id: "19-Rozhovor-Stepan-Dostal",
+        kat: "klub",
+        badgeText: "Klub",
+        badgeClass: "kluz-mladez",
+        datum: "07. 10. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Štěpán Dostál: Jako malý vždycky míříte nejvýš",
+        perex: "Třiadvacetiletý záložník Štěpán Dostál v létě 2016 opustil vamberecký Baník a přes Náchod, Rychnov nad Kněžnou a Pardubice se postupně dostal až do třetiligové Aritmy Praha, kde v současnosti působí také jako kapitán. Co náš odchovanec prozradil o své dosavadní kariéře, působení v Aritmě i o svých fotbalových začátcích v modrožlutém dresu? To vše se dozvíte v následujícím obsáhlém rozhovoru.",
+        obrazek: "images/clanek19.jpeg",
+        obsah: `
+        <h3>Štěpáne, jsi kapitánem Aritmy Praha, která aktuálně působí ve 3. lize. Jak jsi v klubu spokojený a jak si užíváš roli kapitána?</h3><br>
+        <p>V klubu působím již čtvrtým rokem a za tu dobu prošel velkými změnami. Ať už kvalitou kádru, nebo soutěží, kterou hrajeme. V A-týmu jsem velmi spokojený, dostávám velkou porci minut na hřišti, za což jsem vděčný, a zároveň se zde mohu rozvíjet i po trenérské stránce, kdy trénuji U15. Být kapitánem ve třetí lize je velká čest a zodpovědnost ještě větší. S touto rolí je velmi náročné se sžít, ale užívám si to maximálně.</p>
+        <h3>Máš ještě ambice posunout se do vyšší soutěže? Jaké jsou tvoje aktuální fotbalové cíle do budoucna?</h3><br>
+        <p>Z krátkodobých cílů je to určitě začít vyhrávat a dělat body, kde to půjde, a jako stoper sbírat co nejvíce čistých kont. Z těch dlouhodobějších bych se chtěl více prosadit a minimálně zkusit druholigovou přípravu.</p>
+        <h3>Jak vzpomínáš na své začátky v našem klubu a co ti působení u nás dalo do další fotbalové kariéry?</h3><br>
+        <p>Vzpomínám na to s radostí. I když jsme byli malí, tak jsme měli skvělou partu, o trenérech a trenérkách nemluvě. Skvělé zázemí, dobře vedené tréninky a zkrátka na všechno okolo Baníku moc rád vzpomínám. Vamberk mě určitě fotbalově naučil spoustu věcí, protože jsem dostal skvělé základy. Je těžké je vyjmenovávat všechny, ale určitě mezi ty hlavní, za které jsem nejvděčnější, patří odolnost.</p>
+        <h3>Když jsi za nás začínal, napadlo tě tehdy, že by ses jednou mohl dostat až do 3. ligy?</h3><br>
+        <p>Jako malý vždycky míříte nejvýš a vidíte se v reprezentaci a Barceloně. Takže jsem vždy doufal, že to někam dotáhnu.</p>
+        <h3>Je někdo z trenérů, spoluhráčů nebo lidí kolem našeho klubu, komu bys chtěl zpětně poděkovat za to, kam ses ve fotbale dostal?</h3><br>
+        <p>Jednoznačně bych chtěl poděkovat trenérům, kteří se mě ujali a dali mi skvělé fotbalové základy. Jmenovitě panu Ptáčkovi, panu Tobiškovi, panu Halamkovi, panu Kutmonovi a paní Choceňské. Dále patří velký dík Ondrovi Frajvaldovi, který mi na mé fotbalové cestě velmi pomáhá.</p>
+        <h3>Sleduješ stále výsledky a dění v našem klubu? A jak podle tebe může Baník dopadnout v letošní sezoně?</h3><br>
+        <p>Ano, sleduji. Musím říct, že sociální sítě fungují výborně. Zároveň ve Vamberku hraje i můj bratr, takže vím vše z první ruky. Vnímám změny v kádru a návraty kluků i trenéra, proto si myslím, že by v letošní sezóně mohl Baník patřit do horní poloviny tabulky.</p>
+        <h3>Když se dnes ohlédneš zpátky na své působení u nás, je nějaký konkrétní moment nebo zápas, na který vzpomínáš nejraději?</h3><br>
+        <p>Krásnou vzpomínku mám díky mému taťkovi. Mám totiž na videokazetě natočený svůj první gól. Dále moc rád vzpomínám na hodně halových turnajů, na ty jsem se vždy těšil a moc si je užil. A jestli mám vyzdvihnout jeden zápas, tak by to byl zápas v Novém Hradci, kam jsme jeli pouze v 7 lidech a stejně vyhráli. Bylo to ještě na hřišti 7+1.</p>
+        <h3>Co bys poradil mladým hráčům, kteří dnes nastupují za náš klub a chtěli by se jednou dostat do vyšších soutěží?</h3><br>
+        <p>Jednoznačně poslouchat trenéry, nepřestávat na sobě makat, přidávat si i mimo trénink a věřit sám v sebe.</p>
+        <h3>Ve své kariéře jsi působil také ve FK Pardubice. Jak na toto angažmá vzpomínáš a co ti působení v Pardubicích dalo?</h3><br>
+        <p>Zpětně musím říct, že mi působení v Pardubicích dalo extrémně hodně. Prošel jsem dorostem a strávil jeden rok v B-týmu, dokonce absolvoval tréninky i zápas s A-týmem. Bylo to velmi náročné období, ale zároveň jsem se toho nejvíce naučil jak po fotbalové, tak po lidské stránce.</p>
+        <h3>Zůstal jsi v kontaktu s některými bývalými spoluhráči z našeho klubu? A sledujete se navzájem i po letech?</h3><br>
+        <p>Ano, mám mezi hráči Baníku nejlepšího kamaráda a spoustu dalších velmi dobrých kamarádů. I s kluky, se kterými jsem začínal a už fotbal nehrají, jsem v kontaktu. Fotbalové prostředí hodně sbližuje.</p>
+        `
+    },
+
+
+
         {
         id: "18-Souhrn-Vysledku-Mladeze-O-Vikendu",
         kat: "mladez",
