@@ -21,7 +21,7 @@ const clankyData = [
         <h3>Když jsi za nás začínal, napadlo tě tehdy, že by ses jednou mohl dostat až do 3. ligy?</h3><br>
         <p>Jako malý vždycky míříte nejvýš a vidíte se v reprezentaci a Barceloně. Takže jsem vždy doufal, že to někam dotáhnu.</p>
         <h3>Je někdo z trenérů, spoluhráčů nebo lidí kolem našeho klubu, komu bys chtěl zpětně poděkovat za to, kam ses ve fotbale dostal?</h3><br>
-        <p>Jednoznačně bych chtěl poděkovat trenérům, kteří se mě ujali a dali mi skvělé fotbalové základy. Jmenovitě panu Ptáčkovi, panu Tobiškovi, panu Halamkovi, panu Kutmonovi a paní Choceňské. Dále patří velký dík Ondrovi Frajvaldovi, který mi na mé fotbalové cestě velmi pomáhá.</p>
+        <p>Jednoznačně bych chtěl poděkovat trenérům, kteří se mě ujali a dali mi skvělé fotbalové základy. Jmenovitě panu Ptáčkovi, panu Tobiškovi, panu Halamkovi, panu Kutmonovi a paní Choceňské. Dále patří velký dík Ondrovi Frejvaldovi, který mi na mé fotbalové cestě velmi pomáhá.</p>
         <h3>Sleduješ stále výsledky a dění v našem klubu? A jak podle tebe může Baník dopadnout v letošní sezoně?</h3><br>
         <p>Ano, sleduji. Musím říct, že sociální sítě fungují výborně. Zároveň ve Vamberku hraje i můj bratr, takže vím vše z první ruky. Vnímám změny v kádru a návraty kluků i trenéra, proto si myslím, že by v letošní sezóně mohl Baník patřit do horní poloviny tabulky.</p>
         <h3>Když se dnes ohlédneš zpátky na své působení u nás, je nějaký konkrétní moment nebo zápas, na který vzpomínáš nejraději?</h3><br>

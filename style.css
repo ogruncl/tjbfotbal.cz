@@ -2610,5 +2610,20 @@ header .logo-area, .navbar .logo-area, .header-container {
         order: 2; /* Tabulka vpravo */
     }
 }
+/* Zajištění, že řádky detailů v modálu budou roztažené (název vlevo, hodnota vpravo) */
+.modal-detail-row, 
+.player-modal-row, 
+.modal-info-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* Samotná hodnota (např. předchozí klub) bude vždy zarovnaná doprava */
+.modal-detail-value, 
+.player-modal-value {
+    text-align: right !important;
+}
 }
 
