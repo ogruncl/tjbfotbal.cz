@@ -1,23 +1,20 @@
 const clankyData = [
 
-    
-                    {
-        id: "20-Preview-Tyniste-B",
+              {
+        id: "21-Tyniste-B-Vamberk-1-3",
         kat: "a-tym",
         badgeText: "A-tým",
         badgeClass: "badge-a-tym",
-        datum: "08. 10. 2026",
+        datum: "04. 10. 2026",
         autor: "Ondřej Gruncl",
-        titulek: "Navázat na výhru bude chtít Baník v Olšině! Vamberk vyrazí do Týniště",
-        perex: "V neděli 11. října čeká vamberecké fotbalisty duel 10. kola na hřišti v Olšině, kde je přivítá Týniště nad Orlicí B. Modrožlutí zde budou navazovat na cenné vítězství z minulého víkendu.",
-        obrazek: "images/clanek20.jpeg",
+        titulek: "Druhá výhra v řadě! Vamberk vyhrál v Týništi 3:1",
+        perex: "S cílem navázat na vítězství z minulého víkendu vyjeli vamberečtí fotbalisté do Olšiny, kde se utkali s B týmem Týniště nad Orlicí. Už od prvních minut Baník vedl a nakonec si pohodlně došel pro vítězství 3:1!",
+        obrazek: "images/clanek21.jpeg",
         obsah: `
-        <p>Baník minulou neděli prolomil negativní sérii bez výhry a konečně urval tři body. Stalo se tak po jasné záležitostí, domácí Vamberk totiž zdemoloval soupeře z Albrechtic výsledkem 10:0! Tento skapl posunul svěřence Pavla Potužnika na průběžné 7. místo ligové tabulky. Na kontě Vamberečtí mají jedenáct bodů a skóre 21:13. Ovšem ztráta na 2. pozici je pouze tříbodová, pouze Lukavice je odskočená, ta má totiž náskok už deseti bodový.</p>
-        <p>Náš nadcházející soupeř je na tom o trošičku lépe. Po osmi odehraných zápasech totiž rezervě Týniště nad Orlicí patří páté místo se ziskem třinácti bodů a s lehce pozitivním skóre 15:14. Naposledy se oba týmy potkaly před dvěmi lety, Vamberk tehdy Týniště B porazil na domácí půdě 4:1, dvě branky vsítil portugalský záložník Flavio. Naposledy tým z Olšiny nastoupil k zápasu na hřišti Častolovic, diváci zde toho ale příliš neviděli, jelikož výsledek byl bezbrankový 0:0. My věříme, že v Týništi uvidíme více ofenzivní zápas a úspěšnější v tomto ohledu bude Baník. Přijeďte nás do Olšiny podpořit, začínáme v nedělních 16:00.</p>
-     `
-    },  // <--- TADY MUSÍ BÝT ČÁRKA ODŠELUONÁ MEZI OBĚMA ZÁZNAMY
- 
-
+        <p>Svěřenci Pavla Potužnika zahájili duel nejlépe jak mohli, tedy brzkou vstřelenou brankou. O tu se postaral již v šesté minutě kapitán Petr Šimeček. Během prvního poločasu hosté přidali zásluhou Štěpána Bašnika uklidňující gól na 2:0 a do kabin po prvních čtyřicetipěti minutách odcházeli s dvoubrankovým náskokem.</p>
+        <p>I úvodní minuty druhého dějství patřily modrožlutým a ty opět skórovali. Byl to znovu hráč s číslem 71 - Petr Šimeček, který překonal brankáře soupeře a zvyšoval už tak na 3:0. Domácí Týniště B sice v 80. minutě ještě snížili na rozdíl dvou branek a mohli se postarat o dramatický závěř, jenže všechno snažení bylo ukončeno o šest minut později, kdy domácí hráč obdržel červenou kartu a ti tak museli dohrávat o deseti. Přidat třetí výhru v řadě bude Vamberk moc přidat v sobotu 17. října od 13:15 na domácí půdě proti Borohrádku.</p>
+       `
+    },   
 
 
     
@@ -54,6 +51,26 @@ const clankyData = [
         <p>Ano, mám mezi hráči Baníku nejlepšího kamaráda a spoustu dalších velmi dobrých kamarádů. I s kluky, se kterými jsem začínal a už fotbal nehrají, jsem v kontaktu. Fotbalové prostředí hodně sbližuje.</p>
         `
     },
+
+        
+                    {
+        id: "20-Preview-Tyniste-B",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "08. 10. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Navázat na výhru bude chtít Baník v Olšině! Vamberk vyrazí do Týniště",
+        perex: "V neděli 11. října čeká vamberecké fotbalisty duel 10. kola na hřišti v Olšině, kde je přivítá Týniště nad Orlicí B. Modrožlutí zde budou navazovat na cenné vítězství z minulého víkendu.",
+        obrazek: "images/clanek20.jpeg",
+        obsah: `
+        <p>Baník minulou neděli prolomil negativní sérii bez výhry a konečně urval tři body. Stalo se tak po jasné záležitostí, domácí Vamberk totiž zdemoloval soupeře z Albrechtic výsledkem 10:0! Tento skapl posunul svěřence Pavla Potužnika na průběžné 7. místo ligové tabulky. Na kontě Vamberečtí mají jedenáct bodů a skóre 21:13. Ovšem ztráta na 2. pozici je pouze tříbodová, pouze Lukavice je odskočená, ta má totiž náskok už deseti bodový.</p>
+        <p>Náš nadcházející soupeř je na tom o trošičku lépe. Po osmi odehraných zápasech totiž rezervě Týniště nad Orlicí patří páté místo se ziskem třinácti bodů a s lehce pozitivním skóre 15:14. Naposledy se oba týmy potkaly před dvěmi lety, Vamberk tehdy Týniště B porazil na domácí půdě 4:1, dvě branky vsítil portugalský záložník Flavio. Naposledy tým z Olšiny nastoupil k zápasu na hřišti Častolovic, diváci zde toho ale příliš neviděli, jelikož výsledek byl bezbrankový 0:0. My věříme, že v Týništi uvidíme více ofenzivní zápas a úspěšnější v tomto ohledu bude Baník. Přijeďte nás do Olšiny podpořit, začínáme v nedělních 16:00.</p>
+     `
+    },  // <--- TADY MUSÍ BÝT ČÁRKA ODŠELUONÁ MEZI OBĚMA ZÁZNAMY
+ 
+
+
 
 
 
