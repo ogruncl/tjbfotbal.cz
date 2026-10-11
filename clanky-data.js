@@ -5,7 +5,7 @@ const clankyData = [
         kat: "a-tym",
         badgeText: "A-tým",
         badgeClass: "badge-a-tym",
-        datum: "04. 10. 2026",
+        datum: "11. 10. 2026",
         autor: "Ondřej Gruncl",
         titulek: "Druhá výhra v řadě! Vamberk vyhrál v Týništi 3:1",
         perex: "S cílem navázat na vítězství z minulého víkendu vyjeli vamberečtí fotbalisté do Olšiny, kde se utkali s B týmem Týniště nad Orlicí. Už od prvních minut Baník vedl a nakonec si pohodlně došel pro vítězství 3:1!",
