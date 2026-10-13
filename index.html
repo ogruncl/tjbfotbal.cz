@@ -105,7 +105,138 @@
         margin-top: 25px !important;
         margin-bottom: 10px !important;
     }
+    
+    /* 1. Sjednocení karet aktualit na stejnou výšku */
+.news-container, .news-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+    align-items: stretch !important;
 }
+
+.news-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+}
+
+.news-card-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+/* Odkaz "Číst více" přišpendlený na spodek karty */
+.news-card a, .news-card .news-link {
+    margin-top: auto !important;
+}
+
+/* 2. Jednotný sportovní font Teko pro nadpisy článků */
+.news-card h3, 
+.news-card h2 {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 1.8rem !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.1 !important;
+    text-transform: uppercase !important;
+}
+/* Perfektní vycentrování obsahu všech tlačítek */
+.btn-yellow, 
+.btn-outline, 
+.btn-hero,
+.match-card a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Úprava šipky v tlačítkách, aby neposouvala text na stranu */
+.btn-yellow i, 
+.btn-outline i, 
+.btn-hero i,
+.match-card a i {
+    margin-left: 8px !important;
+}/* ==========================================
+           SEKCE AKTUALITY A TABULKA (DOKONALÁ SYMETRIE)
+           ========================================== */
+
+        /* 1. Nastavení gridu pro dynamicky generované články */
+        #homepageArticlesContainer,
+        .news-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px !important;
+            align-items: stretch !important;
+        }
+
+        /* 2. Každá karta článku se chová jako pevný flexbox kontejner */
+        #homepageArticlesContainer > div,
+        .news-card {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            height: 100% !important;
+            box-sizing: border-box !important;
+            background: #ffffff !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+            overflow: hidden !important;
+        }
+
+        /* Obal obsahu uvnitř karty */
+        #homepageArticlesContainer > div > div:not(img),
+        .news-card-content {
+            display: flex !important;
+            flex-direction: column !important;
+            flex-grow: 1 !important;
+            padding: 20px !important;
+        }
+
+        /* 3. Bezpečné omezení výšky textu (perex max cca 3 řádky) bez chyb v editoru */
+        #homepageArticlesContainer p,
+        .news-card p,
+        .news-card .news-excerpt {
+            max-height: 4.5em !important; /* Přibližně výška 3 řádků */
+            line-height: 1.5em !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            margin-bottom: auto !important;
+        }
+
+        /* 4. Přišpendlení odkazu "Číst více" na samé dno karty */
+        #homepageArticlesContainer a:last-child,
+        .news-card a.news-link,
+        .news-card .read-more {
+            margin-top: 15px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 5px !important;
+        }
+
+        /* ==========================================
+           RESPONZIVITA PRO MOBILY (Displeje do 768px)
+           ========================================== */
+        @media (max-width: 768px) {
+            #homepageArticlesContainer,
+            .news-grid,
+            .news-container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .content-section > div {
+                flex-direction: column !important;
+            }
+
+            .news-card {
+                height: auto !important;
+            }
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -159,7 +290,7 @@
                 <a href="#" class="dropbtn">MLÁDEŽ <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="mladez-zapasy.html">Zápasy</a>
-                    <a href="mladez-treneri.html">Trenéři</a>
+                   <a href="mladez-treneri.html">Trenéři</a>
                     <a href="aktuality.html?kat=mladez">Aktuality</a>
                 </div>
             </div>
@@ -222,16 +353,19 @@
                         </div>
                     </div>
 
-                    <p class="match-info"><i class="far fa-calendar-alt"></i> 17. 10. 2026 &nbsp;|&nbsp; <i class="far fa-clock"></i> 13:15 &nbsp;|&nbsp; <i class="fas fa-location-dot"></i> Areál V Lukách, Vamberk</p>
-                    <a href="a-tym-zapasy.html" class="btn-yellow btn-full">ZOBRAZIT VŠECHNY ZÁPASY <i class="fas fa-chevron-right"></i></a>
+<div class="match-card-footer-info" style="color: #ffffff; margin-top: auto !important; margin-bottom: 15px !important; text-align: center;">
+    <i class="far fa-calendar-alt"></i> 17. 10. 2026 &nbsp;|&nbsp; <i class="far fa-clock"></i> 13:15 &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> Areál V Lukách, Vamberk
+</div>                    <a href="a-tym-zapasy.html" class="btn-yellow btn-full">ZOBRAZIT VŠECHNY ZÁPASY <i class="fas fa-chevron-right"></i></a>
                 </div>
 
                 <!-- Poslední zápas -->
                 <div class="match-card match-last">
                     <div class="card-header">
                         <h3>POSLEDNÍ ZÁPAS</h3>
-                        <span class="league-tag dark-tag">8. LIGA, OKRES RYCHNOV N. KNĚŽ.</span>
-                    </div>
+<!-- Místo původního šedého odznaku použijte tento s tmavě modrým podkladem a žlutým textem -->
+<span class="league-badge" style="background: #002244 !important; color: #ffd700 !important; font-weight: 700 !important; padding: 4px 10px !important; border-radius: 4px !important; font-size: 0.8rem !important;">
+    8. LIGA, OKRES RYCHNOV N. KNĚŽ.
+</span>                    </div>
 
                     <div class="teams-versus">
                         <div class="team">
@@ -247,9 +381,12 @@
 
                     <div class="match-status-badge">VÍTĚZSTVÍ</div>
 
-                    <p class="match-info dark-text"><i class="far fa-calendar-alt"></i> 11. 10. 2026 &nbsp;|&nbsp; <i class="fas fa-location-dot"></i> Hráno v Týništi nad Orlicí</p>
-                    <a href="a-tym-zapasy.html" class="btn-outline btn-full">DETAIL ZÁPASU <i class="fas fa-chevron-right"></i></a>
-                </div>
+<!-- Přidané margin-top: 30px (nebo auto) posune datum níže k tlačítku -->
+<div class="match-card-footer-info" style="color: #4b5563; margin-top: 25px !important; margin-bottom: 12px !important; text-align: center;">
+    <i class="far fa-calendar-alt"></i> 11. 10. 2026 &nbsp;|&nbsp; <i class="fas fa-map-marker-alt"></i> Hráno v Týništi nad Orlicí
+</div><a href="a-tym-zapasy.html" class="btn-outline btn-full" style="font-family: 'Teko', sans-serif !important; font-size: 1.4rem !important; font-weight: 700 !important; text-transform: uppercase !important;">
+    DETAIL ZÁPASU <i class="fas fa-chevron-right"></i>
+</a>                </div>
 
             </div>
         </div>

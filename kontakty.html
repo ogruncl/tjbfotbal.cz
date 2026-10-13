@@ -152,6 +152,119 @@
             color: #ffd700;
             text-decoration: underline;
         }
+        /* STYLY PRO KONTAKTNÍ FORMULÁŘ */
+.contact-form-section {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    padding: 35px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-title {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 2.2rem !important;
+    color: #002244;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.form-subtitle {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #002244;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: 'Montserrat', sans-serif !important;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    background: #f9fafb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #002244;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 34, 68, 0.1);
+}
+
+.btn-send-message {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    background: #002244;
+    color: #ffd700;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.btn-send-message:hover {
+    background: #003366;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}
+.form-title span {
+    font-family: 'Teko', sans-serif !important;
+    text-transform: uppercase !important;
+}
     </style>
 </head>
 <body>
@@ -279,6 +392,56 @@
             </div>
 
         </div>
+
+   <section class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div class="contact-form-section">
+        <h2 class="form-title">NAPIŠTE NÁM <span style="color: #ffd700;">ZPRÁVU</span></h2>
+        <p class="form-subtitle">Máte dotaz, zájem o členství nebo sponzorství? Vyplňte formulář a my se vám ozveme.</p>
+
+        <!-- Zde je vložený váš konkrétní odkaz z Formspree -->
+        <form class="contact-form" action="https://formspree.io/f/xjygawvg" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Jméno a příjmení *</label>
+                <input type="text" id="name" name="jmeno" placeholder="Jan Novák" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" placeholder="jan.novak@email.cz" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="telefon" placeholder="+420 777 123 456">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Téma dotazu *</label>
+                <select id="subject" name="tema" required>
+                    <option value="" disabled selected>-- Vyberte téma --</option>
+                    <option value="General">Obecný dotaz</option>
+                    <option value="Youth">Nábor mládeže</option>
+                    <option value="Sponsorship">Sponzorství a partnerství</option>
+                    <option value="A-Team">A-tým / B-tým</option>
+                    <option value="Other">Ostatní</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message">Zpráva *</label>
+                <textarea id="message" name="zprava" rows="5" placeholder="Napište text vaší zprávy..." required></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <button type="submit" class="btn-send-message">
+                    ODESLAT ZPRÁVU <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>
     </main>
 
     </main>
