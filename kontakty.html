@@ -5,13 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakty | TJ Baník Vamberk</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Propojení nových sportovních fontů (Teko, Montserrat, Bebas Neue) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        /* Speciální styly pro sekci kontaktů s většími fotkami osob */
+        /* ==========================================
+           JEDNOTNÝ SPORTOVNÍ FONT (TEKO & MONTSERRAT)
+           ========================================== */
+
+        /* Vynucení fontu Teko pro menu, název klubu, nadpisy a jména v kartách */
+        .nav-menu a, 
+        .nav-menu .dropbtn, 
+        .club-name,
+        h1, h2, h3, h4,
+        .contact-name {
+            font-family: 'Teko', sans-serif !important;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        /* Vyladění velikosti položek v menu pro Teko */
+        .nav-menu a, 
+        .nav-menu .dropbtn {
+            font-size: 1.35rem !important;
+            font-weight: 600 !important;
+        }
+
+        .club-name {
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+        }
+
+        /* Přizpůsobení velikostí písma Teko pro prvky kontaktů */
+        .contact-name {
+            font-size: 1.8rem !important;
+            line-height: 1.1 !important;
+        }
+
+        /* Ostatní běžné texty přepnuty na čistý Montserrat */
+        body, 
+        .contact-role,
+        .contact-info-list,
+        .contact-info-item {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* STYLY PRO SEKCI KONTAKTŮ */
         .contacts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -34,16 +79,16 @@
 
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,34,68,0.12);
+            border-color: #002244;
         }
 
-        /* Větší fotka osoby */
         .contact-photo-wrapper {
             width: 140px;
             height: 140px;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid var(--primary-yellow, #ffd700);
+            border: 4px solid #ffd700;
             box-shadow: 0 3px 10px rgba(0,0,0,0.12);
             margin-bottom: 20px;
             background: #f0f2f5;
@@ -60,15 +105,13 @@
         }
 
         .contact-name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.4rem;
             color: #002244;
             margin: 0 0 5px 0;
             font-weight: 700;
         }
 
         .contact-role {
-            color: #d97706; /* Akcentní oranžovo-žlutá pro funkci */
+            color: #d97706;
             font-weight: 600;
             font-size: 0.95rem;
             text-transform: uppercase;
@@ -106,7 +149,7 @@
         }
 
         .contact-info-item a:hover {
-            color: var(--primary-yellow, #ffd700);
+            color: #ffd700;
             text-decoration: underline;
         }
     </style>
@@ -122,19 +165,20 @@
             <span class="club-name">TJ BANÍK VAMBERK</span>
         </a>
         
-        <!-- Tlačítko pro mobilní menu (na PC se automaticky skryje) -->
+        <!-- Tlačítko pro mobilní menu -->
         <button class="menu-toggle" style="display: none;" aria-label="Otevřít menu">
             <i class="fas fa-bars"></i>
         </button>
         
         <!-- Navigační menu -->
         <nav class="nav-menu">
-                <a href="index.html">DOMŮ</a>
+            <a href="index.html">DOMŮ</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">KLUB <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="o-klubu.html">O klubu</a>
                     <a href="historie.html">Historie</a>
+                                                            <a href="odchovanci.html">Odchovanci</a>
                     <a href="stadion.html">Stadion</a>
                     <a href="kontakty.html">Kontakty</a>
                     <a href="sponzori.html">Sponzoři</a>
@@ -161,6 +205,7 @@
                 <a href="#" class="dropbtn">MLÁDEŽ <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="mladez-zapasy.html">Zápasy</a>
+                    <a href="mladez-treneri.html">Trenéři</a>
                     <a href="aktuality.html?kat=mladez">Aktuality</a>
                 </div>
             </div>
@@ -170,15 +215,18 @@
     </div>
 </header>
 
-    <!-- BANNER STRÁNKY -->
-    <section class="page-header" style="background-image: url('images/hero-banner.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>KONTATNÍ <span class="highlight">OSOBY</span></h1>
-            <p class="subtitle">VEDENÍ A ZÁSTUPCI KLUBU TJ BANÍK VAMBERK</p>
-        </div>
-    </section>
-
+<!-- Hlavní banner stránky Kontakty -->
+<section class="page-header" style="background-image: url('images/hero-banner.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" style="text-align: center;">
+        <h1 style="font-family: 'Teko', sans-serif !important; font-size: 4rem !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; line-height: 1 !important; margin: 0 0 10px 0 !important; color: #ffffff !important;">
+            KONTAKTNÍ OSOBY
+        </h1>
+        <p style="font-family: 'Montserrat', sans-serif !important; font-size: 1.1rem !important; font-weight: 600 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #ffffff !important; margin: 0 !important;">
+            TJ BANÍK VAMBERK
+        </p>
+    </div>
+</section>
 <!-- OBSAH STRÁNKY -->
     <main class="main-container page-content">
         

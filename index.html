@@ -5,11 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TJ Baník Vamberk | Oficiální web fotbalového klubu</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Propojení nových sportovních fontů (Teko, Montserrat, Bebas Neue) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ==========================================
+           JEDNOTNÝ SPORTOVNÍ FONT (TEKO & MONTSERRAT)
+           ========================================== */
+
+        /* Vynucení fontu Teko pro menu, název klubu, nadpisy, tlačítka a sekční hlavičky */
+        .nav-menu a, 
+        .nav-menu .dropbtn, 
+        .club-name,
+        h1, h2, h3, h4,
+        .btn-hero,
+        .btn-yellow,
+        .btn-primary,
+        .section-title {
+            font-family: 'Teko', sans-serif !important;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        /* Vyladění velikosti položek v menu pro Teko */
+        .nav-menu a, 
+        .nav-menu .dropbtn {
+            font-size: 1.35rem !important;
+            font-weight: 600 !important;
+        }
+
+        .club-name {
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+        }
+
+        /* Hlavní motivační nadpis na HP */
+        .hero h1 {
+            font-family: 'Teko', sans-serif !important;
+            font-size: 5rem !important;
+            font-weight: 700 !important;
+            line-height: 0.95 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+        }
+
+        .btn-hero {
+            font-size: 1.4rem !important;
+            letter-spacing: 1px !important;
+            padding: 10px 24px !important;
+        }
+
+        /* Ostatní běžné texty přepnuty na čistý Montserrat */
+        body, 
+        p, 
+        .subtitle, 
+        .news-excerpt, 
+        .match-meta {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+        /* Vynucení fontu Teko pro kompletní nadpis v Hero sekci včetně spánu .highlight */
+.hero h1,
+.hero h1 span,
+.hero h1 .highlight {
+    font-family: 'Teko', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+}
+
+/* Zvětšení vnitřního odsazení dole v Hero sekci, aby se tlačítko odlepilo od hranic */
+.hero {
+    padding-bottom: 60px !important;
+}
+
+.hero-content {
+    margin-bottom: 20px !important;
+}
+
+/* Úprava pro mobilní zobrazení */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 40px !important;
+        padding-bottom: 70px !important; /* Zajišťuje dostatečné odsazení tlačítka na mobilu */
+    }
+
+    .hero h1,
+    .hero h1 span,
+    .hero h1 .highlight {
+        font-size: 3.2rem !important; /* Přizpůsobená velikost pro mobilní obrazovky */
+        line-height: 0.95 !important;
+    }
+
+    .btn-hero {
+        margin-top: 25px !important;
+        margin-bottom: 10px !important;
+    }
+}
+    </style>
 </head>
 <body>
 
@@ -22,19 +119,20 @@
             <span class="club-name">TJ BANÍK VAMBERK</span>
         </a>
         
-        <!-- Tlačítko pro mobilní menu (na PC se automaticky skryje) -->
+        <!-- Tlačítko pro mobilní menu -->
         <button class="menu-toggle" style="display: none;" aria-label="Otevřít menu">
             <i class="fas fa-bars"></i>
         </button>
         
         <!-- Navigační menu -->
         <nav class="nav-menu">
-                <a href="index.html">DOMŮ</a>
+            <a href="index.html">DOMŮ</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">KLUB <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="o-klubu.html">O klubu</a>
                     <a href="historie.html">Historie</a>
+                                        <a href="odchovanci.html">Odchovanci</a>
                     <a href="stadion.html">Stadion</a>
                     <a href="kontakty.html">Kontakty</a>
                     <a href="sponzori.html">Sponzoři</a>
@@ -61,6 +159,7 @@
                 <a href="#" class="dropbtn">MLÁDEŽ <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="mladez-zapasy.html">Zápasy</a>
+                    <a href="mladez-treneri.html">Trenéři</a>
                     <a href="aktuality.html?kat=mladez">Aktuality</a>
                 </div>
             </div>
@@ -70,16 +169,15 @@
     </div>
 </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>JEDNOU BANÍK<br><span class="highlight">NAVŽDY BANÍK</span></h1>
-            <p class="subtitle">1906 • TRADICE • 120 LET</p>
-            <a href="o-klubu.html" class="btn-yellow btn-hero">VÍCE O KLUBU <i class="fas fa-chevron-right"></i></a>
-        </div>
-    </section>
-
+<!-- Hero Banner na hlavní stránce -->
+<section class="hero" style="padding-bottom: 60px;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>JEDNOU BANÍK<br><span class="highlight">NAVŽDY BANÍK</span></h1>
+        <p class="subtitle">1906 • TRADICE • 120 LET</p>
+        <a href="o-klubu.html" class="btn-yellow btn-hero">VÍCE O KLUBU <i class="fas fa-chevron-right"></i></a>
+    </div>
+</section>
     <!-- Zápasové Centrum (Symetrický blok) -->
     <section class="match-center-section">
         <div class="main-container">
@@ -95,12 +193,12 @@
                     <div class="teams-versus">
                         <div class="team">
                             <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="match-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/60?text=BANÍK';">
-                            <strong>TJ BANÍK VAMBERK</strong>
+                            <strong>VAMBERK</strong>
                         </div>
                         <div class="vs">VS</div>
                         <div class="team">
                             <img src="images/logo-borohradek.png" alt="FC České Meziříčí" class="match-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/60?text=FC';">
-                            <strong>TJ LOKOMOTIVA BOROHRÁDEK</strong>
+                            <strong>BOROHRÁDEK</strong>
                         </div>
                     </div>
 
@@ -138,12 +236,12 @@
                     <div class="teams-versus">
                         <div class="team">
                             <img src="images/logo-tyniste.png" alt="TJ Baník Vamberk" class="match-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/60?text=BANÍK';">
-                            <strong>SK TÝNIŠTĚ N.O. B</strong>
+                            <strong>TÝNIŠTĚ N.O. B</strong>
                         </div>
                         <div class="score">1:3</div>
                         <div class="team">
                             <img src="images/logo-banik.png" alt="TJ Sokol Lípa n.O." class="match-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/60?text=LÍPA';">
-                            <strong>TJ BANÍK VAMBERK</strong>
+                            <strong>VAMBERK</strong>
                         </div>
                     </div>
 

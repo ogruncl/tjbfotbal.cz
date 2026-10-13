@@ -3,14 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zápasy a Výsledky | TJ Baník Vamberk</title>
+    <title>Zápasy a Výsledky Mládeže | TJ Baník Vamberk</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Propojení nových sportovních fontů (Teko, Montserrat, Bebas Neue) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
     <style>
+        /* ==========================================
+           JEDNOTNÝ SPORTOVNÍ FONT (TEKO & MONTSERRAT)
+           ========================================== */
+
+        /* Vynucení fontu Teko pro menu, název klubu, nadpisy, výsledky a týmy */
+        .nav-menu a, 
+        .nav-menu .dropbtn, 
+        .club-name,
+        h1, h2, h3, h4,
+        .card-badge,
+        .team-name,
+        .vs-score-box,
+        .s-round,
+        .s-teams,
+        .s-result,
+        .modal-team-title,
+        .modal-big-score,
+        .match-section-title,
+        .lineup-col h4,
+        .footer-col h4 {
+            font-family: 'Teko', sans-serif !important;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        /* Vyladění velikosti položek v menu pro Teko */
+        .nav-menu a, 
+        .nav-menu .dropbtn {
+            font-size: 1.35rem !important;
+            font-weight: 600 !important;
+        }
+
+        .club-name {
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+        }
+
+        /* Jemné přizpůsobení velikostí písma Teko pro prvky zápasů */
+        .card-badge {
+            font-size: 1rem !important;
+            letter-spacing: 0.8px;
+        }
+
+        .team-name {
+            font-size: 1.4rem !important;
+            line-height: 1.1;
+        }
+
+        .vs-score-box {
+            font-size: 2.5rem !important;
+            line-height: 1;
+        }
+
+        .s-round {
+            font-size: 1.05rem !important;
+        }
+
+        .s-teams {
+            font-size: 1.35rem !important;
+        }
+
+        .s-result {
+            font-size: 1.5rem !important;
+        }
+
+        .modal-team-title {
+            font-size: 1.6rem !important;
+        }
+
+        .modal-big-score {
+            font-size: 3.2rem !important;
+        }
+
+        .match-section-title, .footer-col h4 {
+            font-size: 1.4rem !important;
+        }
+
+        /* Ostatní běžné texty přepnuty na čistý Montserrat */
+        body, 
+        .match-info-meta, 
+        .btn-match-detail, 
+        .s-date, 
+        .s-place, 
+        .modal-match-meta, 
+        .match-stats-bar, 
+        .events-list, 
+        .lineup-col li, 
+        .match-report, 
+        .footer-col ul li a, 
+        .footer-bottom {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* STYLY PRO ZÁPASY */
         .featured-matches-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -48,8 +146,6 @@
 
         .card-badge {
             display: inline-block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
             text-transform: uppercase;
             padding: 3px 12px;
             border-radius: 15px;
@@ -81,11 +177,9 @@
             display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #002244;
         }
 
-        .team-name { font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: #002244; }
+        .team-name { color: #002244; }
 
         .vs-score-box {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
             font-weight: 700;
             color: #002244;
             padding: 0 15px;
@@ -127,16 +221,16 @@
             transform: translateX(3px);
         }
 
-        .s-round { font-family: 'Oswald', sans-serif; font-size: 0.9rem; color: #777; text-transform: uppercase; }
+        .s-round { color: #777; text-transform: uppercase; }
         .s-date { font-size: 0.9rem; color: #333; font-weight: 500; }
-        .s-teams { font-family: 'Oswald', sans-serif; font-size: 1.1rem; color: #002244; display: flex; align-items: center; gap: 8px; }
+        .s-teams { color: #002244; display: flex; align-items: center; gap: 8px; }
         .s-team-logo { width: 24px; height: 24px; object-fit: contain; }
         .s-team-logo-placeholder {
             width: 24px; height: 24px; background: #f0f4f8; border-radius: 50%;
             display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #002244;
         }
         .s-place { font-size: 0.85rem; color: #666; }
-        .s-result { font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 700; text-align: right; color: #002244; }
+        .s-result { font-weight: 700; text-align: right; color: #002244; }
         .s-result.win { color: #05640a; }
         .s-result.draw { color: #0a0500; }
         .s-result.defeat { color: #860101; }
@@ -184,14 +278,13 @@
             display: flex; align-items: center; justify-content: space-around; margin: 15px 0;
         }
 
-        .modal-team-title { font-family: 'Oswald', sans-serif; font-size: 1.3rem; margin-top: 8px; }
-        .modal-big-score { font-family: 'Oswald', sans-serif; font-size: 2.8rem; font-weight: 700; color: #ffd700; }
+        .modal-team-title { margin-top: 8px; }
+        .modal-big-score { font-weight: 700; color: #ffd700; }
 
         .modal-match-body { padding: 25px; }
 
         .match-section-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem; color: #002244;
+            color: #002244;
             border-bottom: 2px solid #ffd700;
             padding-bottom: 4px; margin: 20px 0 12px 0; text-transform: uppercase;
         }
@@ -213,7 +306,7 @@
         .event-min { font-weight: 700; color: #002244; min-width: 35px; }
 
         .lineups-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem; }
-        .lineup-col h4 { font-family: 'Oswald', sans-serif; color: #002244; margin-bottom: 8px; }
+        .lineup-col h4 { color: #002244; margin-bottom: 8px; }
         .lineup-col ul { list-style: none; padding: 0; margin: 0; }
         .lineup-col li { padding: 4px 0; border-bottom: 1px dotted #e1e4e8; display: flex; justify-content: space-between; }
         .lineup-col li span.number { font-weight: bold; color: #002244; margin-right: 6px; }
@@ -242,10 +335,8 @@
             gap: 30px;
         }
         .footer-col h4 {
-            font-family: 'Oswald', sans-serif;
             color: #ffd700;
             margin-bottom: 12px;
-            font-size: 1.1rem;
             text-transform: uppercase;
         }
         .footer-col ul { list-style: none; padding: 0; margin: 0; }
@@ -279,19 +370,20 @@
             <span class="club-name">TJ BANÍK VAMBERK</span>
         </a>
         
-        <!-- Tlačítko pro mobilní menu (na PC se automaticky skryje) -->
+        <!-- Tlačítko pro mobilní menu -->
         <button class="menu-toggle" style="display: none;" aria-label="Otevřít menu">
             <i class="fas fa-bars"></i>
         </button>
         
         <!-- Navigační menu -->
         <nav class="nav-menu">
-                <a href="index.html">DOMŮ</a>
+            <a href="index.html">DOMŮ</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">KLUB <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="o-klubu.html">O klubu</a>
                     <a href="historie.html">Historie</a>
+                                                            <a href="odchovanci.html">Odchovanci</a>
                     <a href="stadion.html">Stadion</a>
                     <a href="kontakty.html">Kontakty</a>
                     <a href="sponzori.html">Sponzoři</a>
@@ -318,6 +410,7 @@
                 <a href="#" class="dropbtn">MLÁDEŽ <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="mladez-zapasy.html">Zápasy</a>
+                    <a href="mladez-treneri.html">Trenéři</a>
                     <a href="aktuality.html?kat=mladez">Aktuality</a>
                 </div>
             </div>
@@ -327,14 +420,18 @@
     </div>
 </header>
 
-    <section class="page-header" style="background-image: url('images/hero-banner.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>ZÁPASY A <span class="highlight">VÝSLEDKY</span></h1>
-            <p class="subtitle">U17 | U13 | SEZÓNA 2026/2027</p>
-        </div>
-    </section>
-
+<!-- Hlavní banner stránky Zápasy Mládeže -->
+<section class="page-header" style="background-image: url('images/hero-banner.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" style="text-align: center;">
+        <h1 style="font-family: 'Teko', sans-serif !important; font-size: 4rem !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; line-height: 1 !important; margin: 0 0 10px 0 !important; color: #ffffff !important;">
+            ZÁPASY MLÁDEŽE
+        </h1>
+        <p style="font-family: 'Montserrat', sans-serif !important; font-size: 1.1rem !important; font-weight: 600 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #ffffff !important; margin: 0 !important;">
+            TJ BANÍK VAMBERK
+        </p>
+    </div>
+</section>
     <main class="main-container page-content">
         
         <div class="featured-matches-grid">
@@ -342,46 +439,46 @@
             <div class="match-featured-card next">
                 <span class="card-badge badge-next">Nejbližší utkání U17</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Sobota 10.10.2026 | <i class="far fa-clock"></i> 10:00
+                    <i class="far fa-calendar-alt"></i> Sobota 24.10.2026 | <i class="far fa-clock"></i> 13:00
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-javornice.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-machov.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ SOKOL JAVORNICE/RYCHNOV N.K. U17</span>
+                        <span class="team-name">MACHOV/STÁRKOV U17</span>
                     </div>
                     <div class="vs-score-box">VS</div>
                     <div class="team-box">
                         <img src="images/logo-banik.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ BANÍK VAMBERK U17</span>
+                        <span class="team-name">VAMBERK U17</span>
                     </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Hřiště Javornice
+                    <i class="fas fa-map-marker-alt"></i> Hřiště Jiskra Machov
                 </div>
             </div>
 
            <div class="match-featured-card next">
                 <span class="card-badge badge-next">Nejbližší utkání U13</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Středa 07.10.2026 | <i class="far fa-clock"></i> 16:30
+                    <i class="far fa-calendar-alt"></i> Sobota 17.10.2026 | <i class="far fa-clock"></i> 12:30
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-ceske-mezirici.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">FC ČESKÉ MEZIŘÍČÍ/SK DOBRUŠKA B U13</span>
+                        <span class="team-name">VAMBERK U13</span>
                     </div>
                     <div class="vs-score-box">VS</div>
                     <div class="team-box">
-                        <img src="images/logo-banik.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-tyniste.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">TJ BANÍK VAMBERK U13</span>
+                        <span class="team-name">TÝNIŠTĚ N.O. U13</span>
                     </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Hřiště České Meziříčí
+                    <i class="fas fa-map-marker-alt"></i> Areál V Lukách, Vamberk
                 </div>
             </div>
             </div>
@@ -400,11 +497,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                     <span>vs</span>
                     <img src="images/logo-machov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Jiskra Machov/TJ Sokol Stárkov U17
+                    Machov/Stárkov U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">5 : 0</span>
@@ -417,11 +514,11 @@
                 <span class="s-teams">
                     <img src="images/logo-babi.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Babí/TJ Sokol Zábrodí U17
+                    Babí/Zábrodí U17
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result win">3 : 6</span>
@@ -434,11 +531,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                     <span>vs</span>
                     <img src="images/logo-prepychy.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Přepychy U17
+                    Přepychy U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">6 : 3</span>
@@ -451,11 +548,11 @@
                 <span class="s-teams">
                     <img src="images/logo-borohradek.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Lok. Borohrádek/SK Albrechtice U17
+                    Borohrádek/Albrechtice U17
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result defeat">6 : 3</span>
@@ -468,11 +565,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                     <span>vs</span>
                     <img src="images/logo-opocno.webp" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Dobruška/TJ Spartak Opočno U17
+                    Dobruška/Opočno U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">8 : 4</span>
@@ -485,14 +582,14 @@
                 <span class="s-teams">
                     <img src="images/logo-javornice.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    TJ Sokol Javornice/Rychnov n.K. B U17
+                    Javornice/Rychnov n.K. B U17
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result">- : -</span>
+                <span class="s-result win">0 : 11</span>
                 <span></span>
             </div>
 
@@ -502,11 +599,11 @@
                 <span class="s-teams">
                     <img src="images/logo-machov.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Jiskra Machov/TJ Sokol Stárkov U17
+                    Machov/Stárkov U17
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>
@@ -519,11 +616,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                     <span>vs</span>
                     <img src="images/logo-babi.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Babí/TJ Sokol Zábrodí U17
+                    Babí/Zábrodí U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result">- : -</span>
@@ -536,11 +633,11 @@
                 <span class="s-teams">
                     <img src="images/logo-prepychy.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Přepychy U17
+                    Přepychy U17
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U17</strong>
+                    <strong>Vamberk U17</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>
@@ -559,11 +656,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                     <span>vs</span>
                     <img src="images/logo-ceske-mezirici.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    FC České Meziříčí/SK Dobruška B U13
+                    Č. Meziříčí/Dobruška B U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">6 : 3</span>
@@ -576,11 +673,11 @@
                 <span class="s-teams">
                     <img src="images/logo-tyniste.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Týniště n.O. U13
+                    Týniště n.O. U13
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result win">1 : 4</span>
@@ -593,11 +690,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                     <span>vs</span>
                     <img src="images/logo-borohradek.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Lok. Borohrádek/SK Albrechtice U13
+                    Borohrádek/Albrechtice U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result defeat">1 : 10</span>
@@ -610,11 +707,11 @@
                 <span class="s-teams">
                     <img src="images/logo-prepychy.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Přepychy U13
+                    Přepychy U13
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result defeat">8 : 2</span>
@@ -627,11 +724,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                     <span>vs</span>
                     <img src="images/logo-cernikovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    TJ Sokol Černíkovice/SK Solnice B U13
+                    Černíkovice/Solnice B U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">6 : 2</span>
@@ -644,14 +741,14 @@
                 <span class="s-teams">
                     <img src="images/logo-ceske-mezirici.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    FC České Meziříčí/SK Dobruška B U13
+                    Č. Meziříčí/Dobruška B U13
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result">- : -</span>
+                <span class="s-result win">1 : 7</span>
                 <span></span>
             </div>
 
@@ -661,11 +758,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                     <span>vs</span>
                     <img src="images/logo-tyniste.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Týniště n.O. U13
+                    Týniště n.O. U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result">- : -</span>
@@ -678,11 +775,11 @@
                 <span class="s-teams">
                     <img src="images/logo-borohradek.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Lok. Borohrádek/SK Albrechtice U13
+                    Borohrádek/Albrechtice U13
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>
@@ -695,11 +792,11 @@
                 <span class="s-teams">
                     <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                     <span>vs</span>
                     <img src="images/logo-prepychy.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    SK Přepychy U13
+                    Přepychy U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result">- : -</span>
@@ -712,11 +809,11 @@
                 <span class="s-teams">
                     <img src="images/logo-cernikovice.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    TJ Sokol Černíkovice/SK Solnice B U13
+                    Černíkovice/Solnice B U13
                     <span>vs</span>
                     <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>TJ Baník Vamberk U13</strong>
+                    <strong>Vamberk U13</strong>
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>

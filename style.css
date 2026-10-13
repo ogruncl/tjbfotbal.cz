@@ -2625,5 +2625,204 @@ header .logo-area, .navbar .logo-area, .header-container {
 .player-modal-value {
     text-align: right !important;
 }
+/* 1. Import nových sportovních fontů z Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Teko:wght@600;700&family=Montserrat:wght@400;600;700;800&display=swap');
+
+/* 2. Nastavení základního písma pro celý web */
+body {
+    font-family: 'Montserrat', sans-serif; /* Moderní a skvěle čitelný text */
+}
+
+/* 3. Sportovní, úderný font pro všechny hlavní nadpisy, bannery a tlačítka */
+h1, h2, h3, 
+.page-header h1, 
+.section-header h2, 
+.club-name, 
+.nav-menu a {
+    font-family: 'Teko', 'Bebas Neue', sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Úprava velikosti pro banner, protože Teko/Bebas jsou vyšší fonty */
+.page-header h1 {
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.page-header .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+/* Globální přepsání nadpisů a banneru na agresivní sportovní font Teko */
+h1, .page-header h1, .section-header h2, .staff-name, .category-section-title {
+    font-family: 'Teko', sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.page-header h1 {
+    font-size: 4rem !important; /* Teko je úzký font, tak mu dáme větší velikost */
+    line-height: 1;
+}
+
+.page-header .subtitle {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+/* Vynucení dravého sportovního fontu Teko pro hlavní nadpis v banneru */
+.page-header h1, 
+.page-header h1 span {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 4.5rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    line-height: 0.9 !important;
+}
+
+/* Podnadpis v banneru */
+.page-header .subtitle {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    font-size: 1.1rem !important;
+}
+/* Jednotná velikost a vzhled hlavního nadpisu v banneru pro všechny stránky */
+.page-header h1 {
+    font-family: 'Teko', sans-serif !important;
+    font-size: clamp(2.8rem, 5vw, 4.5rem) !important; /* Písmo se chytře přizpůsobí délce textu, aby bylo všude stejně velké */
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    margin: 0;
+}
+/* Dokonale sjednocený bannerový nadpis pro všechny stránky webu */
+.page-header h1 {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 4rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    display: inline-block;
+}
+
+/* Sjednocený podnadpis pod ním */
+.page-header .subtitle {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    margin-top: 10px !important;
+}
+/* 1. Načtení moderního sportovního fontu Teko a Montserrat na začátek style.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Teko:wght@600;700&display=swap');
+
+/* 2. Jednotný dravý font pro menu, název klubu v hlavičce a hlavní nadpisy */
+.club-name, 
+.nav-menu a, 
+.page-header h1, 
+.section-header h2, 
+.staff-name, 
+.player-name {
+    font-family: 'Teko', sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* 3. Vyladění velikosti pro menu, aby v něm font Teko vypadal skvěle */
+.nav-menu a {
+    font-size: 1.25rem !important; /* Teko je zúžené, proto může být opticky větší */
+    font-weight: 600;
+}
+
+/* 4. Jednotná velikost pro velké bannery na všech stránkách */
+.page-header h1 {
+    font-size: 4rem !important;
+    line-height: 1 !important;
+}
+
+/* 5. Všechny běžné texty (články, popisy, detaily) sjednotíme na čitelný Montserrat */
+body, p, span, .player-role-sub, .info-value {
+    font-family: 'Montserrat', sans-serif;
+}
+/* Vynucení fontu Teko pro celé menu a hlavičku */
+.nav-menu a, 
+.club-name, 
+header .nav-menu a {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 1.4rem !important; /* Teko je úzké, v menu vypadá skvěle o něco větší */
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+}
+/* Vynucení moderního sportovního fontu v menu a na celém webu */
+.nav-menu a, 
+.nav-menu .dropbtn, 
+.club-name {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 1.35rem !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+}
+.club-badge-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+.player-club-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #002244;
+    color: #ffd700;
+    padding: 6px 14px !important;
+    border-radius: 20px;
+    font-size: 1.1rem !important;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.club-badge-logo {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain !important;
+    flex-shrink: 0;
+}
+/* Oprava pro malé logo v odznaku klubu */
+.player-club-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #002244 !important;
+    color: #ffd700 !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    width: auto !important;
+    max-width: 100% !important;
+}
+
+.player-club-tag img.club-badge-logo {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
 }
 

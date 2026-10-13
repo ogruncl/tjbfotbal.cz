@@ -22,7 +22,7 @@ const clankyData = [
         id: "19-Rozhovor-Stepan-Dostal",
         kat: "klub",
         badgeText: "Klub",
-        badgeClass: "kluz-mladez",
+        badgeClass: "badge-klub",
         datum: "07. 10. 2026",
         autor: "Ondřej Gruncl",
         titulek: "Štěpán Dostál: Jako malý vždycky míříte nejvýš",

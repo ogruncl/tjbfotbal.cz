@@ -5,12 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Realizační tým | TJ Baník Vamberk</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Propojení nových sportovních fontů (Teko, Montserrat, Bebas Neue) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
     <style>
+        /* ==========================================
+           JEDNOTNÝ SPORTOVNÍ FONT (TEKO & MONTSERRAT)
+           ========================================== */
+
+        /* Vynucení fontu Teko pro menu, název klubu, nadpisy, role a jména v kartách */
+        .nav-menu a, 
+        .nav-menu .dropbtn, 
+        .club-name,
+        h1, h2, h3, h4,
+        .staff-role,
+        .staff-name {
+            font-family: 'Teko', sans-serif !important;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        /* Vyladění velikosti položek v menu pro Teko */
+        .nav-menu a, 
+        .nav-menu .dropbtn {
+            font-size: 1.35rem !important;
+            font-weight: 600 !important;
+        }
+
+        .club-name {
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+        }
+
+        /* Přizpůsobení velikostí písma Teko v kartách realizačního týmu */
+        .staff-role {
+            font-size: 1.1rem !important;
+            padding: 2px 14px !important;
+            letter-spacing: 0.8px;
+        }
+
+        .staff-name {
+            font-size: 1.8rem !important;
+            line-height: 1.1 !important;
+        }
+
+        /* Ostatní běžné texty přepnuty na čistý Montserrat */
+        body, 
+        .staff-details,
+        .staff-detail-item {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* STYLY PRO REALIZAČNÍ TÝM */
         .staff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
@@ -33,6 +85,7 @@
         .staff-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,34,68,0.12);
+            border-color: #002244;
         }
 
         .staff-img-wrapper {
@@ -69,22 +122,15 @@
             display: inline-block;
             background: #ffd700;
             color: #002244;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
             font-weight: 700;
-            padding: 4px 12px;
             border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             margin-bottom: 10px;
         }
 
         .staff-name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
             color: #002244;
             margin: 0 0 15px 0;
-            text-transform: uppercase;
+            font-weight: 700;
         }
 
         .staff-details {
@@ -129,19 +175,20 @@
             <span class="club-name">TJ BANÍK VAMBERK</span>
         </a>
         
-        <!-- Tlačítko pro mobilní menu (na PC se automaticky skryje) -->
+        <!-- Tlačítko pro mobilní menu -->
         <button class="menu-toggle" style="display: none;" aria-label="Otevřít menu">
             <i class="fas fa-bars"></i>
         </button>
         
         <!-- Navigační menu -->
         <nav class="nav-menu">
-                <a href="index.html">DOMŮ</a>
+            <a href="index.html">DOMŮ</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">KLUB <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="o-klubu.html">O klubu</a>
                     <a href="historie.html">Historie</a>
+                                                            <a href="odchovanci.html">Odchovanci</a>
                     <a href="stadion.html">Stadion</a>
                     <a href="kontakty.html">Kontakty</a>
                     <a href="sponzori.html">Sponzoři</a>
@@ -168,6 +215,7 @@
                 <a href="#" class="dropbtn">MLÁDEŽ <i class="fas fa-chevron-down nav-arrow"></i></a>
                 <div class="dropdown-content">
                     <a href="mladez-zapasy.html">Zápasy</a>
+                    <a href="mladez-treneri.html">Trenéři</a>
                     <a href="aktuality.html?kat=mladez">Aktuality</a>
                 </div>
             </div>
@@ -177,15 +225,18 @@
     </div>
 </header>
 
-    <!-- BANNER STRÁNKY -->
-    <section class="page-header" style="background-image: url('images/hero-banner.jpg');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>REALIZAČNÍ <span class="highlight">TÝM</span></h1>
-            <p class="subtitle">A-TÝM | SEZÓNA 2026/27</p>
-        </div>
-    </section>
-
+<!-- Hlavní banner stránky Realizační tým -->
+<section class="page-header" style="background-image: url('images/hero-banner.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" style="text-align: center;">
+        <h1 style="font-family: 'Teko', sans-serif !important; font-size: 4rem !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; line-height: 1 !important; margin: 0 0 10px 0 !important; color: #ffffff !important;">
+            REALIZAČNÍ TÝM
+        </h1>
+        <p style="font-family: 'Montserrat', sans-serif !important; font-size: 1.1rem !important; font-weight: 600 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #ffffff !important; margin: 0 !important;">
+            TJ BANÍK VAMBERK
+        </p>
+    </div>
+</section>
     <!-- OBSAH STRÁNKY -->
     <main class="main-container page-content">
         
