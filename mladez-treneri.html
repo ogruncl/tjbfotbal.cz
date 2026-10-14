@@ -5,18 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trenéři mládeže | TJ Baník Vamberk</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Propojení sportovních fontů (Teko, Montserrat, Bebas Neue) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        .category-section-title {
+        /* ==========================================
+           JEDNOTNÝ SPORTOVNÍ FONT A DESIGN
+           ========================================== */
+
+        /* Vynucení fontu Teko pro menu, název klubu a nadpisy */
+        .nav-menu a, 
+        .nav-menu .dropbtn, 
+        .club-name,
+        h1, h2, h3, h4,
+        .category-section-title,
+        .staff-name {
             font-family: 'Teko', sans-serif !important;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-            color: #002244;
             text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        /* Vyladění velikosti položek v menu pro Teko */
+        .nav-menu a, 
+        .nav-menu .dropbtn {
+            font-size: 1.35rem !important;
+            font-weight: 600 !important;
+        }
+
+        .club-name {
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+        }
+
+        /* Ostatní běžné texty přepnuty na čistý Montserrat */
+        body, 
+        p, 
+        li, 
+        .staff-role,
+        .staff-contact {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* Hlavní banner s opraveným pokrytím pozadí */
+        .page-header {
+            position: relative;
+            background-image: url('images/hero-banner.jpg');
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            padding: 60px 20px !important;
+            text-align: center;
+            color: #ffffff;
+            border-bottom: 4px solid #ffd700;
+        }
+
+        /* Tmavý překryv banneru pro dobrou čitelnost textu */
+        .page-header .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 34, 68, 0.75);
+            z-index: 1;
+        }
+
+        .page-header .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Hlavní nadpis v banneru */
+        .page-header h1 {
+            font-family: 'Teko', sans-serif !important;
+            font-size: 4.5rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+            line-height: 1 !important;
+            margin: 0 0 5px 0 !important;
+            color: #ffffff !important;
+        }
+
+        /* Podtitul v banneru */
+        .page-header p,
+        .page-header .subtitle {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+            color: #ffffff !important;
+            margin: 0 !important;
+            opacity: 0.9;
+        }
+
+        /* Sekce nadpisů kategorií trenérů */
+        .category-section-title {
+            font-size: 2.2rem !important;
+            color: #002244;
             margin: 40px 0 20px 0;
             border-bottom: 3px solid #ffd700;
             display: inline-block;
@@ -27,26 +120,32 @@
             margin-top: 10px;
         }
 
+        /* Grid pro karty trenérů */
         .staff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            align-items: stretch;
         }
 
+        /* Karta trenéra */
         .staff-card {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid #e1e4e8;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .staff-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,34,68,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,34,68,0.1);
         }
 
         .staff-card-header {
@@ -57,59 +156,48 @@
         }
 
         .staff-icon-badge {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background: #ffd700;
             color: #002244;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin: 0 auto 15px auto;
+            font-size: 1.5rem;
+            margin: 0 auto 12px auto;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .staff-info {
-            padding: 20px 15px;
         }
 
         .staff-role {
             display: inline-block;
-            background: #ffd700;
-            color: #002244;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 10px;
+        }
+
+        .staff-info {
+            padding: 20px 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .staff-name {
             font-family: 'Teko', sans-serif !important;
-            font-size: 2rem;
+            font-size: 2rem !important;
             letter-spacing: 1px;
             color: #002244;
             margin: 0;
             text-transform: uppercase;
-            line-height: 1;
-        }
-
-        /* Přepnutí banneru na nový sportovní styl */
-        .page-header h1 {
-            font-family: 'Teko', sans-serif !important;
-            font-size: 4rem !important;
-            letter-spacing: 2px !important;
-            line-height: 1 !important;
-        }
-
-        .page-header .subtitle {
-            font-family: 'Montserrat', sans-serif !important;
-            font-weight: 600;
-            letter-spacing: 2px;
+            line-height: 1.1;
         }
     </style>
 </head>
@@ -137,7 +225,7 @@
                 <div class="dropdown-content">
                     <a href="o-klubu.html">O klubu</a>
                     <a href="historie.html">Historie</a>
-                                                            <a href="odchovanci.html">Odchovanci</a>
+                    <a href="odchovanci.html">Odchovanci</a>
                     <a href="stadion.html">Stadion</a>
                     <a href="kontakty.html">Kontakty</a>
                     <a href="sponzori.html">Sponzoři</a>
@@ -174,177 +262,173 @@
     </div>
 </header>
 
-<!-- Hlavní banner stránky Kontakty -->
-<section class="page-header" style="background-image: url('images/hero-banner.jpg');">
+<!-- HLAVNÍ BANNER STRÁNKY -->
+<section class="page-header">
     <div class="hero-overlay"></div>
-    <div class="hero-content" style="text-align: center;">
-        <h1 style="font-family: 'Teko', sans-serif !important; font-size: 4rem !important; font-weight: 700 !important; letter-spacing: 2px !important; text-transform: uppercase !important; line-height: 1 !important; margin: 0 0 10px 0 !important; color: #ffffff !important;">
-            TRENÉŘI MLÁDEŽE
-        </h1>
-        <p style="font-family: 'Montserrat', sans-serif !important; font-size: 1.1rem !important; font-weight: 600 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #ffffff !important; margin: 0 !important;">
-            TJ BANÍK VAMBERK
-        </p>
+    <div class="hero-content">
+        <h1>TRENÉŘI MLÁDEŽE</h1>
+        <p>TJ BANÍK VAMBERK</p>
     </div>
 </section>
 
-    <!-- OBSAH STRÁNKY -->
-    <main class="main-container page-content">
+<!-- OBSAH STRÁNKY -->
+<main class="main-container page-content" style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
         
-        <!-- KATEGORIE U17 -->
-        <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Mladší dorost U17</h2>
-        <div class="staff-grid">
-            <div class="staff-card">
-                <div class="staff-card-header">
-                    <div class="staff-icon-badge"><i class="fas fa-user-ninja"></i></div>
-                    <span class="staff-role">Hlavní trenér U17</span>
-                </div>
-                <div class="staff-info">
-                    <h3 class="staff-name">Tomáš Hájek</h3>
-                </div>
+    <!-- KATEGORIE U17 -->
+    <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Ml. dorost U17</h2>
+    <div class="staff-grid">
+        <div class="staff-card">
+            <div class="staff-card-header">
+                <div class="staff-icon-badge"><i class="fas fa-shirt"></i></div>
+                <span class="staff-role">Hlavní trenér U17</span>
+            </div>
+            <div class="staff-info">
+                <h3 class="staff-name">Tomáš Hájek</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- KATEGORIE U13 -->
+    <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Ml. žáci U13</h2>
+    <div class="staff-grid">
+        <div class="staff-card">
+            <div class="staff-card-header">
+                <div class="staff-icon-badge"><i class="fas fa-shirt"></i></div>
+                <span class="staff-role">Trenér U13</span>
+            </div>
+            <div class="staff-info">
+                <h3 class="staff-name">David Martínek</h3>
             </div>
         </div>
 
-        <!-- KATEGORIE U13 -->
-        <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Mladší žáci U13</h2>
-        <div class="staff-grid">
-            <div class="staff-card">
-                <div class="staff-card-header">
-                    <div class="staff-icon-badge"><i class="fas fa-user-ninja"></i></div>
-                    <span class="staff-role">Trenér U13</span>
-                </div>
-                <div class="staff-info">
-                    <h3 class="staff-name">David Martínek</h3>
-                </div>
+        <div class="staff-card">
+            <div class="staff-card-header">
+                <div class="staff-icon-badge"><i class="fas fa-shirt"></i></div>
+                <span class="staff-role">Trenér U13</span>
             </div>
+            <div class="staff-info">
+                <h3 class="staff-name">Jakub Šebesta</h3>
+            </div>
+        </div>
+    </div>
 
-            <div class="staff-card">
-                <div class="staff-card-header">
-                    <div class="staff-icon-badge"><i class="fas fa-user-ninja"></i></div>
-                    <span class="staff-role">Trenér U13</span>
-                </div>
-                <div class="staff-info">
-                    <h3 class="staff-name">Jakub Šebesta</h3>
-                </div>
+    <!-- KATEGORIE U11 -->
+    <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>St. přípravka U11</h2>
+    <div class="staff-grid">
+        <div class="staff-card">
+            <div class="staff-card-header">
+                <div class="staff-icon-badge"><i class="fas fa-shirt"></i></div>
+                <span class="staff-role">Trenér U11</span>
+            </div>
+            <div class="staff-info">
+                <h3 class="staff-name">Ondřej Hynek</h3>
             </div>
         </div>
 
-        <!-- KATEGORIE U11 -->
-        <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Starší přípravka U11</h2>
-        <div class="staff-grid">
-            <div class="staff-card">
-                <div class="staff-card-header">
-                    <div class="staff-icon-badge"><i class="fas fa-user-ninja"></i></div>
-                    <span class="staff-role">Trenér U11</span>
-                </div>
-                <div class="staff-info">
-                    <h3 class="staff-name">Ondřej Hynek</h3>
-                </div>
+        <div class="staff-card">
+            <div class="staff-card-header">
+                <div class="staff-icon-badge"><i class="fas fa-shirt"></i></div>
+                <span class="staff-role">Trenér U11</span>
             </div>
-
-            <div class="staff-card">
-                <div class="staff-card-header">
-                    <div class="staff-icon-badge"><i class="fas fa-user-ninja"></i></div>
-                    <span class="staff-role">Trenér U11</span>
-                </div>
-                <div class="staff-info">
-                    <h3 class="staff-name">Jaromír Halamka</h3>
-                </div>
+            <div class="staff-info">
+                <h3 class="staff-name">Jaromír Halamka</h3>
             </div>
         </div>
+    </div>
 
-        <!-- KATEGORIE U9 -->
-        <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Mladší přípravka U9</h2>
-        <div class="staff-grid">
-            <div class="staff-card">
-                <div class="staff-card-header">
-                    <div class="staff-icon-badge"><i class="fas fa-user-ninja"></i></div>
-                    <span class="staff-role">Hlavní trenér U9</span>
-                </div>
-                <div class="staff-info">
-                    <h3 class="staff-name">David Hamerský</h3>
-                </div>
+    <!-- KATEGORIE U9 -->
+    <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Ml. přípravka U9</h2>
+    <div class="staff-grid">
+        <div class="staff-card">
+            <div class="staff-card-header">
+                <div class="staff-icon-badge"><i class="fas fa-shirt"></i></div>
+                <span class="staff-role">Hlavní trenér U9</span>
+            </div>
+            <div class="staff-info">
+                <h3 class="staff-name">David Hamerský</h3>
             </div>
         </div>
+    </div>
 
-                <!-- KATEGORIE U7 -->
-        <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Předpřípravka U7</h2>
-        <div class="staff-grid">
-            <div class="staff-card">
-                <div class="staff-card-header">
-                    <div class="staff-icon-badge"><i class="fas fa-user-ninja"></i></div>
-                    <span class="staff-role">Hlavní trenér U7</span>
-                </div>
-                <div class="staff-info">
-                    <h3 class="staff-name">Zdeněk Tobiška</h3>
-                </div>
+    <!-- KATEGORIE U7 -->
+    <h2 class="category-section-title"><i class="fas fa-users" style="margin-right: 10px;"></i>Předpřípravka U7</h2>
+    <div class="staff-grid">
+        <div class="staff-card">
+            <div class="staff-card-header">
+                <div class="staff-icon-badge"><i class="fas fa-shirt"></i></div>
+                <span class="staff-role">Hlavní trenér U7</span>
+            </div>
+            <div class="staff-info">
+                <h3 class="staff-name">Zdeněk Tobiška</h3>
             </div>
         </div>
+    </div>
 
-    </main>
+</main>
 
-    <!-- PATIČKA -->
-    <footer class="footer">
-        <div class="main-container">
-            <div class="footer-grid">
-                
-                <!-- Sloupec 1: Kontakt -->
-                <div class="footer-col center-mobile">
-                    <div class="logo-area" style="margin-bottom: 15px; justify-content: flex-start;">
-                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk Logo" class="header-logo" onerror="this.style.display='none';">
-                        <span class="club-name">TJ BANÍK VAMBERK</span>
-                    </div>
-                    <p>Areál V Lukách<br>Jůnova 63, 517 54 Vamberk</p>
-                    <p>Email: info@banikvamberk.eu</p>
-                    <a href="https://mapy.com/cs/turisticka?source=traf&id=46048718&ds=1&x=16.3009831&y=50.1228999&z=18" target="_blank" rel="noopener noreferrer" class="map-button">
-                        <i class="fas fa-location-dot"></i> Navigovat na stadion
+<!-- PATIČKA -->
+<footer class="footer">
+    <div class="main-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-grid">
+            
+            <!-- Sloupec 1: Kontakt -->
+            <div class="footer-col center-mobile">
+                <div class="logo-area" style="margin-bottom: 15px; justify-content: flex-start;">
+                    <img src="images/logo-banik.png" alt="TJ Baník Vamberk Logo" class="header-logo" onerror="this.style.display='none';">
+                    <span class="club-name">TJ BANÍK VAMBERK</span>
+                </div>
+                <p>Areál V Lukách<br>Jůnova 63, 517 54 Vamberk</p>
+                <p>Email: info@banikvamberk.eu</p>
+                <a href="https://mapy.com/cs/turisticka?source=traf&id=46048718&ds=1&x=16.3009831&y=50.1228999&z=18" target="_blank" rel="noopener noreferrer" class="map-button">
+                    <i class="fas fa-location-dot"></i> Navigovat na stadion
+                </a>
+            </div>
+
+            <!-- Sloupec 2: Rychlé odkazy -->
+            <div class="footer-col center-mobile">
+                <h4>RYCHLÉ ODKAZY</h4>
+                <ul>
+                    <li><a href="a-tym-zapasy.html">Zápasy</a></li>
+                    <li><a href="kontakty.html">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <!-- Sloupec 3: Sociální sítě -->
+            <div class="footer-col center-mobile">
+                <h4>SLEDUJTE NÁS</h4>
+                <div class="social-links" style="display: flex; gap: 15px; align-items: center;">
+                    <a href="https://www.facebook.com/banikvamberk" target="_blank" class="social-icon" aria-label="Facebook" style="font-size: 1.8rem; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-radius: 50%; color: #ffd700; text-decoration: none;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tjbanikvamberk" target="_blank" class="social-icon" aria-label="Instagram" style="font-size: 1.8rem; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-radius: 50%; color: #ffd700; text-decoration: none;">
+                        <i class="fab fa-instagram"></i>
                     </a>
                 </div>
-
-                <!-- Sloupec 2: Rychlé odkazy -->
-                <div class="footer-col center-mobile">
-                    <h4>RYCHLÉ ODKAZY</h4>
-                    <ul>
-                        <li><a href="a-tym-zapasy.html">Zápasy</a></li>
-                        <li><a href="kontakty.html">Kontakt</a></li>
-                    </ul>
-                </div>
-
-                <!-- Sloupec 3: Sociální sítě -->
-                <div class="footer-col center-mobile">
-                    <h4>SLEDUJTE NÁS</h4>
-                    <div class="social-links" style="display: flex; gap: 15px; align-items: center;">
-                        <a href="https://www.facebook.com/banikvamberk" target="_blank" class="social-icon" aria-label="Facebook" style="font-size: 1.8rem; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-radius: 50%; color: #ffd700; text-decoration: none;">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/tjbanikvamberk" target="_blank" class="social-icon" aria-label="Instagram" style="font-size: 1.8rem; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-radius: 50%; color: #ffd700; text-decoration: none;">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Sloupec 4: Partnerské kluby -->
-                <div class="footer-col center-mobile">
-                    <h4>PARTNERSKÉ KLUBY</h4>
-                    <div class="partner-logos-vertical">
-                        <a href="https://www.fchk.cz" target="_blank" rel="noopener" class="partner-item" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                            <img src="images/logo-partner1.png" alt="FC Hradec Králové" style="max-height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x50?text=HRADEC';">
-                            <span>FC Hradec Králové</span>
-                        </a>
-                        <a href="https://www.facebook.com/p/MLKS-Sudety-Międzylesie-Piłka-nożna-100057350503397/" target="_blank" rel="noopener" class="partner-item" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
-                            <img src="images/logo-partner2.png" alt="MLKS Sudety Międzylesie" style="max-height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x50?text=SUDETY';">
-                            <span>MLKS Sudety Międzylesie</span>
-                        </a>
-                    </div>
-                </div>
-
             </div>
 
-            <div class="footer-bottom" style="text-align: center; width: 100%; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-                <p style="margin: 0; color: #aaa; font-size: 0.9rem;">&copy; 2026 TJ Baník Vamberk. Všechna práva vyhrazena.</p>
+            <!-- Sloupec 4: Partnerské kluby -->
+            <div class="footer-col center-mobile">
+                <h4>PARTNERSKÉ KLUBY</h4>
+                <div class="partner-logos-vertical">
+                    <a href="https://www.fchk.cz" target="_blank" rel="noopener" class="partner-item" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <img src="images/logo-partner1.png" alt="FC Hradec Králové" style="max-height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x50?text=HRADEC';">
+                        <span>FC Hradec Králové</span>
+                    </a>
+                    <a href="https://www.facebook.com/p/MLKS-Sudety-Międzylesie-Piłka-nożna-100057350503397/" target="_blank" rel="noopener" class="partner-item" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                        <img src="images/logo-partner2.png" alt="MLKS Sudety Międzylesie" style="max-height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x50?text=SUDETY';">
+                        <span>MLKS Sudety Międzylesie</span>
+                    </a>
+                </div>
             </div>
-            
+
         </div>
-    </footer>
+
+        <div class="footer-bottom" style="text-align: center; width: 100%; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p style="margin: 0; color: #aaa; font-size: 0.9rem;">&copy; 2026 TJ Baník Vamberk. Všechna práva vyhrazena.</p>
+        </div>
+        
+    </div>
+</footer>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
