@@ -1,5 +1,24 @@
 const clankyData = [
 
+            
+                    {
+        id: "22-Preview-Borohradek",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "16. 10. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Naposledy na podzim doma! Vamberk vyzve Borohrádek",
+        perex: "Vamberk čeká předposlední zápas podzimní části. Do Vamberka dorazí a domácí celek vyzve v důležitém souboji před zimní přestávkou TJ Lokomotiva Borohrádek.",
+        obrazek: "images/clanek22.jpeg",
+        obsah: `
+        <p>V rámci 11. kola 8. ligy Baník čeká poslední domácí utkání v podzimní části letošního ročníku. Modrožlutým se na závěr první poloviny souteže začalo dařit, z posledních dvou utkání totiž svěřenci Pavla Potužnika vybojovali šest bodů a posunuli se na 4. místo. Naposledy Baník vyhrál na hřišti v Týništi, kde porazil tamní B-tým 3:1.</p>
+        <p>Průměrnou sezonu zažívá i náš nadcházející soupeř. Lokomotiva se nachází po devíti odehraných zápasech na 6. místě se ziskem třinácti bodů a se skóre 22:20. Půjde tak o souboj dvou týmu s poměrně podobným bodovým ziskem. Borohrádek v posledním kole padl na domácí půdě s Častolovicemi 2:6. Zvládnou modrožlutí důležité utkání před zimní pauzou? Přijďte to zjistit do areálu V Lukách, začínáme v sobotních 13:15!</p>
+    `
+    },  // <--- TADY MUSÍ BÝT ČÁRKA ODŠELUONÁ MEZI OBĚMA ZÁZNAMY
+ 
+
+
               {
         id: "21-Tyniste-B-Vamberk-1-3",
         kat: "a-tym",
