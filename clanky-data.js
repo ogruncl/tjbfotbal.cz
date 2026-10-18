@@ -1,5 +1,23 @@
 const clankyData = [
 
+    
+
+              {
+        id: "23-Vamberk-Borohradek-2-3",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "18. 10. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Vamberk na výhry nenavázal. Baník prohrál s Borohrádkem 2:3",
+        perex: "Vamberečtí chtěli v sobotu na domácí půdě v posledním domácím zápase, co se podzimní části týká, navázat na předcházející dva duely a zapsat další důležité ligové body do tabulky. To se však bohužel po porážce 2:3 s Borohrádkem nepovedlo.",
+        obrazek: "images/clanek23.jpeg",
+        obsah: `
+        <p>Zápas dvou obratů zahájili lépe hráči Lokomotivy, kteří již v deváté minutě po brance <b>Michala Ševčíka</b> vedli 0:1. Domácí Baník však do konce první půle zareagoval nejlépe jak mohl. Nejprve v 29. minutě dokázal míč do branky soupeře <b>Lukáš Brandejs</b> a v 41. minutě dokonce překlopit vedení na stranu domácích <b>Michal Šrom</b> - 2:1.</p>
+        <p>Modrožlutí chtěli ve druhém dějství svůj náskok udržet a dojít si pro další ligové body, proti však byl hostující hráč číslo 12 - <b>Konrad Karkulovski</b>, jenž přišel do hry v rámci poločasového střídání. Později se stal hrdinou zápasu, jelikož nejprve dokázal v 55. minutě stav duelu znovu vyrovnat a v 67. minutě dokonce poslal svůj celek do vedení 3:2. Tento výsledek dokázali hráči v červených dresech udržet až do samého konce a mohli se radovat ze tříbodového vítězství. Poslední podzimní kolo čeká svěřence Pavla Potužnika v neděli 25. 10. na hřišti Černíkovic.</p>
+       `
+    },  
+
             
                     {
         id: "22-Preview-Borohradek",
