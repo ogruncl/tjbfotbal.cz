@@ -15,349 +15,557 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* ==========================================
-           JEDNOTNÝ SPORTOVNÍ FONT (TEKO & MONTSERRAT)
-           ========================================== */
+    /* ==========================================
+       JEDNOTNÝ SPORTOVNÍ FONT (TEKO & MONTSERRAT)
+       ========================================== */
 
-        /* Vynucení fontu Teko pro menu, název klubu, nadpisy, výsledky a týmy */
-        .nav-menu a, 
-        .nav-menu .dropbtn, 
-        .club-name,
-        h1, h2, h3, h4,
-        .card-badge,
-        .team-name,
-        .vs-score-box,
-        .s-round,
-        .s-teams,
-        .s-result,
-        .modal-team-title,
-        .modal-big-score,
-        .match-section-title,
-        .lineup-col h4,
-        .footer-col h4 {
-            font-family: 'Teko', sans-serif !important;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-        }
+    /* Vynucení fontu Teko pro menu, název klubu, nadpisy, výsledky a týmy */
+    .nav-menu a, 
+    .nav-menu .dropbtn, 
+    .club-name,
+    h1, h2, h3, h4,
+    .card-badge,
+    .team-name,
+    .vs-score-box,
+    .s-round,
+    .s-teams,
+    .s-result,
+    .modal-team-title,
+    .modal-big-score,
+    .match-section-title,
+    .lineup-col h4,
+    .footer-col h4 {
+        font-family: 'Teko', sans-serif !important;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+    }
 
-        /* Vyladění velikosti položek v menu pro Teko */
-        .nav-menu a, 
-        .nav-menu .dropbtn {
-            font-size: 1.35rem !important;
-            font-weight: 600 !important;
-        }
+    /* Vyladění velikosti položek v menu pro Teko */
+    .nav-menu a, 
+    .nav-menu .dropbtn {
+        font-size: 1.35rem !important;
+        font-weight: 600 !important;
+    }
 
-        .club-name {
-            font-size: 1.6rem !important;
-            font-weight: 700 !important;
-        }
+    .club-name {
+        font-size: 1.6rem !important;
+        font-weight: 700 !important;
+    }
 
-        /* Jemné přizpůsobení velikostí písma Teko pro prvky zápasů */
-        .card-badge {
-            font-size: 1rem !important;
-            letter-spacing: 0.8px;
-        }
+    /* Jemné přizpůsobení velikostí písma Teko pro prvky zápasů */
+    .card-badge {
+        font-size: 1rem !important;
+        letter-spacing: 0.8px;
+    }
 
-        .team-name {
-            font-size: 1.4rem !important;
-            line-height: 1.1;
-        }
+    .team-name {
+        font-size: 1.4rem !important;
+        line-height: 1.1;
+    }
 
-        .vs-score-box {
-            font-size: 2.5rem !important;
-            line-height: 1;
-        }
+    .vs-score-box {
+        font-size: 2.5rem !important;
+        line-height: 1;
+    }
 
-        .s-round {
-            font-size: 1.05rem !important;
-        }
+    .s-round {
+        font-size: 1.05rem !important;
+    }
 
-        .s-teams {
-            font-size: 1.35rem !important;
-        }
+    .s-teams {
+        font-size: 1.35rem !important;
+    }
 
-        .s-result {
-            font-size: 1.5rem !important;
-        }
+    .s-result {
+        font-size: 1.5rem !important;
+    }
 
-        .modal-team-title {
-            font-size: 1.6rem !important;
-        }
+    .modal-team-title {
+        font-size: 1.6rem !important;
+    }
 
-        .modal-big-score {
-            font-size: 3.2rem !important;
-        }
+    .modal-big-score {
+        font-size: 3.2rem !important;
+    }
 
-        .match-section-title, .footer-col h4 {
-            font-size: 1.4rem !important;
-        }
+    .match-section-title, .footer-col h4 {
+        font-size: 1.4rem !important;
+    }
 
-        /* Ostatní běžné texty přepnuty na čistý Montserrat */
-        body, 
-        .match-info-meta, 
-        .btn-match-detail, 
-        .s-date, 
-        .s-place, 
-        .modal-match-meta, 
-        .match-stats-bar, 
-        .events-list, 
-        .lineup-col li, 
-        .match-report, 
-        .footer-col ul li a, 
-        .footer-bottom {
-            font-family: 'Montserrat', sans-serif !important;
-        }
+    /* Ostatní běžné texty přepnuty na čistý Montserrat */
+    body, 
+    .match-info-meta, 
+    .btn-match-detail, 
+    .s-date, 
+    .s-place, 
+    .modal-match-meta, 
+    .match-stats-bar, 
+    .events-list, 
+    .lineup-col li, 
+    .match-report, 
+    .footer-col ul li a, 
+    .footer-bottom {
+        font-family: 'Montserrat', sans-serif !important;
+    }
 
-        /* STYLY PRO ZÁPASY */
+    /* STYLY PRO ZÁPASY */
+    .featured-matches-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .match-featured-card {
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #e1e4e8;
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .match-featured-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,34,68,0.12);
+    }
+
+    .match-featured-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 5px;
+        background: #002244;
+    }
+
+    .match-featured-card.next::before { background: #ffd700; }
+
+    .card-badge {
+        display: inline-block;
+        text-transform: uppercase;
+        padding: 3px 12px;
+        border-radius: 15px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .badge-next { background: #ffd700; color: #002244; }
+    .badge-last { background: #f0f4f8; color: #555; }
+
+    .match-teams-display {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+
+    .team-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .team-logo { width: 65px; height: 65px; object-fit: contain; }
+    .team-logo-placeholder {
+        width: 65px; height: 65px; background: #f0f4f8; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #002244;
+    }
+
+    .team-name { color: #002244; }
+
+    .vs-score-box {
+        font-weight: 700;
+        color: #002244;
+        padding: 0 15px;
+    }
+
+    .match-info-meta { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+
+    .btn-match-detail {
+        display: inline-block;
+        background: #002244;
+        color: #ffd700;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+
+    /* TABULKA ROZPISU */
+    .schedule-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .schedule-row {
+        background: #ffffff;
+        border: 1px solid #e1e4e8;
+        border-radius: 8px;
+        padding: 15px 20px;
+        display: grid;
+        grid-template-columns: 100px 140px 1fr 100px 90px 100px;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .schedule-row:hover {
+        border-color: #002244;
+        box-shadow: 0 4px 12px rgba(0,34,68,0.08);
+        transform: translateX(3px);
+    }
+
+    .s-round { color: #777; text-transform: uppercase; }
+    .s-date { font-size: 0.9rem; color: #333; font-weight: 500; }
+    .s-teams { color: #002244; display: flex; align-items: center; gap: 8px; }
+    .s-team-logo { width: 24px; height: 24px; object-fit: contain; }
+    .s-team-logo-placeholder {
+        width: 24px; height: 24px; background: #f0f4f8; border-radius: 50%;
+        display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #002244;
+    }
+    .s-place { font-size: 0.85rem; color: #666; }
+    .s-result { font-weight: 700; text-align: right; color: #002244; }
+    .s-result.win { color: #05640a; }
+    .s-result.draw { color: #0a0500; }
+    .s-result.defeat { color: #860101; }
+
+    /* MODAL STYLY PRO DETAIL ZÁPASU */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 34, 68, 0.8);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        align-items: center; justify-content: center;
+        padding: 20px;
+    }
+
+    .modal-card-large {
+        background: #ffffff;
+        width: 100%;
+        max-width: 750px;
+        max-height: 90vh;
+        border-radius: 12px;
+        overflow-y: auto;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        position: relative;
+    }
+
+    .modal-match-header {
+        background: #002244;
+        color: #ffffff;
+        padding: 25px 20px;
+        text-align: center;
+        position: relative;
+        border-bottom: 4px solid #ffd700;
+    }
+
+    .modal-close-btn {
+        position: absolute; top: 12px; right: 15px;
+        background: none; border: none; color: #ffffff; font-size: 1.5rem; cursor: pointer;
+    }
+
+    .modal-match-meta { font-size: 0.85rem; color: #a0aec0; text-transform: uppercase; margin-bottom: 10px; }
+
+    .modal-score-board {
+        display: flex; align-items: center; justify-content: space-around; margin: 15px 0;
+    }
+
+    .modal-team-title { margin-top: 8px; }
+    .modal-big-score { font-weight: 700; color: #ffd700; }
+
+    .modal-match-body { padding: 25px; }
+
+    .match-section-title {
+        color: #002244;
+        border-bottom: 2px solid #ffd700;
+        padding-bottom: 4px; margin: 20px 0 12px 0; text-transform: uppercase;
+    }
+
+    .match-stats-bar {
+        display: flex;
+        justify-content: space-around;
+        background: #f0f4f8;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: #002244;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .events-list { display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; }
+    .event-item { display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 8px 12px; border-radius: 6px; }
+    .event-min { font-weight: 700; color: #002244; min-width: 35px; }
+
+    .lineups-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem; }
+    .lineup-col h4 { color: #002244; margin-bottom: 8px; }
+    .lineup-col ul { list-style: none; padding: 0; margin: 0; }
+    .lineup-col li { padding: 4px 0; border-bottom: 1px dotted #e1e4e8; display: flex; justify-content: space-between; }
+    .lineup-col li span.number { font-weight: bold; color: #002244; margin-right: 6px; }
+
+    .match-report { font-size: 0.95rem; line-height: 1.6; color: #444; background: #f8fafc; padding: 15px; border-radius: 8px; }
+
+    /* FOOTER NAVIGACE */
+    .footer {
+        background: #002244;
+        color: #ffffff;
+        padding: 40px 20px 20px;
+        margin-top: 60px;
+        border-top: 4px solid #ffd700;
+    }
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .footer-col h4 {
+        color: #ffd700;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 6px; }
+    .footer-col ul li a { color: #d0d7de; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #ffd700; }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 0.85rem;
+        color: #a0aec0;
+    }
+
+    /* ==========================================
+       RESPONSIVNÍ ÚPRAVY PRO MOBILNÍ ZAŘÍZENÍ
+       ========================================== */
+
+    @media (max-width: 768px) {
+        .schedule-row { grid-template-columns: 1fr 1fr; }
+        .s-teams { grid-column: span 2; }
+        .lineups-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Oprava přetékání karet mládeže na mobilu (pod 600px) */
+    @media (max-width: 600px) {
         .featured-matches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: 1fr;
         }
 
         .match-featured-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #e1e4e8;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            position: relative;
+            padding: 15px 10px;
             overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .match-featured-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,34,68,0.12);
-        }
-
-        .match-featured-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 5px;
-            background: #002244;
-        }
-
-        .match-featured-card.next::before { background: #ffd700; }
-
-        .card-badge {
-            display: inline-block;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 15px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .badge-next { background: #ffd700; color: #002244; }
-        .badge-last { background: #f0f4f8; color: #555; }
-
+        /* Týmy se na mobilu naskládají pod sebe */
         .match-teams-display {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            margin: 20px 0;
+            flex-direction: column !important;
+            gap: 15px !important;
+            margin: 15px 0 !important;
         }
 
         .team-box {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
+            width: 100% !important;
         }
 
-        .team-logo { width: 65px; height: 65px; object-fit: contain; }
-        .team-logo-placeholder {
-            width: 65px; height: 65px; background: #f0f4f8; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #002244;
+        /* Názvy spojených týmů (např. BOROHRÁDEK/ALBRECHTICE U13) */
+        .team-name {
+            font-size: 1.2rem !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
+            text-align: center !important;
+            padding: 0 5px;
         }
 
-        .team-name { color: #002244; }
+        .team-logo, .team-logo-placeholder {
+            width: 50px !important;
+            height: 50px !important;
+        }
 
         .vs-score-box {
-            font-weight: 700;
-            color: #002244;
-            padding: 0 15px;
+            font-size: 1.8rem !important;
+            padding: 5px 0 !important;
         }
+    }
+    /* ==========================================
+   STYL KARET ZÁPASŮ PODLE B-TÝMU
+   ========================================== */
 
-        .match-info-meta { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+/* Zajištění, že kontejner pro týmy nepohne šířkou karty */
+.match-teams-display {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin: 20px 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
 
-        .btn-match-detail {
-            display: inline-block;
-            background: #002244;
-            color: #ffd700;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-top: 10px;
-        }
+/* Týmový box s pevnou maximální šířkou a středěním */
+.team-box {
+    flex: 1 1 0% !important; /* Rovnoměrný rozpad šířky v řádku */
+    min-width: 0 !important;  /* Klíčové: dovolí textu zalomit se pod logo */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+}
 
-        /* TABULKA ROZPISU */
-        .schedule-list { display: flex; flex-direction: column; gap: 12px; }
+/* Úprava názvu týmu tak, aby se zalomil přesně jako u B-týmu */
+.team-name {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 1.35rem !important;
+    line-height: 1.1 !important;
+    color: #002244 !important;
+    text-transform: uppercase !important;
+    margin: 0 !important;
+    
+    /* Povolení zalomení dlouhých složených názvů (např. MACHOV/STÁRKOV) */
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+}
 
-        .schedule-row {
-            background: #ffffff;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            padding: 15px 20px;
-            display: grid;
-            grid-template-columns: 100px 140px 1fr 100px 90px 100px;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
+/* VS / Skóre blok zůstane pevně uprostřed bez smáčknutí */
+.vs-score-box {
+    flex: 0 0 auto !important;
+    font-family: 'Teko', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: #002244 !important;
+    padding: 0 10px !important;
+    text-align: center !important;
+}
 
-        .schedule-row:hover {
-            border-color: #002244;
-            box-shadow: 0 4px 12px rgba(0,34,68,0.08);
-            transform: translateX(3px);
-        }
+/* Velikost loga */
+.team-logo, .team-logo-placeholder {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+}
 
-        .s-round { color: #777; text-transform: uppercase; }
-        .s-date { font-size: 0.9rem; color: #333; font-weight: 500; }
-        .s-teams { color: #002244; display: flex; align-items: center; gap: 8px; }
-        .s-team-logo { width: 24px; height: 24px; object-fit: contain; }
-        .s-team-logo-placeholder {
-            width: 24px; height: 24px; background: #f0f4f8; border-radius: 50%;
-            display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #002244;
-        }
-        .s-place { font-size: 0.85rem; color: #666; }
-        .s-result { font-weight: 700; text-align: right; color: #002244; }
-        .s-result.win { color: #05640a; }
-        .s-result.draw { color: #0a0500; }
-        .s-result.defeat { color: #860101; }
+/* Responsivní úprava na mobilních zařízeních (přizpůsobení písma šířce) */
+@media (max-width: 500px) {
+    .match-featured-card {
+        padding: 15px 10px !important;
+    }
+    
+    .team-name {
+        font-size: 1.15rem !important; /* Mírné zmenšení pro mobil */
+    }
+    
+    .vs-score-box {
+        font-size: 1.8rem !important;
+        padding: 0 5px !important;
+    }
 
-        /* MODAL STYLY PRO DETAIL ZÁPASU */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 34, 68, 0.8);
-            backdrop-filter: blur(4px);
-            z-index: 1000;
-            align-items: center; justify-content: center;
-            padding: 20px;
-        }
+    .team-logo, .team-logo-placeholder {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+/* Vynucení stejného vzhledu jako u B-týmu (vše v jednom řádku i na mobilu) */
+.match-teams-display {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin: 15px 0 !important;
+}
 
-        .modal-card-large {
-            background: #ffffff;
-            width: 100%;
-            max-width: 750px;
-            max-height: 90vh;
-            border-radius: 12px;
-            overflow-y: auto;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            position: relative;
-        }
+.team-box {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    min-width: 0 !important;
+}
 
-        .modal-match-header {
-            background: #002244;
-            color: #ffffff;
-            padding: 25px 20px;
-            text-align: center;
-            position: relative;
-            border-bottom: 4px solid #ffd700;
-        }
+.team-name {
+    font-size: 0.95rem !important; /* Zmenšení písma, aby se dlouhý název vešel */
+    line-height: 1.1 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
 
-        .modal-close-btn {
-            position: absolute; top: 12px; right: 15px;
-            background: none; border: none; color: #ffffff; font-size: 1.5rem; cursor: pointer;
-        }
+.vs-score-box {
+    flex: 0 0 auto !important;
+    font-size: 1.5rem !important;
+    padding: 0 8px !important;
+}
 
-        .modal-match-meta { font-size: 0.85rem; color: #a0aec0; text-transform: uppercase; margin-bottom: 10px; }
+.team-logo, .team-logo-placeholder {
+    width: 45px !important;
+    height: 45px !important;
+}
+/* Zachování naprosto stejného vzhledu a velikosti jako u B-týmu */
+.match-teams-display {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+    margin: 20px 0 !important;
+}
 
-        .modal-score-board {
-            display: flex; align-items: center; justify-content: space-around; margin: 15px 0;
-        }
+.team-box {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    min-width: 0 !important; /* Dovolí flexboxu držet vedle sebe i dlouhý název */
+}
 
-        .modal-team-title { margin-top: 8px; }
-        .modal-big-score { font-weight: 700; color: #ffd700; }
+/* Velikost textu a loga zůstává velká jako u B-týmu, jen se dlouhý název úhledně zalomí */
+.team-name {
+    font-family: 'Teko', sans-serif !important;
+    font-size: 1.4rem !important; 
+    line-height: 1.1 !important;
+    color: #002244 !important;
+    text-transform: uppercase !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+}
 
-        .modal-match-body { padding: 25px; }
+.vs-score-box {
+    flex: 0 0 auto !important;
+    font-family: 'Teko', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: #002244 !important;
+    padding: 0 10px !important;
+}
 
-        .match-section-title {
-            color: #002244;
-            border-bottom: 2px solid #ffd700;
-            padding-bottom: 4px; margin: 20px 0 12px 0; text-transform: uppercase;
-        }
-
-        .match-stats-bar {
-            display: flex;
-            justify-content: space-around;
-            background: #f0f4f8;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: #002244;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .events-list { display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; }
-        .event-item { display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 8px 12px; border-radius: 6px; }
-        .event-min { font-weight: 700; color: #002244; min-width: 35px; }
-
-        .lineups-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem; }
-        .lineup-col h4 { color: #002244; margin-bottom: 8px; }
-        .lineup-col ul { list-style: none; padding: 0; margin: 0; }
-        .lineup-col li { padding: 4px 0; border-bottom: 1px dotted #e1e4e8; display: flex; justify-content: space-between; }
-        .lineup-col li span.number { font-weight: bold; color: #002244; margin-right: 6px; }
-
-        .match-report { font-size: 0.95rem; line-height: 1.6; color: #444; background: #f8fafc; padding: 15px; border-radius: 8px; }
-
-        /* FOOTER NAVIGACE */
-        .footer {
-            background: #002244;
-            color: #ffffff;
-            padding: 40px 20px 20px;
-            margin-top: 60px;
-            border-top: 4px solid #ffd700;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
-        }
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .footer-col h4 {
-            color: #ffd700;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-        .footer-col ul { list-style: none; padding: 0; margin: 0; }
-        .footer-col ul li { margin-bottom: 6px; }
-        .footer-col ul li a { color: #d0d7de; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-        .footer-col ul li a:hover { color: #ffd700; }
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.85rem;
-            color: #a0aec0;
-        }
-
-        @media (max-width: 768px) {
-            .schedule-row { grid-template-columns: 1fr 1fr; }
-            .s-teams { grid-column: span 2; }
-            .lineups-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+.team-logo, .team-logo-placeholder {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+}
+</style>
 </head>
 <body>
 
@@ -445,13 +653,11 @@
                     <div class="team-box">
                         <img src="images/logo-machov.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">MACHOV/STÁRKOV U17</span>
                     </div>
                     <div class="vs-score-box">VS</div>
                     <div class="team-box">
                         <img src="images/logo-banik.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">VAMBERK U17</span>
                     </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
@@ -468,13 +674,11 @@
                     <div class="team-box">
                         <img src="images/logo-borohradek.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">BOROHRÁDEK/ALBRECHTICE U13</span>
                     </div>
                     <div class="vs-score-box">VS</div>
                     <div class="team-box">
                         <img src="images/logo-banik.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
-                        <span class="team-name">VAMBERK U13</span>
                     </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
@@ -495,13 +699,9 @@
                 <span class="s-round">1. KOLO</span>
                 <span class="s-date">06.09.2026 (12:30)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
-                    <span>vs</span>
                     <img src="images/logo-machov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Machov/Stárkov U17
+                    Jiskra Veba Machov/TJ Sokol Stárkov U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">5 : 0</span>
@@ -514,14 +714,10 @@
                 <span class="s-teams">
                     <img src="images/logo-babi.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Babí/Zábrodí U17
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
+                    SK Babí/TJ Sokol Zábrodí U17
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result win">3 : 6</span>
+                <span class="s-result win">6 : 3</span>
                 <span></span>
             </div>
 
@@ -529,13 +725,9 @@
                 <span class="s-round">3. KOLO</span>
                 <span class="s-date">20.09.2026 (12:00)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
-                    <span>vs</span>
                     <img src="images/logo-prepychy.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Přepychy U17
+                    SK Přepychy U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">6 : 3</span>
@@ -548,14 +740,10 @@
                 <span class="s-teams">
                     <img src="images/logo-borohradek.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Borohrádek/Albrechtice U17
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
+                    TJ Lokomotiva Borohrádek/SK Albrechtice n.O. U17
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result defeat">6 : 3</span>
+                <span class="s-result defeat">3 : 6</span>
                 <span></span>
             </div>
 
@@ -563,13 +751,9 @@
                 <span class="s-round">5. KOLO</span>
                 <span class="s-date">30.09.2026 (16:30)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
-                    <span>vs</span>
                     <img src="images/logo-opocno.webp" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Dobruška/Opočno U17
+                    SK Dobruška/TJ Spartak Opočno U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">8 : 4</span>
@@ -582,14 +766,10 @@
                 <span class="s-teams">
                     <img src="images/logo-javornice.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Javornice/Rychnov n.K. B U17
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
+                    TJ Sokol Javornice/FC Spartak Rychnov n.K. B U17
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result win">0 : 11</span>
+                <span class="s-result win">11 : 0</span>
                 <span></span>
             </div>
 
@@ -599,11 +779,7 @@
                 <span class="s-teams">
                     <img src="images/logo-machov.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Machov/Stárkov U17
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
+                    Jiskra Veba Machov/TJ Sokol Stárkov U17
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>
@@ -614,13 +790,9 @@
                 <span class="s-round">9. KOLO</span>
                 <span class="s-date">28.10.2026 (10:00)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
-                    <span>vs</span>
                     <img src="images/logo-babi.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Babí/Zábrodí U17
+                    SK Babí/TJ Sokol Zábrodí U17
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result">- : -</span>
@@ -633,11 +805,7 @@
                 <span class="s-teams">
                     <img src="images/logo-prepychy.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Přepychy U17
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U17</strong>
+                    SK Přepychy U17
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>
@@ -654,13 +822,9 @@
                 <span class="s-round">1. KOLO</span>
                 <span class="s-date">06.09.2026 (12:30)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
-                    <span>vs</span>
                     <img src="images/logo-ceske-mezirici.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Č. Meziříčí/Dobruška B U13
+                    FC České Meziříčí/SK Dobruška B U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">6 : 3</span>
@@ -673,14 +837,10 @@
                 <span class="s-teams">
                     <img src="images/logo-tyniste.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Týniště n.O. U13
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
+                    SK Týniště n.O. U13
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result win">1 : 4</span>
+                <span class="s-result win">4 : 1</span>
                 <span></span>
             </div>
 
@@ -688,13 +848,9 @@
                 <span class="s-round">3. KOLO</span>
                 <span class="s-date">20.09.2026 (12:00)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
-                    <span>vs</span>
                     <img src="images/logo-borohradek.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Borohrádek/Albrechtice U13
+                    TJ Lokomotiva Borohrádek/SK Albrechtice n.O. U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result defeat">1 : 10</span>
@@ -707,14 +863,10 @@
                 <span class="s-teams">
                     <img src="images/logo-prepychy.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Přepychy U13
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
+                    SK Přepychy U13
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result defeat">8 : 2</span>
+                <span class="s-result defeat">2 : 8</span>
                 <span></span>
             </div>
 
@@ -722,13 +874,9 @@
                 <span class="s-round">5. KOLO</span>
                 <span class="s-date">03.10.2026 (11:30)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
-                    <span>vs</span>
                     <img src="images/logo-cernikovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Černíkovice/Solnice B U13
+                    TJ Sokol Černíkovice/SK Solnice B U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result win">6 : 2</span>
@@ -741,14 +889,10 @@
                 <span class="s-teams">
                     <img src="images/logo-ceske-mezirici.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Č. Meziříčí/Dobruška B U13
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
+                    FC České Meziříčí/SK Dobruška B U13
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result win">1 : 7</span>
+                <span class="s-result win">7 : 1</span>
                 <span></span>
             </div>
 
@@ -756,13 +900,9 @@
                 <span class="s-round">7. KOLO</span>
                 <span class="s-date">17.10.2026 (12:30)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
-                    <span>vs</span>
                     <img src="images/logo-tyniste.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Týniště n.O. U13
+                    SK Týniště n.O. U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result draw">2 : 2</span>
@@ -775,11 +915,7 @@
                 <span class="s-teams">
                     <img src="images/logo-borohradek.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Borohrádek/Albrechtice U13
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
+                    TJ Lokomotiva Borohrádek/SK Albrechtice n.O. U13
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>
@@ -790,13 +926,9 @@
                 <span class="s-round">9. KOLO</span>
                 <span class="s-date">28.10.2026 (10:00)</span>
                 <span class="s-teams">
-                    <img src="images/logo-banik.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
-                    <span>vs</span>
                     <img src="images/logo-prepychy.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Přepychy U13
+                    SK Přepychy U13
                 </span>
                 <span class="s-place"><i class="fas fa-home"></i> Doma</span>
                 <span class="s-result">- : -</span>
@@ -809,11 +941,7 @@
                 <span class="s-teams">
                     <img src="images/logo-cernikovice.png" alt="Vamberk" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
                     <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    Černíkovice/Solnice B U13
-                    <span>vs</span>
-                    <img src="images/logo-banik.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-                    <strong>Vamberk U13</strong>
+                    TJ Sokol Černíkovice/SK Solnice B U13
                 </span>
                 <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
                 <span class="s-result">- : -</span>
