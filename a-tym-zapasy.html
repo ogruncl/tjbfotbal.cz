@@ -442,42 +442,42 @@
             <div class="match-featured-card next">
                 <span class="card-badge badge-next">Nejbližší utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Neděle 25.10.2026 | <i class="far fa-clock"></i> 14:30
+                    <i class="far fa-calendar-alt"></i> Jaro 2027 | <i class="far fa-clock"></i> 
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-cernikovice.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                     </div>
                     <div class="vs-score-box">VS</div>
                     <div class="team-box">
-                        <img src="images/logo-banik.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-.png" alt="České Meziříčí" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                     </div>
                 </div>
                 <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Hřiště Černíkovice
+                    <i class="fas fa-map-marker-alt"></i> 
                 </div>
             </div>
 
             <div class="match-featured-card" onclick="openMatchModal()">
                 <span class="card-badge badge-last">Poslední utkání</span>
                 <div class="match-info-meta">
-                    <i class="far fa-calendar-alt"></i> Sobota 17.10.2026
+                    <i class="far fa-calendar-alt"></i> Neděle 25.10.2026
                 </div>
                 <div class="match-teams-display">
                     <div class="team-box">
-                        <img src="images/logo-banik.png" alt="Lípa n.O." class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-cernikovice.png" alt="Lípa n.O." class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                     </div>
-                    <div class="vs-score-box" style="color: #0a0a0a;">2:3</div>
+                    <div class="vs-score-box" style="color: #0a0a0a;">3:1</div>
                     <div class="team-box">
-                        <img src="images/logo-borohradek.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="images/logo-banik.png" alt="TJ Baník Vamberk" class="team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></div>
                     </div>
                     </div>
                                     <div class="match-info-meta" style="margin-bottom: 0;">
-                    <i class="fas fa-map-marker-alt"></i> Areál V Lukách, Vamberk
+                    <i class="fas fa-map-marker-alt"></i> Hřiště Černíkovice
                 </div>
                 </div>
             </div>
@@ -1286,21 +1286,72 @@
     <span class="s-result defeat">2 : 3</span>
     <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
 </div>
-    <div class="schedule-row">
+<div class="schedule-row" 
+     onclick="otevritZapas(this)"
+     data-meta="1. Kolo | Neděle 25.10.2026 | 14:30 | Hřiště Černíkovice"
+     data-domaci="ČERNÍKOVICE"
+     data-hoste="VAMBERK"
+     data-logo-domaci="images/logo-cernikovice.png"
+     data-logo-hoste="images/logo-banik.png"
+     data-skore="3 : 1"
+     data-polocas="(Poločas: 1:1)"
+     data-divaci="65"
+     data-rozhodci="Hendrych - Nosek, Provazník"
+     data-udalosti='[  
+        {"min": "11&apos;", "typ": "stridani", "text": "Střídání Černíkovice: Odchází Jan Hlavsa, přichází Matvii Pshenytskyi"},
+        {"min": "18&apos;", "typ": "gol-h", "text": "Gól Černíkovice. Jindřich Kačírek - 1:0"},
+        {"min": "33&apos;", "typ": "gol-d", "text": "Gól Vamberk! Michal Šrom - 1:1"},
+        {"min": "35&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Lukáš Brandejs, přichází Ondřej Dostál"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Marek Hamerský, přichází Josef Jansa"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Tomáš Honzík, přichází Tomáš Martinec"},
+        {"min": "46&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Tomáš Šafařík, přichází Ondřej Halamka"},
+        {"min": "49&apos;", "typ": "karta", "text": "Žlutá karta pro hostujícího Ondřeje Dostála"},
+        {"min": "55&apos;", "typ": "gol-h", "text": "Gól Černíkovice. Ondřej Školník - 2:1"},
+        {"min": "76&apos;", "typ": "karta", "text": "Žlutá karta pro domácího Ondřeje Školníka"},    
+        {"min": "79&apos;", "typ": "karta", "text": "Žlutá karta pro hostujícího Josefa Jansu"},
+        {"min": "82&apos;", "typ": "gol-h", "text": "Gól Černíkovice. Jakub Hillebrand - 3:1"},
+        {"min": "83&apos;", "typ": "stridani", "text": "Střídání Vamberk: Odchází Štěpán Tadeáš Bašnik, přichází Tomáš Franc"},
+        {"min": "85&apos;", "typ": "stridani", "text": "Střídání Černíkovice. Odchází Jindřich Kačírek, přichází Jan Hoffman"}
+     ]'
+     data-sestava-domaci='[
+        {"cislo": "30", "jmeno": "Volodymyr Harastei"},
+        {"cislo": "6", "jmeno": "Vojtěch Hofman"},
+        {"cislo": "7", "jmeno": "Miroslav Pups"},
+        {"cislo": "9", "jmeno": "Matěj Vašata"},
+        {"cislo": "10", "jmeno": "Jakub Hillebrand", "kapitan": true},
+        {"cislo": "12", "jmeno": "Ondřej Školník"},
+        {"cislo": "14", "jmeno": "Jindřich Kačírek"},
+        {"cislo": "15", "jmeno": "Oleksandr Zubchenko"},
+        {"cislo": "16", "jmeno": "Daniel Ludvík"},
+        {"cislo": "17", "jmeno": "Martin Stodůlka"},
+        {"cislo": "18", "jmeno": "Jan Hlavsa"}
+     ]'
+     data-sestava-hoste='[
+        {"cislo": "55", "jmeno": "Jaroslav Klofanda"},
+        {"cislo": "7", "jmeno": "Marek Hamerský"},
+        {"cislo": "15", "jmeno": "Štěpán Tadeáš Bašnik"},
+        {"cislo": "21", "jmeno": "Michal Šrom"},
+        {"cislo": "22", "jmeno": "Tomáš Šafařík"},
+        {"cislo": "23", "jmeno": "Daniel Halamka"},
+        {"cislo": "24", "jmeno": "Michael Lebeda"},
+        {"cislo": "45", "jmeno": "Lukáš Brandejs"},
+        {"cislo": "47", "jmeno": "Tomáš Honzík"},
+        {"cislo": "71", "jmeno": "Petr Šimeček", "kapitan": true},
+        {"cislo": "88", "jmeno": "Marek Malý"}
+     ]'
+     data-ohlas="<strong>Trenér TJ Baník Vamberk Pavel Potužník:</strong> <em>Na těžkém terénu a za vytrvalého deště se hrál bojovný fotbal. Domácí se lépe pohybovali, zatímco nám vázla kombinace a chyběl pohyb. Do druhého poločasu jsme udělali tři změny, kýžený efekt to ale nepřineslo. Domácí běhali, bojovali o každý míč a to na nás stačilo. Výsledek je spravedlivý. Do jarní části máme na čem pracovat. Pokud ale bude naše tréninková morálka podobná té, kterou hráči předváděli na konci podzimu, budeme mít na jaře problémy.</em>">
+
     <span class="s-round">1. KOLO</span>
     <span class="s-date">25.10.2026 (14:30)</span>
-<span class="s-teams">
+    <span class="s-teams">
         <img src="images/logo-cernikovice.png" alt="Černíkovice" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
         <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
-        TJ Sokol Černíkovice
+        Černíkovice
     </span>
-                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
-                <span class="s-result">- : -</span>
-                <span></span>
-            </div>
-
-        </div>
-
+    <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+    <span class="s-result defeat">1 : 3</span>
+    <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
+</div>
     </main>
 
 <div id="matchModal" class="modal-overlay" onclick="closeMatchModal(event)">
