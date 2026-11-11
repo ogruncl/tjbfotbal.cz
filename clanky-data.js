@@ -1,5 +1,23 @@
 const clankyData = [
 
+
+    
+              {
+        id: "24-Den-Valecnych-Veteranu",
+        kat: "mladez",
+        badgeText: "Mládež",
+        badgeClass: "badge-mladez",
+        datum: "10. 11. 2026",
+        autor: "Ondřej Gruncl | Ondřej Frejvald",
+        titulek: "Trénink ve znamení dne válečných veteránů",
+        perex: "Dnešní trénink mladších žáků jsme na chvíli věnovali také vzpomínce na Den válečných veteránů. Chtěli jsme dětem připomenout, že svoboda, kterou dnes máme, není samozřejmostí a že za ni vděčíme lidem, kteří byli a jsou ochotni nasadit své životy ve službě vlasti.",
+        obrazek: "images/clanek24.jpeg",
+        obsah: `
+        <p>O to výjimečnější pro nás bylo, že se o své zkušenosti mohl podělit náš trenér, který je válečným veteránem a stále slouží v aktivní vojenské službě. Je pro nás velkou ctí, že můžeme naslouchat jeho vyprávění o službě naší zemi, o odpovědnosti, odvaze a hodnotách, které jsou důležité nejen ve vojenském prostředí, ale také v běžném životě. Nesmírně si vážíme všech válečných veteránů, jejich služby, odvahy a obětí. Nezapomínáme na ty, kteří bojovali za naši svobodu, ani na ty, kteří ji chrání i dnes. Děkujeme, že nám připomínáte, že vlastenectví, odvaha a úcta mají své místo i v dnešní době. Čest jejich památce a poděkování všem, kteří sloužili a slouží naší vlasti.
+      `
+    },  
+
+
     
 
               {
