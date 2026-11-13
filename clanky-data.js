@@ -1,5 +1,22 @@
 const clankyData = [
 
+               {
+        id: "25-Hodnoceni-Podzimni-Sezony-A-Tym",
+        kat: "a-tym",
+        badgeText: "A-tým",
+        badgeClass: "badge-a-tym",
+        datum: "12. 11. 2026",
+        autor: "Ondřej Gruncl | Pavel Potužnik",
+        titulek: "Pavel Potužnik: S umístěním po podzimní části spokojen nejsem",
+        perex: "Vamberecké áčko má za sebou první polovinu ligového ročníku 8. ligy, do které se v letošním létě po jednoroční přestávce opět vrátil. Nově složený tým kouče Pavla Potužnika odehrál několik vyrovnaných bitev a prohrál jen třikrát, přesto z toho bylo až sedmé místo.",
+        obrazek: "images/clanek25.jpeg",
+        obsah: `
+        <p>Hned deset hráčů dovedl do hráčského kádru trenér Potužnik, jenž se také po dlouhé době vrátil na lavičku modrožlutého celku. Jeho předsezonní cíl však v první polovině soutěže nebyl naplněn, jeho vysněná první polovina tabulky z toho těsně není. Baník nakonec po jedenácti utkáních bere v 8. lize sedmou pozici se ziskem čtrnácti bodů a se skóre 27:20. Vypadalo to však nadějněji, v 1. kole totiž Vamberečtí v rámci oslav 120 let od založení klubu přivítali rivala z Doudleb nad Orlicí a nadělili jim čtyři branky. Následně však přišla série čtyř remíz a také první porážka od prozatím suverénní Lukavice, která nakonec zakončila podzim na první příčce bez ztráty jediného bodu a jde si tak za postupem do vyšší soutěže.</p>
+        <p>Do startu přestávky si Baník připsal ještě dvě vítězství, jednu remízu a dvě porážky v samém závěru. Jinak se týmu naopak dařilo v okresním poháře, jelikož po výhře nad Slatinou nad Zdobnicí a následně i nad Doudlebami je čeká v květnu domácí semifinále s Českým Meziříčím, ve hře je tak postup do finále. Nejlepším střelcem se s deseti góly stal kapitán <b>Petr Šimeček</b>. Střelecky se nezapomněl ani patnáctiletý <b>Marek Hamerský</b> nebo zkušený <b>Michal Šrom</b>. Nyní čeká modrožluté dlouha čtyřměsíční zimní přestávka, ve které tým čeká například soustředění v Ústí nad Orlicí. V jednání jsou také příchody nových hráčů. Jak už jsme zmiňovali v předchozích týdnech, aktuálně stále probíhají jednání o návratu Portugalce <b>Flavia</b>. Začátek jarní části čeká Vamberk 3. dubna 2027 doma proti Černíkovicím.</p>
+        <p><b>Hodnocení trenéra Pavla Potužnika:</b> <em>"S umístěním po podzimní části spokojen nejsem. Ztratili jsme zbytečně spoustu bodů. Tréninková docházka se zápas od zápasu snižovala, což mě mrzí. Doufám, že se přístup hráčů během zimní přípravy změní. Tu bychom měli zahájit začátkem února. Trénovat budeme třikrát týdně a v plánu je také čtyřdenní soustředění v Ústí nad Orlicí. Co se týče posil pro jarní část, jednáme s pěti hráči a doufám, že se nám je podaří přivést do Vamberka, čímž bychom kádr zkvalitnili."</em></p>
+      `
+    },  
+
 
     
               {
