@@ -357,6 +357,37 @@
             .s-teams { grid-column: span 2; }
             .lineups-grid { grid-template-columns: 1fr; }
         }
+
+        .season-switcher {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.season-btn {
+    background: #f0f4f8;
+    color: #002244;
+    border: 1px solid #e1e4e8;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.season-btn:hover {
+    border-color: #002244;
+}
+
+/* Aktivní tlačítko (zvolená sezóna) */
+.season-btn.active {
+    background: #002244;
+    color: #ffd700;
+    border-color: #002244;
+}
         
     </style>
 </head>
@@ -484,13 +515,48 @@
 
         </div>
 
-        <div class="section-header" style="margin-top: 50px;">
-            <h2>ROZPIS A VÝSLEDKY SEZÓNY (8. LIGA)</h2>
-        </div>
 
-        <div class="schedule-list">
-            
-<div class="schedule-row" 
+
+        <!-- Přepínač sezon -->
+<div class="season-switcher">
+    <button class="season-btn active" onclick="zmenSezonu('2026-27', this)">2026/2027</button>
+    <button class="season-btn" onclick="zmenSezonu('2025-26', this)">2025/2026</button>
+    <button class="season-btn" onclick="zmenSezonu('2024-25', this)">2024/2025</button>
+</div>
+
+<!-- SEZÓNA 2026/2027 (výchozí viditelná) -->
+<div id="sezona-2026-27" class="season-content active-season">
+            <div class="section-header" style="margin-top: 50px;">
+            <h2>OKRESNÍ PŘEBOR (8. LIGA)</h2>
+        </div>
+    <div class="schedule-list">
+        <!-- Zde jsou vaše zápasy pro sezónu 2026/2027 -->
+                             <div class="schedule-row">
+                <span class="s-round">PŘÍPRAVA</span>
+                <span class="s-date">25.07.2026 (10:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdelov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    FC Zdelov 1963
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result defeat">3 : 10</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">PŘÍPRAVA</span>
+                <span class="s-date">29.07.2026 (18:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-provodov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    Sokol Provodov
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result defeat">3 : 6</span>
+                <span></span>
+            </div>
+
+         <div class="schedule-row" 
      onclick="otevritZapas(this)"
      data-meta="2. Kolo | Sobota 15.08.2026 | 15:00 | Areál V Lukách, Vamberk"
      data-domaci="VAMBERK"
@@ -1484,7 +1550,7 @@
                 <span class="s-result win"> : </span>
                 <span></span>
             </div>
-                                                                        <div class="schedule-row">
+            <div class="schedule-row">
                 <span class="s-round">22. KOLO</span>
                 <span class="s-date">13.06.2027 (17:00)</span>
                 <span class="s-teams">
@@ -1496,6 +1562,571 @@
                 <span class="s-result win"> : </span>
                 <span></span>
             </div>
+    </div>
+</div>
+
+<!-- SEZÓNA 2025/2026 (ze začátku skrytá) -->
+<div id="sezona-2025-26" class="season-content" style="display: none;">
+    <div class="schedule-list">
+                <div class="section-header" style="margin-top: 50px;">
+            <h2>OP III. TŘÍDY (9. LIGA)</h2>
+        </div>
+        <!-- Zde budou zápasy pro sezónu 2025/2026 -->
+                    <div class="schedule-row">
+                <span class="s-round">2. KOLO</span>
+                <span class="s-date">16.08.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdar.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Žďár n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result draw">1 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">3. KOLO</span>
+                <span class="s-date">24.08.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-roven.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ FC Roveň
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">1 : 0</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">4. KOLO</span>
+                <span class="s-date">31.08.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-krovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ FO Křovice
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">3 : 0</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">5. KOLO</span>
+                <span class="s-date">06.09.2025 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-krivice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Křivice
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">0 : 3</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">6. KOLO</span>
+                <span class="s-date">13.09.2025 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-castolovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    AFK Častolovice B
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">3 : 0</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">7. KOLO</span>
+                <span class="s-date">21.09.2025 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-doudleby.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Velešov Doudleby n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">3 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">8. KOLO</span>
+                <span class="s-date">27.09.2025 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-petrovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Petrovice n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result draw">1 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">9. KOLO</span>
+                <span class="s-date">04.10.2025 (16:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdelov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    FC Zdelov 1963
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result draw">1 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">11. KOLO</span>
+                <span class="s-date">18.10.2025 (15:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-voderady.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Voděrady
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">7 : 0</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">12. KOLO</span>
+                <span class="s-date">25.10.2025 (14:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-lipa.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Lípa n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result draw">3 : 3</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">1. KOLO</span>
+                <span class="s-date">28.10.2025 (09:45)</span>
+                <span class="s-teams">
+                    <img src="images/logo-javornice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Javornice B
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result draw">2 : 2</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">13. KOLO</span>
+                <span class="s-date">01.11.2025 (14:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-kostelecka-lhota.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Kostelecká Lhota
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">4 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">2. KOLO</span>
+                <span class="s-date">16.08.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdar.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Žďár n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result draw">1 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">15. KOLO</span>
+                <span class="s-date">28.03.2026 (15:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdar.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Žďár n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">3 : 2</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">16. KOLO</span>
+                <span class="s-date">04.04.2026 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-roven.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ FC Roveň
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">4 : 2</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">17. KOLO</span>
+                <span class="s-date">11.04.2026 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-krovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ FO Křovice
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">2 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">18. KOLO</span>
+                <span class="s-date">18.04.2026 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-krivice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Křivice
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">3 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">19. KOLO</span>
+                <span class="s-date">26.04.2026 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-castolovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    AFK Častolovice B
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">3 : 5</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">20. KOLO</span>
+                <span class="s-date">02.05.2026 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-doudleby.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Velešov Doudleby n.O. B
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">3 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">21. KOLO</span>
+                <span class="s-date">10.05.2026 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-petrovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Petrovice n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">3 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">22. KOLO</span>
+                <span class="s-date">16.05.2026 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdelov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    FC Zdelov 1963
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result defeat">0 : 3</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">24. KOLO</span>
+                <span class="s-date">30.05.2026 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-voderady.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Voděrady
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">5 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">25. KOLO</span>
+                <span class="s-date">07.06.2026 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-lipa.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Lípa n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">1 : 4</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">26. KOLO</span>
+                <span class="s-date">13.06.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-kostelecka-lhota.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Kostelecká Lhota
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">3 : 1</span>
+                <span></span>
+            </div>
+                                <div class="schedule-row">
+                <span class="s-round">14. KOLO</span>
+                <span class="s-date">20.06.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-javornice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Javornice B
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">5 : 3</span>
+                <span></span>
+            </div>
+    </div>
+</div>
+
+<!-- SEZÓNA 2024/2025 (ze začátku skrytá) -->
+<div id="sezona-2024-25" class="season-content" style="display: none;">
+                <div class="section-header" style="margin-top: 50px;">
+            <h2>OKRESNÍ PŘEBOR (8. LIGA)</h2>
+        </div>
+    <div class="schedule-list">
+        <!-- Zde budou zápasy pro sezónu 2024/2025 -->
+                             <div class="schedule-row">
+                <span class="s-round">2. KOLO</span>
+                <span class="s-date">18.08.2024 (13:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-borohradek.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Lokomotiva Borohrádek
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result draw">1 : 1</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">3. KOLO</span>
+                <span class="s-date">25.08.2024 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-cernikovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Černíkovice
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">4 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">4. KOLO</span>
+                <span class="s-date">01.09.2024 (13:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-lukavice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Lukavice
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">5 : 1</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">5. KOLO</span>
+                <span class="s-date">08.09.2024 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-dobruska.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    SK Dobruška B
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">1 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">7. KOLO</span>
+                <span class="s-date">22.09.2024 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-albrechtice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    SK Albrechtice n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">0 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">8. KOLO</span>
+                <span class="s-date">29.09.2024 (13:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-doudleby.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Velešov Doudleby n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result defeat">1 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">9. KOLO</span>
+                <span class="s-date">06.10.2024 (16:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-castolovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    AFK Častolovice
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">1 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">10. KOLO</span>
+                <span class="s-date">13.10.2024 (12:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-kostelec.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    FK ROJEK Kostelec n.O. B
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result defeat">1 : 4</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">1. KOLO</span>
+                <span class="s-date">26.10.2024 (14:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdelov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    FC Zdelov 1963
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">2 : 3</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">6. KOLO</span>
+                <span class="s-date">03.11.2024 (12:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-solnice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    SK Solnice B
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">3 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">12. KOLO</span>
+                <span class="s-date">06.04.2025 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-zdelov.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    FC Zdelov 1963
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result defeat">0 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">13. KOLO</span>
+                <span class="s-date">13.04.2025 (16:30)</span>
+                <span class="s-teams">
+                    <img src="images/logo-borohradek.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Lokomotiva Borohrádek
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result win">1 : 0</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">14. KOLO</span>
+                <span class="s-date">20.04.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-cernikovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Černíkovice
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result defeat">1 : 4</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">15. KOLO</span>
+                <span class="s-date">27.04.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-lukavice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Sokol Lukavice
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result draw">2 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">16. KOLO</span>
+                <span class="s-date">04.05.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-dobruska.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    SK Dobruška B
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">5 : 1</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">17. KOLO</span>
+                <span class="s-date">11.05.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-solnice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    SK Solnice B
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">0 : 5</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">18. KOLO</span>
+                <span class="s-date">18.05.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-albrechtice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    SK Albrechtice n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-home"></i> Doma</span>
+                <span class="s-result win">3 : 2</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">19. KOLO</span>
+                <span class="s-date">24.05.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-doudleby.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    TJ Velešov Doudleby n.O.
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">2 : 7</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">20. KOLO</span>
+                <span class="s-date">01.06.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-castolovice.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    AFK Častolovice 
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">1 : 4</span>
+                <span></span>
+            </div>
+                                         <div class="schedule-row">
+                <span class="s-round">21. KOLO</span>
+                <span class="s-date">07.06.2025 (17:00)</span>
+                <span class="s-teams">
+                    <img src="images/logo-kostelec.png" alt="České Meziříčí" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    FK ROJEK Kostelec n.O. B
+                </span>
+                <span class="s-place"><i class="fas fa-plane"></i> Venku</span>
+                <span class="s-result defeat">0 : 5</span>
+                <span></span>
+            </div>
+    </div>
+</div>
+
+            
+
             
     </main>
 
@@ -1708,6 +2339,23 @@ function closeMatchModal(event) {
     }
 }
 </script>
+<script>
+        function zmenSezonu(sezonaId, tlacitko) {
+            const sezony = document.querySelectorAll('.season-content');
+            sezony.forEach(s => s.style.display = 'none');
+
+            const aktivniSezona = document.getElementById('sezona-' + sezonaId);
+            if (aktivniSezona) {
+                aktivniSezona.style.display = 'block';
+            }
+
+            const tlacitka = document.querySelectorAll('.season-btn');
+            tlacitka.forEach(btn => btn.classList.remove('active'));
+
+            tlacitko.classList.add('active');
+        }
+    </script>
+</body>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

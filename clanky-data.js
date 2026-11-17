@@ -1,11 +1,47 @@
 const clankyData = [
 
+    
+    
+        {
+        id: "26-Rozhovor-Michael-Ptacek",
+        kat: "klub",
+        badgeText: "Klub",
+        badgeClass: "badge-klub",
+        datum: "17. 11. 2026",
+        autor: "Ondřej Gruncl",
+        titulek: "Michael Ptáček o své kariéře. Co radí mladýn hráčům?",
+        perex: "Šestadvacetiletý fotbalista Michael Ptáček, který svou kariéru začínal ve Vamberku a postupně prošel Hradcem Králové, Ústím nad Orlicí a Solnicí, až se dostal do divizní Police nad Metují, se rozpovídal v rozhovoru pro klubový web Baníku. Důkladně popisuje svoje začátky, průběh herní kariéry či fotbalovou spolupráci s bratrem Robinem.",
+        obrazek: "images/clanek26.jpg",
+        obsah: `
+        <h3>Michaeli, aktuálně působíš ve čtvrtoligové Polici nad Metují. Jak si zdejší angažmá užíváš a jak jsi v klubu spokojený?</h3><br>
+        <p>V Polici jsem už skoro rok a musím říct, že mě tam fotbal baví. Dlouhé dojíždění sice není úplně ideální, ale máme dobrou partu a velmi šikovné hráče, takže si tamní fotbal užívám.</p>
+        <h3>Je ti 26 let, což je pro fotbalistu ideální věk. Máš ještě ambice posunout se do vyšší soutěže, nebo jsi v současnosti spokojený tam, kde působíš?</h3><br>
+        <p>V minulosti jsem si už třetí ligu zahrál a ambice hrát ji znovu nemám (možná už na to ani nemám výkonnost). Navíc skloubit fotbal s prací už je poměrně obtížné. Momentálně jsem spokojený tam, kde jsem.</p>
+        <h3>V srpnu jste v rámci MOL Cupu nastoupili proti slavnému pražskému Žižkovu před více než tisícovkou fanoušků. Jak na toto utkání vzpomínáš s odstupem času? Byl to jeden z největších zápasů tvé dosavadní kariéry?</h3><br>
+        <p>Asi ano. Vedle zápasu v Ústí nad Orlicí, kdy jsme v MOL Cupu porazili Zlín, to byl jeden z největších zápasů, a to především kvůli návštěvnosti. Před tolika lidmi jsem snad ještě nikdy v životě nehrál a musím říct, že jsem si to užil. Škoda, že jsme soupeře nepotrápili o něco víc a nedotáhli zápas alespoň do penalt.</p>
+        <h3>Když jsi s fotbalem začínal, napadlo tě někdy, že se dostaneš až na takovou úroveň? A je někdo, komu bys chtěl za svou dosavadní fotbalovou cestu zpětně poděkovat?</h3><br>
+        <p>To, že jsem o něco šikovnější než většina mých vrstevníků v kategorii, jsem si začal uvědomovat až někdy ve starší přípravce. Už tehdy byl mým snem hrát za Hradec Králové, kam nás jako malé kluky s bráchou vozil táta. Za A-tým jsem sice do soutěžního utkání nenastoupil, ale i tak jsem spokojený, že jsem tam mohl prožít tolik let a svůj sen si ve své podstatě splnit.</p>
+        <h3>Co bys poradil mladým fotbalistům, kteří by se chtěli prosadit na podobné úrovni jako ty? Na co by se podle tebe měli nejvíce zaměřit a co by rozhodně neměli podcenit?</h3><br>
+        <p>Dělej to, co tě baví. Ať už je to fotbal, nebo jakýkoliv jiný sport, základem všeho je, aby člověka naplňoval a aby se na něj těšil. To je podle mě základ úspěchu. Například já jsem jako malý kluk dokázal být s bráchou a dalšími kluky venku každý den skoro až do tmy a dělat to, co nás bavilo nejvíc – hrát fotbal.</p>
+        <h3>Patříš mezi známá fotbalová dvojčata. S bratrem Robinem jste spolu nastupovali ve Vamberku i v Solnici. Jaké to je hrát ve stejném týmu se svým dvojčetem? Vnímáš to jako výhodu, nebo to s sebou přináší i nějaké nevýhody?</h3><br>
+        <p>Hrát s bráchou v jednom týmu určitě vnímám jako výhodu, i když se občas při tréninku i v zápase dokážeme pořádně pohádat. Jinak je to ale skvělé v tom, že víme, co jeden od druhého na hřišti očekávat (a také co naopak od toho druhého očekávat nemůžeme).</p>
+        <h3>Od roku 2022 až do letošní zimy si působil v Solnici pod Pavlem Potužnikem, kde si byl také součástí mistrovského týmu KP. Jak hodnotíš toto období a jak vzpomínáš na spolupráci se zkušeným koučem, který aktuálně trénuje Vamberk?</h3><br>
+        <p>Toto období bylo jedním z nejlepších v mém osobním i fotbalovém životě. Mám na něj spoustu krásných vzpomínek a jsem vděčný, že jsem mohl být součástí historického úspěchu solnického fotbalu. Na trenéry Potužníka a Židíka vzpomínám rád. V kabině byla vždycky sranda a panovala dobrá nálada, což se následně pozitivně projevovalo i na výkonech na hřišti.</p>
+        <h3>Během své kariéry jsi působil také v FC Hradec Králové. Jak na toto angažmá vzpomínáš a co ti působení v ligovém klubu přineslo?</h3><br>
+        <p>V Hradci jsem působil několik let a kvůli fotbalu jsem tam přešel už na základní školu. Každodenní trénování a dojíždění mi zabraly hodně času, ale nelituji toho, protože jsem tam fotbalově vyrostl, získal mnoho zkušeností a poznal spoustu skvělých lidí. Bez této zkušenosti bych dnes pravděpodobně na takové úrovni nehrál.</p>
+        <h3>Sleduješ stále dění kolem vambereckého Baníku? Jak hodnotíš jeho současné působení a jaké má podle tebe vyhlídky do této i následujících sezon?</h3><br>
+        <p>Ano, vamberecký fotbal sleduji pravidelně, protože mám v týmu několik dobrých kamarádů. Pevně doufám a věřím, že se Baníku v blízké budoucnosti podaří znovu postoupit do některé z krajských soutěží a stabilně se v ní udržet.</p>
+        `
+    },
+
+    
+
                {
         id: "25-Hodnoceni-Podzimni-Sezony-A-Tym",
         kat: "a-tym",
         badgeText: "A-tým",
         badgeClass: "badge-a-tym",
-        datum: "12. 11. 2026",
+        datum: "13. 11. 2026",
         autor: "Ondřej Gruncl | Pavel Potužnik",
         titulek: "Pavel Potužnik: S umístěním po podzimní části spokojen nejsem",
         perex: "Vamberecké áčko má za sebou první polovinu ligového ročníku 8. ligy, do které se v letošním létě po jednoroční přestávce opět vrátil. Nově složený tým kouče Pavla Potužnika odehrál několik vyrovnaných bitev a prohrál jen třikrát, přesto z toho bylo až sedmé místo.",
