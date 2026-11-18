@@ -1,13 +1,497 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Správa webu - TJ Baník Vamberk</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrace | TJ Baník Vamberk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: #001528; color: #fff; margin: 0; padding: 20px; }
+        .wrap { max-width: 820px; margin: 0 auto; background: #002244; padding: 30px; border-radius: 12px; border: 1px solid #1b3b5c; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        h1 { font-family: 'Teko', sans-serif; color: #ffd700; font-size: 2.6rem; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 1px; }
+        .sub { color: #a0b8d0; font-size: 0.9rem; margin-bottom: 25px; }
+        .token-box { background: #001528; padding: 15px; border-radius: 8px; border: 1px solid #2a4d70; margin-bottom: 25px; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #1b3b5c; padding-bottom: 12px; flex-wrap: wrap; }
+        .tab-btn { background: #001528; color: #fff; border: 1px solid #2a4d70; padding: 10px 18px; border-radius: 6px; font-family: 'Teko', sans-serif; font-size: 1.25rem; cursor: pointer; text-transform: uppercase; transition: all 0.2s; }
+        .tab-btn:hover { border-color: #ffd700; }
+        .tab-btn.active { background: #ffd700; color: #002244; border-color: #ffd700; font-weight: 700; }
+        .panel { display: none; }
+        .panel.active { display: block; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } }
+        .fg { margin-bottom: 16px; }
+        label { display: block; font-size: 0.85rem; font-weight: 600; color: #ffd700; margin-bottom: 6px; }
+        input, select, textarea { width: 100%; padding: 10px 12px; border-radius: 6px; border: 1px solid #2a4d70; background: #001528; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #ffd700; }
+        textarea { min-height: 100px; resize: vertical; }
+        .hint { font-size: 0.78rem; color: #8fa8c0; margin-top: 4px; }
+        .btn-save { background: #ffd700; color: #002244; border: none; padding: 14px 24px; width: 100%; border-radius: 8px; font-family: 'Teko', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; cursor: pointer; margin-top: 10px; transition: background 0.2s; }
+        .btn-save:hover { background: #e6c200; }
+        .status { margin-top: 16px; padding: 12px; border-radius: 6px; font-weight: 600; text-align: center; display: none; }
+        .status.ok { display: block; background: rgba(34, 197, 94, 0.2); border: 1px solid #22c55e; color: #86efac; }
+        .status.err { display: block; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #fca5a5; }
+        .status.wait { display: block; background: rgba(255, 215, 0, 0.15); border: 1px solid #ffd700; color: #ffd700; }
+    </style>
 </head>
 <body>
-  <!-- Skript, který natáhne Decap CMS -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<div class="wrap">
+    <h1>TJ Baník Vamberk — Administrace</h1>
+    <div class="sub">Správa webu bez nutnosti sahat do kódu.</div>
+
+    <div class="token-box">
+        <label for="ghToken">Přístupový klíč (GitHub Token)</label>
+        <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+        <div class="hint">Uloží se bezpečně pouze v paměti Tvého prohlížeče.</div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="prepniTab('clanek', this)">+ Nový článek</button>
+        <button class="tab-btn" onclick="prepniTab('novyzapas', this)">+ Přidat nový zápas do rozpisu</button>
+        <button class="tab-btn" onclick="prepniTab('vysledek', this)">✏️ Zapsat výsledek / detail</button>
+    </div>
+
+    <!-- PANEL 1: NOVÝ ČLÁNEK -->
+    <div id="panel-clanek" class="panel active">
+        <div class="grid-2">
+            <div class="fg">
+                <label>Kategorie článku</label>
+                <select id="c-kat">
+                    <option value="a-tym|A-tým|badge-atym">A-tým</option>
+                    <option value="b-tym|B-tým|badge-btym">B-tým</option>
+                    <option value="mladez|Mládež|badge-mladez">Mládež</option>
+                    <option value="klub|Klub|badge-klub">Klub</option>
+                </select>
+            </div>
+            <div class="fg">
+                <label>Datum vydání</label>
+                <input type="text" id="c-datum" placeholder="18. 11. 2026">
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="fg">
+                <label>Autor</label>
+                <input type="text" id="c-autor" value="Ondřej Gruncl">
+            </div>
+            <div class="fg">
+                <label>Obrázek článku</label>
+                <input type="file" id="c-file" accept="image/*">
+            </div>
+        </div>
+
+        <div class="fg">
+            <label>Nadpis článku (Titulek)</label>
+            <input type="text" id="c-titulek" placeholder="Např. Baník ovládl derby">
+        </div>
+
+        <div class="fg">
+            <label>Perex (krátký úvod)</label>
+            <textarea id="c-perex" style="min-height: 70px;" placeholder="Stručné shrnutí..."></textarea>
+        </div>
+
+        <div class="fg">
+            <label>Text článku (každý řádek = nový odstavec, ### = mezititulek)</label>
+            <textarea id="c-obsah" style="min-height: 160px;" placeholder="Napište text..."></textarea>
+        </div>
+
+        <button class="btn-save" onclick="ulozClanek()">Publikovat článek na web</button>
+    </div>
+
+    <!-- PANEL 2: PŘIDÁNÍ NOVÉHO ZÁPASU DO ROZPISU -->
+    <div id="panel-novyzapas" class="panel">
+        <div class="grid-2">
+            <div class="fg">
+                <label>Tým (soubor)</label>
+                <select id="nz-soubor">
+                    <option value="a-tym-zapasy.html">A-tým (a-tym-zapasy.html)</option>
+                    <option value="b-tym-zapasy.html">B-tým (b-tym-zapasy.html)</option>
+                    <option value="mladez-zapasy.html">Mládež (mladez-zapasy.html)</option>
+                </select>
+            </div>
+            <div class="fg">
+                <label>Sezóna</label>
+                <select id="nz-sezona">
+                    <option value="2026-27">2026/2027</option>
+                    <option value="2025-26">2025/2026</option>
+                    <option value="2024-25">2024/2025</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="fg">
+                <label>Kolo / Soutěž</label>
+                <input type="text" id="nz-kolo" placeholder="Např. 12. KOLO">
+            </div>
+            <div class="fg">
+                <label>Datum a čas</label>
+                <input type="text" id="nz-datum" placeholder="Např. 21.11.2026 (14:00)">
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="fg">
+                <label>Soupeř (název)</label>
+                <input type="text" id="nz-souper" placeholder="Např. SK Solnice">
+            </div>
+            <div class="fg">
+                <label>Logo soupeře (soubor v images/)</label>
+                <input type="text" id="nz-logo" placeholder="logo-solnice.png">
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="fg">
+                <label>Hřiště</label>
+                <select id="nz-misto">
+                    <option value="doma">Doma (Vamberk)</option>
+                    <option value="venku">Venku</option>
+                </select>
+            </div>
+            <div class="fg">
+                <label>Místo textově (do záhlaví)</label>
+                <input type="text" id="nz-misto-txt" placeholder="Areál V Lukách, Vamberk">
+            </div>
+        </div>
+
+        <button class="btn-save" onclick="pridejNovyZapasRozpis()">Přidat zápas do rozpisu</button>
+    </div>
+
+    <!-- PANEL 3: ZÁPIS VÝSLEDKU K EXISTUJÍCÍMU ZÁPASU -->
+    <div id="panel-vysledek" class="panel">
+        <div class="grid-2">
+            <div class="fg">
+                <label>Tým (soubor)</label>
+                <select id="v-soubor">
+                    <option value="a-tym-zapasy.html">A-tým (a-tym-zapasy.html)</option>
+                    <option value="b-tym-zapasy.html">B-tým (b-tym-zapasy.html)</option>
+                    <option value="mladez-zapasy.html">Mládež (mladez-zapasy.html)</option>
+                </select>
+            </div>
+            <div class="fg">
+                <label>Které kolo chceš vyplnit?</label>
+                <input type="text" id="v-kolo-hledane" placeholder="Např. 12. KOLO nebo PŘÍPRAVA">
+                <div class="hint">Zapiš přesně text kola, který je už v rozpisu</div>
+            </div>
+        </div>
+
+        <hr style="border:0; border-top:1px solid #1b3b5c; margin:15px 0;">
+
+        <div class="grid-2">
+            <div class="fg">
+                <label>Konečné skóre (Domácí : Hosté)</label>
+                <input type="text" id="v-skore" placeholder="Např. 3 : 1">
+            </div>
+            <div class="fg">
+                <label>Výsledek pro barvu</label>
+                <select id="v-stav">
+                    <option value="win">Výhra Baníku (zelená)</option>
+                    <option value="draw">Remíza (šedá)</option>
+                    <option value="defeat">Prohra Baníku (červená)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="fg">
+                <label>Poločas</label>
+                <input type="text" id="v-polocas" placeholder="(Poločas: 2:0)">
+            </div>
+            <div class="fg">
+                <label>Diváci</label>
+                <input type="text" id="v-divaci" placeholder="250">
+            </div>
+        </div>
+
+        <div class="fg">
+            <label>Rozhodčí</label>
+            <input type="text" id="v-rozhodci" placeholder="Novák - Dvořák, Svoboda">
+        </div>
+
+        <div class="fg">
+            <label>Góly a události (minutovník)</label>
+            <textarea id="v-udalosti" placeholder="15 | gol-d | Gól Vamberk! Petr Šimeček - 1:0&#10;44 | karta | Žlutá karta pro hostujícího hráče"></textarea>
+            <div class="hint">Formát řádku: <b>minuta | typ (gol-d, gol-h, karta, stridani) | text</b></div>
+        </div>
+
+        <div class="grid-2">
+            <div class="fg">
+                <label>Sestava domácí (číslo jméno)</label>
+                <textarea id="v-sestava-d" placeholder="55 Jaroslav Klofanda&#10;71 Petr Šimeček (C)"></textarea>
+            </div>
+            <div class="fg">
+                <label>Sestava hosté (číslo jméno)</label>
+                <textarea id="v-sestava-h" placeholder="1 Jan Novák&#10;9 Tomáš Král (C)"></textarea>
+            </div>
+        </div>
+
+        <div class="fg">
+            <label>Ohlas trenéra po zápase</label>
+            <textarea id="v-ohlas" style="min-height: 75px;" placeholder="Hodnocení trenéra..."></textarea>
+        </div>
+
+        <button class="btn-save" onclick="aktualizujVysledekZapasu()">Uložit výsledek k zápasu</button>
+    </div>
+
+    <div id="status" class="status"></div>
+</div>
+
+<script>
+    // === ZDE DOPLŇ SVÉ ÚDAJE NA GITHUBU ===
+    const REPO_OWNER = "VAS_GITHUB_UZIVATEL";
+    const REPO_NAME  = "NAZEV_REPOZITARE";
+    const BRANCH     = "main";
+
+    const tokenInput = document.getElementById('ghToken');
+    tokenInput.value = localStorage.getItem('tjb_gh_token') || '';
+    tokenInput.addEventListener('input', () => localStorage.setItem('tjb_gh_token', tokenInput.value.trim()));
+
+    const d = new Date();
+    document.getElementById('c-datum').value = `${String(d.getDate()).padStart(2,'0')}. ${String(d.getMonth()+1).padStart(2,'0')}. ${d.getFullYear()}`;
+
+    function prepniTab(nazev, btn) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('panel-' + nazev).classList.add('active');
+        btn.classList.add('active');
+        setStatus('', '');
+    }
+
+    function setStatus(typ, text) {
+        const el = document.getElementById('status');
+        el.className = 'status' + (typ ? ' ' + typ : '');
+        el.textContent = text;
+    }
+
+    function toBase64(str) {
+        const bytes = new TextEncoder().encode(str);
+        let bin = '';
+        bytes.forEach(b => bin += String.fromCharCode(b));
+        return btoa(bin);
+    }
+    function fromBase64(b64) {
+        const bin = atob(b64.replace(/\n/g, ''));
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return new TextDecoder().decode(bytes);
+    }
+
+    async function ghGetFile(path) {
+        const token = tokenInput.value.trim();
+        if (!token) throw new Error("Zadej nahoře svůj GitHub Token!");
+        const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}?ref=${BRANCH}`, {
+            headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+        });
+        if (!res.ok) throw new Error(`Nepodařilo se načíst ${path} (${res.status}). Zkontroluj název repozitáře a token.`);
+        const data = await res.json();
+        return { sha: data.sha, content: fromBase64(data.content) };
+    }
+
+    async function ghPutFile(path, contentBase64, message, sha = null) {
+        const token = tokenInput.value.trim();
+        const body = { message, content: contentBase64, branch: BRANCH };
+        if (sha) body.sha = sha;
+        const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+        if (!res.ok) throw new Error(`Chyba při ukládání ${path} (${res.status}).`);
+    }
+
+    // 1. ČLÁNEK
+    async function ulozClanek() {
+        try {
+            setStatus('wait', 'Publikuji článek...');
+            const titulek = document.getElementById('c-titulek').value.trim();
+            const perex = document.getElementById('c-perex').value.trim();
+            const obsahRaw = document.getElementById('c-obsah').value.trim();
+            if (!titulek || !obsahRaw) throw new Error("Vyplň nadpis a text.");
+
+            const [kat, badgeText, badgeClass] = document.getElementById('c-kat').value.split('|');
+            const datum = document.getElementById('c-datum').value.trim();
+            const autor = document.getElementById('c-autor').value.trim();
+
+            let obrazekCesta = "images/clanek1.jpg";
+            const fileInput = document.getElementById('c-file');
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const ext = file.name.split('.').pop();
+                obrazekCesta = `images/clanek-${Date.now()}.${ext}`;
+                const arrBuf = await file.arrayBuffer();
+                let bin = '';
+                new Uint8Array(arrBuf).forEach(b => bin += String.fromCharCode(b));
+                await ghPutFile(obrazekCesta, btoa(bin), `Obrázek pro článek`);
+            }
+
+            const obsahHtml = obsahRaw.split('\n').filter(r => r.trim()).map(r => {
+                r = r.trim();
+                if (r.startsWith('###')) return `        <h3>${r.replace(/^###\s*/, '')}</h3><br>`;
+                return `        <p>${r}</p>`;
+            }).join('\n');
+
+            const slug = titulek.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 35);
+            const novyObjekt = `    {
+        id: "${Date.now().toString().slice(-4)}-${slug}",
+        kat: "${kat}",
+        badgeText: "${badgeText}",
+        badgeClass: "${badgeClass}",
+        datum: "${datum}",
+        autor: "${autor.replace(/"/g, '\\"')}",
+        titulek: "${titulek.replace(/"/g, '\\"')}",
+        perex: "${perex.replace(/"/g, '\\"')}",
+        obrazek: "${obrazekCesta}",
+        obsah: \`
+${obsahHtml}
+        \`
+    },\n\n`;
+
+            const fileData = await ghGetFile('clanky-data.js');
+            const marker = 'const clankyData = [';
+            const novyObsah = fileData.content.replace(marker, marker + '\n\n' + novyObjekt);
+            await ghPutFile('clanky-data.js', toBase64(novyObsah), `Nový článek: ${titulek}`, fileData.sha);
+            setStatus('ok', 'Článek byl úspěšně publikován!');
+        } catch(e) { setStatus('err', e.message); }
+    }
+
+    // 2. NOVÝ ZÁPAS DO ROZPISU
+    async function pridejNovyZapasRozpis() {
+        try {
+            setStatus('wait', 'Přidávám zápas do rozpisu...');
+            const soubor = document.getElementById('nz-soubor').value;
+            const sezona = document.getElementById('nz-sezona').value;
+            const kolo = document.getElementById('nz-kolo').value.trim();
+            const datum = document.getElementById('nz-datum').value.trim();
+            const souper = document.getElementById('nz-souper').value.trim();
+            const logo = document.getElementById('nz-logo').value.trim() || 'logo-banik.png';
+            const misto = document.getElementById('nz-misto').value;
+            const mistoTxt = document.getElementById('nz-misto-txt').value.trim() || (misto === 'doma' ? 'Areál V Lukách, Vamberk' : 'Venku');
+
+            if (!kolo || !souper) throw new Error("Vyplň kolo a soupeře.");
+
+            const domaci = misto === 'doma' ? 'VAMBERK' : souper.toUpperCase();
+            const hoste  = misto === 'doma' ? souper.toUpperCase() : 'VAMBERK';
+            const logoD  = misto === 'doma' ? 'images/logo-banik.png' : `images/${logo}`;
+            const logoH  = misto === 'doma' ? `images/${logo}` : 'images/logo-banik.png';
+
+            const radekHtml = `
+            <div class="schedule-row" 
+                 onclick="otevritZapas(this)"
+                 data-meta="${kolo} | ${datum} | ${mistoTxt}"
+                 data-domaci="${domaci}"
+                 data-hoste="${hoste}"
+                 data-logo-domaci="${logoD}"
+                 data-logo-hoste="${logoH}"
+                 data-skore="- : -"
+                 data-polocas=""
+                 data-divaci="-"
+                 data-rozhodci="-"
+                 data-udalosti='[]'
+                 data-sestava-domaci='[]'
+                 data-sestava-hoste='[]'
+                 data-ohlas='Zatím bez hodnocení.'>
+                <span class="s-round">${kolo}</span>
+                <span class="s-date">${datum}</span>
+                <span class="s-teams">
+                    <img src="images/${logo}" alt="${souper}" class="s-team-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="s-team-logo-placeholder" style="display:none;"><i class="fas fa-shield-alt"></i></span>
+                    ${souper}
+                </span>
+                <span class="s-place"><i class="fas ${misto === 'doma' ? 'fa-home' : 'fa-plane'}"></i> ${misto === 'doma' ? 'Doma' : 'Venku'}</span>
+                <span class="s-result">- : -</span>
+                <span style="text-align: right;"><span class="btn-match-detail" style="margin:0; padding: 4px 10px; font-size: 0.75rem;">Detail</span></span>
+            </div>`;
+
+            const fileData = await ghGetFile(soubor);
+            const sezonaMarker = `id="sezona-${sezona}"`;
+            const idxSez = fileData.content.indexOf(sezonaMarker);
+            const searchFrom = idxSez !== -1 ? idxSez : 0;
+            const listMarker = '<div class="schedule-list">';
+            const idxList = fileData.content.indexOf(listMarker, searchFrom);
+            if (idxList === -1) throw new Error("Nepodařilo se najít seznam zápasů pro danou sezónu.");
+
+            const insertPos = idxList + listMarker.length;
+            const novyObsah = fileData.content.slice(0, insertPos) + '\n' + radekHtml + fileData.content.slice(insertPos);
+
+            await ghPutFile(soubor, toBase64(novyObsah), `Přidán nový zápas: ${kolo} - ${souper}`, fileData.sha);
+            setStatus('ok', 'Zápas byl úspěšně přidán do rozpisu!');
+        } catch(e) { setStatus('err', e.message); }
+    }
+
+    // 3. ZÁPIS VÝSLEDKU K EXISTUJÍCÍMU ZÁPASU
+    function parseSestava(txt) {
+        return txt.split('\n').filter(r => r.trim()).map(r => {
+            const m = r.trim().match(/^(\d+)\s+(.+)$/);
+            if (!m) return null;
+            let jmeno = m[2].trim();
+            const kap = jmeno.includes('(C)');
+            jmeno = jmeno.replace('(C)', '').trim();
+            return kap ? { cislo: m[1], jmeno, kapitan: true } : { cislo: m[1], jmeno };
+        }).filter(Boolean);
+    }
+
+    async function aktualizujVysledekZapasu() {
+        try {
+            setStatus('wait', 'Hledám zápas a doplňuji výsledek...');
+            const soubor = document.getElementById('v-soubor').value;
+            const koloHledane = document.getElementById('v-kolo-hledane').value.trim().toUpperCase();
+            
+            const fileData = await ghGetFile(soubor);
+            let obsah = fileData.content;
+
+            const koloRegex = new RegExp(`<div class="schedule-row"[^>]*>([\\s\\S]*?${koloHledane}[\\s\\S]*?)<\\/div>`, 'i');
+            const match = obsah.match(koloRegex);
+
+            if (!match) {
+                throw new Error(`Zápas s kolem "${koloHledane}" nebyl v souboru ${soubor} nalezen! Zkontroluj název (např. 12. KOLO).`);
+            }
+
+            const staryBlok = match[0];
+            const skore = document.getElementById('v-skore').value.trim();
+            const stav = document.getElementById('v-stav').value;
+            const polocas = document.getElementById('v-polocas').value.trim();
+            const divaci = document.getElementById('v-divaci').value.trim() || '-';
+            const rozhodci = document.getElementById('v-rozhodci').value.trim() || '-';
+            const ohlas = document.getElementById('v-ohlas').value.trim();
+
+            const udalosti = document.getElementById('v-udalosti').value.split('\n').filter(r => r.trim()).map(r => {
+                const [min, typ, text] = r.split('|').map(s => s.trim());
+                return { min: `${min}'`, typ: typ || 'gol-d', text: text || '' };
+            });
+
+            const sesD = parseSestava(document.getElementById('v-sestava-d').value);
+            const sesH = parseSestava(document.getElementById('v-sestava-h').value);
+            const ohlasHtml = ohlas ? `<strong>Trenér TJ Baník Vamberk:</strong> <em>"${ohlas.replace(/'/g, '&apos;')}"</em>` : 'Bez ohlasu.';
+
+            let novyBlok = staryBlok;
+
+            function updateAttr(html, attrName, newVal) {
+                const regex = new RegExp(`${attrName}="[^"]*"`, 'i');
+                if (regex.test(html)) {
+                    return html.replace(regex, `${attrName}='${newVal}'`);
+                }
+                return html;
+            }
+
+            novyBlok = updateAttr(novyBlok, 'data-skore', skore);
+            novyBlok = updateAttr(novyBlok, 'data-polocas', polocas);
+            novyBlok = updateAttr(novyBlok, 'data-divaci', divaci);
+            novyBlok = updateAttr(novyBlok, 'data-rozhodci', rozhodci);
+            novyBlok = updateAttr(novyBlok, 'data-udalosti', JSON.stringify(udalosti).replace(/'/g, "&apos;"));
+            novyBlok = updateAttr(novyBlok, 'data-sestava-domaci', JSON.stringify(sesD).replace(/'/g, "&apos;"));
+            novyBlok = updateAttr(novyBlok, 'data-sestava-hoste', JSON.stringify(sesH).replace(/'/g, "&apos;"));
+            novyBlok = updateAttr(novyBlok, 'data-ohlas', ohlasHtml);
+
+            novyBlok = novyBlok.replace(/<span class="s-result[^"]*">[^<]*<\/span>/, `<span class="s-result ${stav}">${skore}</span>`);
+
+            obsah = obsah.replace(staryBlok, novyBlok);
+
+            await ghPutFile(soubor, toBase64(obsah), `Zápis výsledku pro: ${koloHledane} (${skore})`, fileData.sha);
+            setStatus('ok', `Výsledek zápasu (${koloHledane}) byl úspěšně zapsán!`);
+        } catch(e) { setStatus('err', e.message); }
+    }
+</script>
 </body>
 </html>
